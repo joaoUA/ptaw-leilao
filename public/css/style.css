@@ -39,3 +39,18 @@
 .fnt-s {
 	font-size: var(--font-size-small);
 }
+.bkg-primary {
+	background-color: var(--color-primary);
+}
+.bkg-secondary {
+	background-color: var(--color-secondary);
+}
+.bkg-terciary {
+	background-color: var(--color-terciary);
+}
+.bkg-acc-primary {
+	background-color: var(--color-accent-primary);
+}
+.bkg-acc-secondary {
+	background-color: var(--color-accent-secondary);
+}
