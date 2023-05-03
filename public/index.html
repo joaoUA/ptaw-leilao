@@ -25,7 +25,7 @@
     />
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
     </style>
     <title>PTAW | HOME</title>
     <link rel="stylesheet" href="style.css" />
@@ -34,11 +34,16 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand "style="background-color:#D21312; font-family: poppins; font-size: 20px;">
+      <nav
+        class="navbar navbar-expand"
+        style="background-color: #d21312; font-family: poppins; font-size: 20px"
+      >
         <div class="container-fluid">
           <form action="" class="d-flex" role="search">
             <input type="search" name="" id="" class="form-control me-2" />
-            <button type="submit" class="btn btn-light" style="font-size: 18px;;">Search</button>
+            <button type="submit" class="btn btn-light" style="font-size: 18px">
+              Search
+            </button>
           </form>
         </div>
 
@@ -59,7 +64,107 @@
         <div
           class="container-fluid d-flex justify-content-end align-items-center"
         >
-          <button class="btn btn-light me-2" style="font-size: 18px;">Conta</button>
+          <button
+            class="btn btn-light me-2"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            style="font-size: 18px"
+          >
+            Conta
+          </button>
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p class="mt-4">E-mail</p>
+                  <input
+                    class="mb-5 "
+                    type="email"
+                    placeholder="email@email.com"
+                  />
+                  <p>Password</p>
+                  <input type="text" placeholder="*****" />
+                  <p class="mb-5 mt-2">Esqueceu-se da password ?</p>
+
+                  <button
+                    type="button"
+                    class="btn btn-danger mb-3 btn-lg col-7"
+                  >
+                    Login
+                  </button>
+
+                  <button
+                    class="p-0 border-0 bg-transparent primaryColor registar-sh mb-4"
+                  >
+                    Não tem conta?Criar conta!
+                  </button>
+                  <div>
+                    </div>
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registar</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                  
+
+                    <div class="d-flex flex-column gap-2 mt-4 mb-4">
+                        <div class="d-flex justify-content-between gap-2">
+                            <input type="text" class="form-control" placeholder="Nome Próprio">
+                            <input type="text" class="form-control" placeholder="Apelido">
+                        </div>
+                        <input type="date" class="form-control w-50" placeholder="Data Nascimento" value="">
+                        <div class="d-flex justify-content-between gap-2">
+                            <input type="text" class="form-control w-75" placeholder="Morada">
+                            <input type="text" class="form-control w-25" placeholder="Cód Postal">
+                        </div>
+                        <div class="d-flex justify-content-between gap-2">
+                            <input type="text" class="form-control" placeholder="Cidade">
+                            <input type="text" class="form-control" placeholder="País">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-2 mb-4">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <div class="d-flex justify-content-between gap-2">
+                            <input type="password" class="form-control" placeholder="Palavra-Passe">
+                            <input type="password" class="form-control" placeholder="Confirmar Palavra-Passe">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between gap-2 mb-4">
+                        <input type="text" class="form-control" placeholder="CC">
+                        <input type="text" class="form-control" placeholder="IBAN">
+                    </div>
+                        <button class="form-control btn btn-danger">Confirmar</button>
+                        <button class="form-control btn btn-light">Cancelar</button>
+                        
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="fs-2">
             <i class="bi bi-person-circle text-light"></i>
           </div>
@@ -68,7 +173,7 @@
     </header>
     <main>
       <div class="container text-center">
-        <div class="row" style="font-family: poppins; font-size: 18px;">
+        <div class="row" style="font-family: poppins; font-size: 18px">
           <div class="card col m-3">
             <img
               src=".\img\img-placeholder-224.png"
@@ -76,11 +181,11 @@
               alt="..."
             />
             <div class="d-flex justify-content-around gap-2 mb-2">
-              <p class="card-title" style="font-size: 20px;">Título</p>
+              <p class="card-title" style="font-size: 20px">Título</p>
               <p>Timer</p>
             </div>
             <div class="d-flex justify-content-around gap-2 mb-3">
-              <p style="color:#D21312;">100.00€</p>
+              <p style="color: #d21312">100.00€</p>
               <a href="#" class="btn btn-dark">Licitar</a>
             </div>
           </div>
@@ -92,11 +197,11 @@
               alt="..."
             />
             <div class="d-flex justify-content-around gap-2 mb-2">
-              <p class="card-title" style="font-size: 20px;">Título</p>
+              <p class="card-title" style="font-size: 20px">Título</p>
               <p>Timer</p>
             </div>
             <div class="d-flex justify-content-around gap-2 mb-3">
-              <p style="color:#D21312;">100.00€</p>
+              <p style="color: #d21312">100.00€</p>
               <a href="#" class="btn btn-dark">Licitar</a>
             </div>
           </div>
@@ -108,68 +213,71 @@
               alt="..."
             />
             <div class="d-flex justify-content-around gap-2 mb-2">
-              <p class="card-title" style="font-size: 20px;">Título</p>
+              <p class="card-title" style="font-size: 20px">Título</p>
               <p>Timer</p>
             </div>
             <div class="d-flex justify-content-around gap-2 mb-3">
-              <p style="color:#D21312;">100.00€</p>
+              <p style="color: #d21312">100.00€</p>
               <a href="#" class="btn btn-dark">Licitar</a>
             </div>
           </div>
         </div>
 
-        <div class="row" style="font-family: poppins; font-size: 18px;">
-            <div class="card col m-3" >
-                <img
-                  src=".\img\img-placeholder-224.png"
-                  class="card-img-top my-2"
-                  alt="..."
-                />
-                <div class="d-flex justify-content-around gap-2 mb-2">
-                  <p class="card-title" style="font-size: 20px;">Título</p>
-                  <p>Timer</p>
-                </div>
-                <div class="d-flex justify-content-around gap-2 mb-3">
-                  <p style="color:#D21312;">100.00€</p>
-                  <a href="#" class="btn btn-dark">Licitar</a>
-                </div>
-              </div>
+        <div class="row" style="font-family: poppins; font-size: 18px">
+          <div class="card col m-3">
+            <img
+              src=".\img\img-placeholder-224.png"
+              class="card-img-top my-2"
+              alt="..."
+            />
+            <div class="d-flex justify-content-around gap-2 mb-2">
+              <p class="card-title" style="font-size: 20px">Título</p>
+              <p>Timer</p>
+            </div>
+            <div class="d-flex justify-content-around gap-2 mb-3">
+              <p style="color: #d21312">100.00€</p>
+              <a href="#" class="btn btn-dark">Licitar</a>
+            </div>
+          </div>
 
-              <div class="card col m-3">
-                <img
-                  src=".\img\img-placeholder-224.png"
-                  class="card-img-top my-2"
-                  alt="..."
-                />
-                <div class="d-flex justify-content-around gap-2 mb-2">
-                  <p class="card-title" style="font-size: 20px;">Título</p>
-                  <p>Timer</p>
-                </div>
-                <div class="d-flex justify-content-around gap-2 mb-3">
-                  <p style="color:#D21312;">100.00€</p>
-                  <a href="#" class="btn btn-dark">Licitar</a>
-                </div>
-              </div>
+          <div class="card col m-3">
+            <img
+              src=".\img\img-placeholder-224.png"
+              class="card-img-top my-2"
+              alt="..."
+            />
+            <div class="d-flex justify-content-around gap-2 mb-2">
+              <p class="card-title" style="font-size: 20px">Título</p>
+              <p>Timer</p>
+            </div>
+            <div class="d-flex justify-content-around gap-2 mb-3">
+              <p style="color: #d21312">100.00€</p>
+              <a href="#" class="btn btn-dark">Licitar</a>
+            </div>
+          </div>
 
-              <div class="card col m-3">
-                <img
-                  src=".\img\img-placeholder-224.png"
-                  class="card-img-top my-2"
-                  alt="..."
-                />
-                <div class="d-flex justify-content-around gap-2 mb-2">
-                  <p class="card-title" style="font-size: 20px;">Título</p>
-                  <p>Timer</p>
-                </div>
-                <div class="d-flex justify-content-around gap-2 mb-3">
-                  <p style="color:#D21312;">100.00€</p>
-                  <a href="#" class="btn btn-dark">Licitar</a>
-                </div>
-              </div>
+          <div class="card col m-3">
+            <img
+              src=".\img\img-placeholder-224.png"
+              class="card-img-top my-2"
+              alt="..."
+            />
+            <div class="d-flex justify-content-around gap-2 mb-2">
+              <p class="card-title" style="font-size: 20px">Título</p>
+              <p>Timer</p>
+            </div>
+            <div class="d-flex justify-content-around gap-2 mb-3">
+              <p style="color: #d21312">100.00€</p>
+              <a href="#" class="btn btn-dark">Licitar</a>
+            </div>
+          </div>
         </div>
       </div>
     </main>
-    <footer class="py-3 my-4 footer-bs " style="background-color:gainsboro ;font-family: poppins;font-size: 16px;">
+    <footer
+      class="py-3 my-4 footer-bs"
+      style="background-color: gainsboro; font-family: poppins; font-size: 16px"
+    >
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
           <a href="#" class="nav-link px-2 text-muted">Entregas e Devoluções</a>
