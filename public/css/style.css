@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Variables */
+:root {
+	--color-primary: #e0e1dd;
+	--color-secondary: #d90429;
+	--color-terciary: #0d1b2a;
+	--color-accent-primary: #6a994e;
+	--color-accent-secondary: #f7b801;
+	--font-primary: "Poppins", sans-serif;
+	--font-secondary: "Lora", serif;
+	--font-size-extra-large: 26px;
+	--font-size-large: 20px;
+	--font-size-medium: 18px;
+	--font-size-small: 14px;
+}
+
+/* Reset */
+* {
+	box-sizing: border-box;
+}
+
+/* Uso Individual */
+.fnt-main {
+	font-family: var(--font-primary);
+}
+.fnt-secondary {
+	font-family: var(--font-secondary);
+}
+.fnt-xl {
+	font-size: var(--font-size-extra-large);
+}
+.fnt-l {
+	font-size: var(--font-size-large);
+}
+.fnt-m {
+	font-size: var(--font-size-medium);
+}
+.fnt-s {
+	font-size: var(--font-size-small);
+}
