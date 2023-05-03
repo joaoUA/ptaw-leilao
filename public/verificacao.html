@@ -68,7 +68,7 @@
           <div class="row bg-dark text-white">
             <div class="col p-2">Artigos a Verificar</div>
           </div>
-          <div class="row bg-light">
+          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
             <div class="col-auto p-2">
               <img
                   src=".\img\img-placeholder-48.png"
@@ -77,7 +77,7 @@
             </div>
             <div class="col p-0 my-auto">Artigo</div>
           </div>
-          <div class="row">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
             <div class="col-auto p-2">
               <img
                   src=".\img\img-placeholder-48.png"
@@ -86,7 +86,7 @@
             </div>
             <div class="col p-0 my-auto">Artigo</div>
           </div>
-          <div class="row bg-light">
+          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
             <div class="col-auto p-2">
               <img
                   src=".\img\img-placeholder-48.png"
@@ -95,7 +95,7 @@
             </div>
             <div class="col p-0 my-auto">Artigo</div>
           </div>
-          <div class="row">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
             <div class="col-auto p-2">
               <img
                   src=".\img\img-placeholder-48.png"
@@ -104,7 +104,7 @@
             </div>
             <div class="col p-0 my-auto">Artigo</div>
           </div>
-          <div class="row bg-light">
+          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
             <div class="col-auto p-2">
               <img
                   src=".\img\img-placeholder-48.png"
@@ -119,7 +119,7 @@
           <div class="row bg-dark text-white">
             <div class="col p-2">Vendedores a Verificar</div>
           </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
             <div class="col-auto p-2">
               <img
                 src=".\img\img-placeholder-48.png"
@@ -129,7 +129,7 @@
             <div class="col p-0 my-auto">Nome Vendedor</div>
             <div class="col-md-auto my-auto">2023-06-22</div>
           </div>
-          <div class="row" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
             <div class="col-auto p-2">
               <img
                 src=".\img\img-placeholder-48.png"
@@ -139,7 +139,7 @@
             <div class="col p-0 my-auto">Nome Vendedor</div>
             <div class="col-md-auto my-auto">2023-06-22</div>
           </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
             <div class="col-auto p-2">
               <img
                 src=".\img\img-placeholder-48.png"
@@ -149,7 +149,7 @@
             <div class="col p-0 my-auto">Nome Vendedor</div>
             <div class="col-md-auto my-auto">2023-06-22</div>
           </div>
-          <div class="row" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
             <div class="col-auto p-2">
               <img
                 src=".\img\img-placeholder-48.png"
@@ -159,7 +159,7 @@
             <div class="col p-0 my-auto">Nome Vendedor</div>
             <div class="col-md-auto my-auto">2023-06-22</div>
           </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
             <div class="col-auto p-2">
               <img
                 src=".\img\img-placeholder-48.png"
@@ -172,7 +172,21 @@
         </div>
       </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="ModalArtigo" tabindex="-1" aria-labelledby="ModalArtigoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="d-flex justify-content-end m-3">
+              <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#ModalLeilao" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center">
+              <span>Detalhes do Artigo</span>
+              <div class="my-5"><img src=".\img\img-placeholder-224.png" alt="placeholder"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="modal fade" id="ModalVendedor" tabindex="-1" aria-labelledby="ModalVendedorLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="d-flex justify-content-end m-3">
@@ -187,8 +201,56 @@
             <span>IBAN</span>
           </div>
           <div class="d-flex justify-content-around m-3">
-            <button type="button" class="btn btn-secondary">Recusar</button>
-            <button type="button" class="btn btn-primary">Aprovar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Recusar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aprovar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="ModalLeilao" tabindex="-1" aria-labelledby="ModalLeilaoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="d-flex justify-content-end mt-3 me-3">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-column pt-0 mx-4">
+            <div class="row">
+              <div class="col p-2">Titulo do Leilão</div>
+              <div class="col-md-auto p-2 my-auto">Nome do Vendedor</div>
+            </div>
+
+            <div class="row bg-light">
+              <div class="col-auto p-2" data-bs-toggle="modal" data-bs-target="#ModalArtigo">
+                <img
+                  src=".\img\img-placeholder-48.png"
+                  alt="placeholder"
+                />
+              </div>
+              <div class="col p-0 my-auto">Artigo</div>
+              <div class="col-md-auto my-auto">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+              </div>
+            </div>
+            <div class="row bg-light">
+              <div class="col-auto p-2" data-bs-toggle="modal" data-bs-target="#ModalArtigo">
+                <img
+                  src=".\img\img-placeholder-48.png"
+                  alt="placeholder"
+                />
+              </div>
+              <div class="col p-0 my-auto">Artigo</div>
+              <div class="col-md-auto my-auto">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+              </div>
+            </div>
+          <div class="d-flex justify-content-around m-3 mt-4">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Recusar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aprovar</button>
           </div>
         </div>
       </div>
