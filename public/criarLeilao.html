@@ -21,30 +21,30 @@
 
 <body>
     <header>
-        <nav class="bg-dark navbar navbar-expand navbar-dark">
+        <nav class="bkg-secondary navbar navbar-expand navbar-dark">
             <div class="container-fluid">
                 <form action="" class="d-flex" role="search">
                     <input type="search" name="" id="" class="form-control me-2">
-                    <button type="submit" class="btn btn-light">Search</button>
+                    <button type="submit" class="btn btn-light fnt-main fnt-s border-0 bg-white">Search</button>
                 </form>
             </div>
 
             <ul class="nav nav-underline justify-content-center container-fluid">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Início</a>
+                    <a href="#" class="nav-link text-light fnt-main fnt-l">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Verificações</a>
+                    <a href="#" class="nav-link text-light fnt-main fnt-l">Verificações</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Sobre</a>
+                    <a href="#" class="nav-link text-light fnt-main fnt-l">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Contacto</a>
+                    <a href="#" class="nav-link text-light fnt-main fnt-l">Contacto</a>
                 </li>
             </ul>
             <div class="container-fluid d-flex justify-content-end align-items-center">
-                <button class="btn btn-primary me-2">Conta</button>
+                <button class="btn btn-primary btn-light me-2 fnt-main fnt-s border-0">Conta</button>
                 <div class="fs-2">
                     <i class="bi bi-person-circle text-light"></i>
                 </div>
@@ -55,10 +55,10 @@
         <section class="container-fluid w-75 my-5">
             <div id="table-section-heading" class="d-flex justify-content-between mb-2 align-items-center">
                 <div class="input-group w-25">
-                    <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control"
+                    <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control fnt-main fnt-s"
                         placeholder="Nome do Leilão">
                 </div>
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#adArtigoModal">Adicionar
+                <button class="btn btn-dark fnt-main fnt-s" data-bs-toggle="modal" data-bs-target="#adArtigoModal">Adicionar
                     Artigo</button>
             </div>
             <table class="table table-striped table-hover table-bordered">
@@ -86,12 +86,12 @@
                 </thead>
                 <tbody class="table-group-divider">
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row" class="fnt-main fnt-s">1</th>
                         <td>
                             <i class="bi bi-card-image"></i>
                         </td>
-                        <td>Nome do Artigo</td>
-                        <td>100.00€</td>
+                        <td class="fnt-main fnt-s">Nome do Artigo</td>
+                        <td class="fnt-main fnt-s">100.00€</td>
                         <td>
                             <i class="bi bi-brush-fill"></i>
                         </td>
@@ -100,12 +100,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
+                        <th scope="row" class="fnt-main fnt-s">2</th>
                         <td>
                             <i class="bi bi-card-image"></i>
                         </td>
-                        <td>Nome do Artigo</td>
-                        <td>100.00€</td>
+                        <td class="fnt-main fnt-s">Nome do Artigo</td>
+                        <td class="fnt-main fnt-s">100.00€</td>
                         <td>
                             <i class="bi bi-brush-fill"></i>
                         </td>
@@ -117,19 +117,19 @@
             </table>
 
             <div class="d-flex justify-content-end">
-                <p class="my-auto px-2">Leiloar como artigo único</p>
+                <p class="my-auto px-2 fnt-main fnt-s">Leiloar como artigo único</p>
 
                 <div class="form-check form-switch my-auto">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                 </div>
 
                 <div class="input-group w-25">
-                    <input type="text" name="" id="" class="form-control" placeholder="€" disabled>
+                    <input type="text" name="" id="" class="form-control fnt-main fnt-s" placeholder="€" disabled>
                 </div>
             </div>
 
             <div class="d-flex justify-content-end my-3">
-                <button class="btn btn-dark">
+                <button class="btn btn-dark fnt-main fnt-s">
                     Submeter Leilão
                 </button>
             </div>
@@ -139,21 +139,21 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Adicionar Artigo</h5>
+                        <h5 class="modal-title fnt-main fnt-m">Adicionar Artigo</h5>
                     </div>
 
                     <div class="modal-body">
                         <form action="" class="form-control">
                             <div class="p-1">
-                                <input type="text" class="col form-control" name="artigo-nome" id="artigo-nome"
+                                <input type="text" class="col form-control fnt-main fnt-s" name="artigo-nome" id="artigo-nome"
                                     placeholder="Nome do artigo">
                             </div>
 
                             <div class="p-1 d-flex justify-content-between gap-2">
-                                <input type="text" class="form-control" name="artigo-preco" id="artigo-preco"
+                                <input type="text" class="form-control fnt-main fnt-s" name="artigo-preco" id="artigo-preco"
                                     placeholder="Preço">
-                                <select class="form-select form-control" id="artigo-categoria">
-                                    <option value="" selected>Categoria</option>
+                                <select class="form-select form-control fnt-main fnt-s" id="artigo-categoria">
+                                    <option value="" selected class="fnt-main fnt-s">Categoria</option>
                                 </select>
                             </div>
 
@@ -172,30 +172,39 @@
                             </div>
 
                             <div class="mb-3 p-1" id="file-group">
-                                <label for="formFile" class="mx-1 form-label">Documento de Autenticação
+                                <label for="formFile" class="mx-1 form-label fnt-main fnt-s">Documento de Autenticação
                                     (Opcional)</label>
-                                <input class="form-control" type="file" id="formFile">
+                                <input class="form-control fnt-main fnt-s" type="file" id="formFile">
                             </div>
 
                             <div class="p-1 d-grid gap-2">
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal"
+                                <button class="btn btn-light fnt-main fnt-s bkg-primary" type="button" data-bs-dismiss="modal"
                                     aria-label="Close">Cancelar</button>
-                                <button class="btn btn-dark" type="button">Confirmar</button>
-                                <button class="btn btn-dark" type="button" disabled>Remover</button>
+                                <button class="btn btn-dark fnt-main fnt-s" type="button">Confirmar</button>
+                                <button class="btn btn-danger fnt-main fnt-s" type="button">Remover</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+        </div>
     </main>
-    <footer class="py-3 mt-4 footer-bs bg-white">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Entregas e Devoluções</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Termos e Condições</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Política de Cookies</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQ</a></li>
+    <footer class="py-3 footer-bs bg-light">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
+          </li>
         </ul>
-    </footer>
+      </footer>
 </body>
 
 </html>
