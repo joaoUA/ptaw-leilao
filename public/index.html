@@ -13,11 +13,10 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"
     defer></script>
   <!--Bootstrap Icons-->
+  <script src="https://kit.fontawesome.com/25b734335a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-  </style>
+
   <title>PTAW | HOME</title>
   <link rel="stylesheet" href="style.css" />
   <script src="main.js" defer></script>
@@ -51,124 +50,6 @@
         <button class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">
           Conta
         </button>
-
-        <div>
-          <div>
-            <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-
-                  <div class="modal-body">
-                    <div class="text-center">
-                      <div class="w-50 mx-auto mb-4">
-                        <p class="mt-4 mb-1">E-mail</p>
-                        <input type="email" class="form-control" placeholder="email@email.com" />
-                      </div>
-
-                      <div class="w-50 mx-auto mb-3">
-                        <p class="mb-1">Password</p>
-                      <input type="password" class="form-control" placeholder="Palavra-Passe" />
-                      <div class="mt-2">
-                        <button class="p-0 border-0 bg-transparent primaryColor registar-sh mb-4" data-bs-toggle="modal"
-                        data-bs-target="#modalNovaPass">
-                        Esqueceu-se da password?
-                        </button>
-                      </div>
-                      </div>
-                      <button type="button" class="btn btn-danger mb-3 btn-lg col-7">
-                        Login
-                      </button>
-                      
-                      <button class="p-0 border-0 bg-transparent primaryColor registar-sh mb-4" data-bs-toggle="modal"
-                        data-bs-target="#modalRegister">
-                        Não tem conta?Criar conta!
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Registar
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="p-5 pt-2">
-                    <div class="d-flex flex-column gap-2 mt-4 mb-4">
-                      <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control" placeholder="Nome Próprio" />
-                        <input type="text" class="form-control" placeholder="Apelido" />
-                      </div>
-                      <input type="date" class="form-control w-50" placeholder="Data Nascimento" value="" />
-                      <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control w-75" placeholder="Morada" />
-                        <input type="text" class="form-control w-25" placeholder="Cód Postal" />
-                      </div>
-                      <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control" placeholder="Cidade" />
-                        <input type="text" class="form-control" placeholder="País" />
-                      </div>
-                    </div>
-                    <div class="d-flex flex-column gap-2 mb-4">
-                      <input type="email" class="form-control" placeholder="Email" />
-                      <div class="d-flex justify-content-between gap-2">
-                        <input type="password" class="form-control" placeholder="Palavra-Passe" />
-                        <input type="password" class="form-control" placeholder="Confirmar Palavra-Passe" />
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-between gap-2 mb-4">
-                      <input type="text" class="form-control" placeholder="CC" />
-                      <input type="text" class="form-control" placeholder="IBAN" />
-                    </div>
-                    <button class="form-control btn btn-danger mb-2">
-                      Confirmar
-                    </button>
-                    <button class="form-control btn btn-light " data-bs-toggle="modal" data-bs-target="#modalLogin">Cancelar</button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="modal fade" id="modalNovaPass" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Recuperar Password
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="p-5 pt-2">
-                    <div class="w-75 mx-auto p-4">
-                      <input type="text" class="form-control" placeholder="Introduza o seu e-mail" />
-                    </div>
-                    <button class="form-control btn btn-danger mb-2">
-                      Confirmar
-                    </button>
-                    <button class="form-control btn btn-light " data-bs-toggle="modal" data-bs-target="#modalLogin">Cancelar</button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="fs-2">
           <i class="bi bi-person-circle text-light"></i>
@@ -254,6 +135,119 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body d-flex flex-column align-items-stretch p-5 gap-4">
+
+            <div class="d-flex flex-column gap-1">
+              <p class="m-0">E-mail</p>
+              <input type="email" class="form-control" placeholder="email@email.com" />
+
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <p class="m-0">Password</p>
+              <input type="password" class="form-control" placeholder="Palavra-Passe" />
+              <button class="align-self-end p-0 border-0 bg-transparent primaryColor registar-sh" data-bs-toggle="modal"
+                data-bs-target="#modalNovaPass">
+                Esqueceu-se da password?
+              </button>
+            </div>
+
+            <button type="button" class="btn btn-danger btn-lg">
+              Login
+            </button>
+
+            <button class="p-0 border-0 bg-transparent primaryColor registar-sh" data-bs-toggle="modal"
+              data-bs-target="#modalRegister">
+              Não tem conta? Criar conta!
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Registar
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="d-flex flex-column gap-3 modal-body p-5">
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex justify-content-between gap-2">
+                <input type="text" class="form-control" placeholder="Nome Próprio" />
+                <input type="text" class="form-control" placeholder="Apelido" />
+              </div>
+              <input type="date" class="form-control w-50" placeholder="Data Nascimento" value="" />
+              <div class="d-flex justify-content-between gap-2">
+                <input type="text" class="form-control w-75" placeholder="Morada" />
+                <input type="text" class="form-control w-25" placeholder="Cód Postal" />
+              </div>
+              <div class="d-flex justify-content-between gap-2">
+                <input type="text" class="form-control" placeholder="Cidade" />
+                <input type="text" class="form-control" placeholder="País" />
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2 ">
+              <input type="email" class="form-control" placeholder="Email" />
+              <div class="d-flex justify-content-between gap-2">
+                <input type="password" class="form-control" placeholder="Palavra-Passe" />
+                <input type="password" class="form-control" placeholder="Confirmar Palavra-Passe" />
+              </div>
+            </div>
+            <div class="d-flex justify-content-between gap-2 ">
+              <input type="text" class="form-control" placeholder="CC" />
+              <input type="text" class="form-control" placeholder="IBAN" />
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <button class="form-control btn btn-danger">
+                Confirmar
+              </button>
+              <button class="form-control btn btn-light " data-bs-toggle="modal"
+                data-bs-target="#modalLogin">Cancelar</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalNovaPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Recuperar Password
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="d-flex flex-column gap-4 p-5">
+            <input type="text" class="form-control" placeholder="Introduza o seu e-mail" />
+            <div class="d-flex flex-column gap-2">
+              <button class="form-control btn btn-danger">
+                Confirmar
+              </button>
+              <button class="form-control btn btn-light " data-bs-toggle="modal"
+                data-bs-target="#modalLogin">Cancelar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </main>
   <footer class="py-3 my-4 footer-bs">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
