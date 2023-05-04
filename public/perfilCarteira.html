@@ -14,7 +14,7 @@
     defer></script>
   <!--Bootstrap Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
-  <title>PTAW | HOME</title>
+  <title>PTAW | Carteira</title>
   <link rel="stylesheet" href="./css/style.css" />
   <script src="main.js" defer></script>
   <script src="https://kit.fontawesome.com/25b734335a.js" crossorigin="anonymous"></script>
@@ -22,80 +22,82 @@
 
 <body>
   <header>
-    <nav class="bg-dark navbar navbar-expand navbar-dark">
-      <div class="container-fluid">
-        <form action="" class="d-flex" role="search">
-          <input type="search" name="" id="" class="form-control me-2" />
-          <button type="submit" class="btn btn-light">Search</button>
-        </form>
-      </div>
-
-      <ul class="nav nav-underline justify-content-center container-fluid">
-        <li class="nav-item">
-          <a href="#" class="nav-link text-light">Início</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-light">Verificações</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-light">Sobre</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-light">Contacto</a>
-        </li>
-      </ul>
-      <div class="container-fluid d-flex justify-content-end align-items-center">
-        <button class="btn btn-primary me-2">Conta</button>
-        <div class="fs-2">
-          <i class="bi bi-person-circle text-light"></i>
+    <nav class="bkg-secondary navbar navbar-expand navbar-dark">
+        <div class="container-fluid">
+            <form action="" class="d-flex" role="search">
+                <input type="search" name="" id="" class="form-control me-2" />
+                <button type="submit" class="btn btn-light fnt-main fnt-s border-0 bg-white">Search</button>
+            </form>
         </div>
-      </div>
+
+        <ul class="nav nav-underline justify-content-center container-fluid">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link text-light fnt-main fnt-l">Início</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light fnt-main fnt-l">Verificações</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light fnt-main fnt-l">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light fnt-main fnt-l">Contacto</a>
+            </li>
+        </ul>
+        <div class="container-fluid d-flex justify-content-end align-items-center">
+            <button class="btn btn-primary btn-light me-2 fnt-main fnt-s border-0" data-bs-toggle="modal" data-bs-target="#modalLogin">Conta</button>
+            <div class="fs-2">
+                <i class="bi bi-person-circle text-light"></i>
+            </div>
+        </div>
     </nav>
-  </header>
+</header>
   <main class="container">
     <div class="row mt-5">
       <section class="col-3">
         <div class="d-flex flex-column gap-2 bg-secondary py-3 px-4 rounded-1">
-          <a href="#" class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Dados
-            Pessoais</a>
-          <a href="#"
-            class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Histórico de
-            Compras</a>
-          <a href="#"
-            class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Histórico de
-            Vendas</a>
-          <a href="#"
-            class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Carteira</a>
-          <a href="#" class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Sair</a>
+            <a href="#"
+                class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 fnt-main fnt-s">Dados
+                Pessoais</a>
+            <a href="#"
+                class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 fnt-main fnt-s">Histórico
+                de Compras</a>
+            <a href="#"
+                class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 fnt-main fnt-s">Histórico
+                de Vendas</a>
+            <a href="#"
+                class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 fnt-main fnt-s">Carteira</a>
+            <a href="#"
+                class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 fnt-main fnt-s">Sair</a>
         </div>
       </section>
       <section class="col-6 d-flex flex-column gap-5">
 
         <div>
-          <h3>A Minha Carteira</h3>
+          <h3 class="fnt-main fnt-xl">A Minha Carteira</h3>
           <table class="table table-striped table-hover">
             <thead class="border-bottom border-dark">
               <tr>
-                <th scope="col">CC</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Validade</th>
+                <th scope="col" class="fnt-main fnt-s">CC</th>
+                <th scope="col" class="fnt-main fnt-s">Nome</th>
+                <th scope="col" class="fnt-main fnt-s">Validade</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Master Card</td>
-                <td>Frederico Razão</td>
-                <td>2026/09</td>
+                <td class="fnt-main">Master Card</td>
+                <td class="fnt-main">Frederico Razão</td>
+                <td class="fnt-main">2026/09</td>
                 <td>
                   <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1" data-bs-toggle="modal"
                     data-bs-target="#exampleModal"></button>
                 </td>
               </tr>
               <tr>
-                <td>BPN</td>
-                <td>João Oliveira</td>
-                <td>2025/03</td>
+                <td class="fnt-main">BPN</td>
+                <td class="fnt-main">João Oliveira</td>
+                <td class="fnt-main">2025/03</td>
                 <td>
                   <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1" data-bs-toggle="modal"
                     data-bs-target="#exampleModal"></button>
@@ -106,19 +108,19 @@
         </div>
 
         <div class="d-flex flex-column gap-2">
-          <h4 class="border-bottom border-3 border-dark pb-2 m-0">Adicionar Cartão
+          <h4 class="border-bottom border-3 border-dark pb-2 m-0 fnt-main fnt-xl">Adicionar Cartão
           </h4>
           <div class="d-flex flex-column gap-3">
-            <input type="text" class="form-control" placeholder="Nome do Cartão">
-            <input type="text" class="form-control" placeholder="Número do Cartão">
+            <input type="text" class="form-control fnt-main fnt-s" placeholder="Nome do Cartão">
+            <input type="text" class="form-control fnt-main fnt-s" placeholder="Número do Cartão">
             <div class="d-flex justify-content-between gap-2">
-              <input type="text" class="form-control w-50" maxlength="2" placeholder="MM">
-              <input type="text" class="form-control w-50" maxlength="2" placeholder="AA">
-              <input type="text" class="form-control w-50" maxlength="3" placeholder="CVC">
+              <input type="text" class="form-control w-50 fnt-main fnt-s" maxlength="2" placeholder="MM">
+              <input type="text" class="form-control w-50 fnt-main fnt-s" maxlength="2" placeholder="AA">
+              <input type="text" class="form-control w-50 fnt-main fnt-s" maxlength="3" placeholder="CVC">
             </div>
             <div class="d-flex justify-content-between gap-2">
-              <button class="form-control btn btn-light">Cancelar</button>
-              <button class="form-control btn btn-dark">Confirmar</button>
+              <button class="form-control btn btn-light bkg-primary fnt-main fnt-s">Cancelar</button>
+              <button class="form-control btn btn-dark border-0 fnt-main fnt-s">Confirmar</button>
             </div>
           </div>
         </div>
@@ -145,22 +147,22 @@
     </div>
 
   </main>
-  <footer class="py-3 my-4 footer-bs bg-light">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Entregas e Devoluções</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Termos e Condições</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Política de Cookies</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">FAQ</a>
-      </li>
+  <footer class="py-3 mt-5 footer-bs bkg-primary">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
+        </li>
     </ul>
-  </footer>
+</footer>
 </body>
 
 </html>
