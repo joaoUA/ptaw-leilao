@@ -70,50 +70,51 @@
         </div>
       </section>
       <section class="col-6 d-flex flex-column gap-5">
-        
-          <div>
-            <h3 class="mb-3">A Minha Carteira</h3>
-            <div class="d-flex  gap-5 border-bottom border-3 border-dark pb-2">
+
+        <div>
+          <div class="d-flex flex-column gap-3">
+            <h3>A Minha Carteira</h3>
+            <div class="d-flex gap-5 border-bottom border-3 border-dark">
               <h6>Cartão de Crédito</h6>
               <h6>Nome do Cartão</h6>
               <h6>Data de Validade</h6>
             </div>
+          </div>
 
-            <div class="d-flex justify-content-between gap-2 mt-2 border-bottom border-2">
-              <p>Master Card</p>
-              <p>Frederico Razão</p>
-              <p>2026/09</p>
-              <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1 mb-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal"></button>
+          <div class="d-flex justify-content-between gap-2 border-bottom border-2 align-items-center p-2">
+            <p class="m-0">Master Card</p>
+            <p class="m-0">Frederico Razão</p>
+            <p class="m-0">2026/09</p> <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1"
+              data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+          </div>
+        </div>
+
+        <div>
+          <div class="d-flex flex-column gap-3">
+            <div class="border-bottom border-3 border-dark">
+              <h4>Adicionar Cartão</h4>
+            </div>
+
+            <div>
+              <input type="text" class="form-control" placeholder="Nome do Cartão" />
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="Número do Cartão" />
+            </div>
+
+            <div class="d-flex justify-content-between gap-2">
+              <input type="text" class="form-control w-50" maxlength="2" placeholder="MM" />
+              <input type="text" class="form-control w-50" maxlength="2" placeholder="AA" />
+              <input type="text" class="form-control w-50" maxlength="3" placeholder="CVC" />
             </div>
           </div>
+        </div>
 
-          <div>
-            <div class="d-flex flex-column gap-3">
-              <div class="border-bottom border-3 border-dark">
-                <h4 class="mb-3">Adicionar Cartão</h4>
-              </div>
+        <div class="d-flex justify-content-between gap-2">
+          <button class="form-control btn btn-light">Cancelar</button>
+          <button class="form-control btn btn-dark">Confirmar</button>
+        </div>
 
-              <div>
-                <input type="text" class="form-control" placeholder="Nome do Cartão" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Número do Cartão" />
-              </div>
-
-              <div class="d-flex justify-content-between gap-2">
-                <input type="text" class="form-control w-50" maxlength="2" placeholder="MM" />
-                <input type="text" class="form-control w-50" maxlength="2" placeholder="AA" />
-                <input type="text" class="form-control w-50" maxlength="3" placeholder="CVC" />
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-between gap-2">
-            <button class="form-control btn btn-light">Cancelar</button>
-            <button class="form-control btn btn-dark">Confirmar</button>
-          </div>
-        
       </section>
     </div>
 
