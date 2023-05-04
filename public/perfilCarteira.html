@@ -72,47 +72,55 @@
       <section class="col-6 d-flex flex-column gap-5">
 
         <div>
-          <div class="d-flex flex-column gap-3">
-            <h3>A Minha Carteira</h3>
-            <div class="d-flex gap-5 border-bottom border-3 border-dark">
-              <h6>Cartão de Crédito</h6>
-              <h6>Nome do Cartão</h6>
-              <h6>Data de Validade</h6>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-between gap-2 border-bottom border-2 align-items-center p-2">
-            <p class="m-0">Master Card</p>
-            <p class="m-0">Frederico Razão</p>
-            <p class="m-0">2026/09</p> <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1"
-              data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-          </div>
+          <h3>A Minha Carteira</h3>
+          <table class="table table-striped table-hover">
+            <thead class="border-bottom border-dark">
+              <tr>
+                <th scope="col">CC</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Validade</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Master Card</td>
+                <td>Frederico Razão</td>
+                <td>2026/09</td>
+                <td>
+                  <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"></button>
+                </td>
+              </tr>
+              <tr>
+                <td>BPN</td>
+                <td>João Oliveira</td>
+                <td>2025/03</td>
+                <td>
+                  <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div>
+        <div class="d-flex flex-column gap-2">
+          <h4 class="border-bottom border-3 border-dark pb-2 m-0">Adicionar Cartão
+          </h4>
           <div class="d-flex flex-column gap-3">
-            <div class="border-bottom border-3 border-dark">
-              <h4>Adicionar Cartão</h4>
-            </div>
-
-            <div>
-              <input type="text" class="form-control" placeholder="Nome do Cartão" />
-            </div>
-            <div>
-              <input type="text" class="form-control" placeholder="Número do Cartão" />
-            </div>
-
+            <input type="text" class="form-control" placeholder="Nome do Cartão">
+            <input type="text" class="form-control" placeholder="Número do Cartão">
             <div class="d-flex justify-content-between gap-2">
-              <input type="text" class="form-control w-50" maxlength="2" placeholder="MM" />
-              <input type="text" class="form-control w-50" maxlength="2" placeholder="AA" />
-              <input type="text" class="form-control w-50" maxlength="3" placeholder="CVC" />
+              <input type="text" class="form-control w-50" maxlength="2" placeholder="MM">
+              <input type="text" class="form-control w-50" maxlength="2" placeholder="AA">
+              <input type="text" class="form-control w-50" maxlength="3" placeholder="CVC">
+            </div>
+            <div class="d-flex justify-content-between gap-2">
+              <button class="form-control btn btn-light">Cancelar</button>
+              <button class="form-control btn btn-dark">Confirmar</button>
             </div>
           </div>
-        </div>
-
-        <div class="d-flex justify-content-between gap-2">
-          <button class="form-control btn btn-light">Cancelar</button>
-          <button class="form-control btn btn-dark">Confirmar</button>
         </div>
 
       </section>
