@@ -18,6 +18,8 @@
 /* Reset */
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 /* Uso Individual */
@@ -79,6 +81,18 @@ header > nav {
 	justify-self: center;
 }
 
+footer > ul {
+	justify-content: center;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+body > main {
+	flex-grow: auto;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
 	header {
@@ -89,5 +103,11 @@ header > nav {
 	}
 	.search-container {
 		display: none;
+	}
+
+	/*Footer*/
+	footer > ul {
+		flex-direction: column;
+		align-items: center;
 	}
 }
