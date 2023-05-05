@@ -69,3 +69,25 @@
 .cl-acc-secondary {
 	color: var(--color-accent-secondary);
 }
+
+/* Componentes*/
+header {
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+}
+header > nav {
+	justify-self: center;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+	header {
+		grid-template-columns: auto min-content;
+	}
+	nav a {
+		font-size: 14px;
+	}
+	.search-container {
+		display: none;
+	}
+}
