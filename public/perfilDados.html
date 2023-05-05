@@ -14,58 +14,55 @@
         defer></script>
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
-    <title>PTAW | Perfil</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="main.js" defer></script>
+    <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <nav class="bkg-secondary navbar navbar-expand navbar-dark fnt-main">
-            <div class="container-fluid">
-                <form action="" class="d-flex" role="search">
-                    <input type="search" name="" id="" class="form-control me-2" />
-                    <button type="submit" class="btn btn-light fnt-s border-0 bg-white">Search</button>
-                </form>
-            </div>
+    <header class="px-2 justify-content-between align-items-center gap-2 bkg-secondary fnt-main">
+        <div class="search-container">
+            <form action="" class="d-flex" role="search">
+                <input type="search" name="" id="" class="form-control me-2" />
+                <button type="submit" class="btn btn-light fnt-s border-0">Search</button>
+            </form>
+        </div>
 
-            <ul class="nav nav-underline justify-content-center container-fluid fnt-l">
+        <nav class="navbar navbar-expand navbar-dark">
+            <ul class="nav nav-underline justify-content-center">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link text-light">Início</a>
+                    <a href="./index.html" class="nav-link text-light">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Verificações</a>
+                    <a href="./verificacao.html" class="nav-link text-light">Verificações</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Contacto</a>
+                    <a href="./criarLeilao.html" class="nav-link text-light">Criar Leilão</a>
                 </li>
             </ul>
-            <div class="container-fluid d-flex justify-content-end align-items-center">
-                <button class="btn btn-primary btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
-                    data-bs-target="#modalLogin">Conta</button>
-                <div class="fs-2">
-                    <i class="bi bi-person-circle text-light"></i>
-                </div>
-            </div>
         </nav>
+        <div class="d-flex justify-content-end align-items-center">
+            <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
+                data-bs-target="#modalLogin">Conta</button>
+            <div class="fs-2">
+                <i class="bi bi-person-circle text-light"></i>
+            </div>
+        </div>
     </header>
     <main class="container">
         <div class="row mt-5">
             <section class="col-3">
                 <div class="d-flex flex-column gap-2 bkg-terciary py-3 px-4 rounded-1 fnt-main fnt-s ">
-                    <a href="#"
+                    <a href="./perfilDados.html"
                         class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Dados
                         Pessoais</a>
-                    <a href="#"
+                    <a href="./historico.html"
                         class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Histórico
                         de Compras</a>
-                    <a href="#"
+                    <a href="./historico.html"
                         class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Histórico
                         de Vendas</a>
-                    <a href="#"
+                    <a href="./perfilCarteira.html"
                         class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Carteira</a>
                     <a href="#"
                         class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Sair</a>
@@ -107,19 +104,25 @@
             <section class="col-3"></section>
         </div>
     </main>
-    <footer class="py-3 footer-bs bkg-primary">
-        <ul class="nav justify-content-center ">
+    <footer class="py-3 bkg-primary w-100">
+        <ul class="nav fnt-main">
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Termos e Condições</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Política de Cookies</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
+                <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Contacto</a>
             </li>
         </ul>
     </footer>

@@ -14,119 +14,121 @@
         defer></script>
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
-    <title>PTAW | Home</title>
+    <title>Home</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="main.js" defer></script>
+    <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <nav class="bkg-secondary navbar navbar-expand navbar-dark fnt-main">
-            <div class="container-fluid">
-                <form action="" class="d-flex" role="search">
-                    <input type="search" name="" id="" class="form-control me-2" />
-                    <button type="submit" class="btn btn-light fnt-s border-0">Search</button>
-                </form>
-            </div>
+    <header class="px-2 justify-content-between align-items-center gap-2 bkg-secondary fnt-main">
+        <div class="search-container">
+            <form action="" class="d-flex" role="search">
+                <input type="search" name="" id="" class="form-control me-2" />
+                <button type="submit" class="btn btn-light fnt-s border-0">Search</button>
+            </form>
+        </div>
 
-            <ul class="nav nav-underline justify-content-center container-fluid fnt-l">
+        <nav class="navbar navbar-expand navbar-dark">
+            <ul class="nav nav-underline justify-content-center">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link text-light">Início</a>
+                    <a href="./index.html" class="nav-link text-light">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Verificações</a>
+                    <a href="./verificacao.html" class="nav-link text-light">Verificações</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Contacto</a>
+                    <a href="./criarLeilao.html" class="nav-link text-light">Criar Leilão</a>
                 </li>
             </ul>
-            <div class="container-fluid d-flex justify-content-end align-items-center">
-                <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
-                    data-bs-target="#modalLogin">Conta</button>
-                <div class="fs-2">
-                    <i class="bi bi-person-circle text-light"></i>
-                </div>
-            </div>
         </nav>
+        <div class="d-flex justify-content-end align-items-center">
+            <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
+                data-bs-target="#modalLogin">Conta</button>
+            <div class="fs-2">
+                <i href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
+            </div>
+        </div>
     </header>
     <main>
-        <div class="container text-center fnt-main">
-            <div class="row ">
-                <div class="card col m-3 py-2">
-                    <img src=".\img\img-placeholder-224.png" class="card-img-top mb-3" alt="..." />
-                    <div class="d-flex justify-content-around gap-2 mb-2 align-items-center">
-                        <h5 class="card-title fnt-l m-0">Título</h5>
-                        <p class="fnt-l m-0">Timer</p>
-                    </div>
-                    <div class="d-flex justify-content-around gap-2 align-items-center">
-                        <p class="text-danger fnt-m m-0">100.00€</p>
-                        <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                    </div>
-                </div>
-
-                <div class="card col m-3 py-2">
-                    <img src=".\img\img-placeholder-224.png" class="card-img-top mb-3" alt="..." />
-                    <div class="d-flex justify-content-around gap-2 mb-2 align-items-center">
-                        <h5 class="card-title fnt-l m-0">Título</h5>
-                        <p class="fnt-l m-0">Timer</p>
-                    </div>
-                    <div class="d-flex justify-content-around gap-2 align-items-center">
-                        <p class="text-danger fnt-m m-0">100.00€</p>
-                        <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                    </div>
-                </div>
-
-                <div class="card col m-3 py-2">
-                    <img src=".\img\img-placeholder-224.png" class="card-img-top mb-3" alt="..." />
-                    <div class="d-flex justify-content-around gap-2 mb-2 align-items-center">
-                        <h5 class="card-title fnt-l m-0">Título</h5>
-                        <p class="fnt-l m-0">Timer</p>
-                    </div>
-                    <div class="d-flex justify-content-around gap-2 align-items-center">
-                        <p class="text-danger fnt-m m-0">100.00€</p>
-                        <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                    </div>
+        <div class="fnt-main card-container my-5 gap-4">
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="card col m-3 py-2">
-                    <img src=".\img\img-placeholder-224.png" class="card-img-top mb-3" alt="..." />
-                    <div class="d-flex justify-content-around gap-2 mb-2 align-items-center">
-                        <h5 class="card-title fnt-l m-0">Título</h5>
-                        <p class="fnt-l m-0">Timer</p>
-                    </div>
-                    <div class="d-flex justify-content-around gap-2 align-items-center">
-                        <p class="text-danger fnt-m m-0">100.00€</p>
-                        <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                    </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
                 </div>
-
-                <div class="card col m-3 py-2">
-                    <img src=".\img\img-placeholder-224.png" class="card-img-top mb-3" alt="..." />
-                    <div class="d-flex justify-content-around gap-2 mb-2 align-items-center">
-                        <h5 class="card-title fnt-l m-0">Título</h5>
-                        <p class="fnt-l m-0">Timer</p>
-                    </div>
-                    <div class="d-flex justify-content-around gap-2 align-items-center">
-                        <p class="text-danger fnt-m m-0">100.00€</p>
-                        <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                    </div>
+            </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
                 </div>
-
-                <div class="card col m-3 py-2">
-                    <img src=".\img\img-placeholder-224.png" class="card-img-top mb-3" alt="..." />
-                    <div class="d-flex justify-content-around gap-2 mb-2 align-items-center">
-                        <h5 class="card-title fnt-l m-0">Título</h5>
-                        <p class="fnt-l m-0">Timer</p>
-                    </div>
-                    <div class="d-flex justify-content-around gap-2 align-items-center">
-                        <p class="text-danger fnt-m m-0">100.00€</p>
-                        <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                    </div>
+            </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
+                </div>
+            </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
+                </div>
+            </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
+                </div>
+            </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
+                </div>
+            </div>
+            <div class="my-card">
+                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                <div class="my-card-sub p-2">
+                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                        lkjaslkdj lk</h5>
+                    <p class="fnt-l m-0 my-card-timer">Timer</p>
+                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
                 </div>
             </div>
         </div>
@@ -153,7 +155,7 @@
                             </button>
                         </div>
 
-                        <button type="button" class="btn btn-dark bkg-terciary cl-primary btn-m fnt-l ">
+                        <button type="button" class="btn btn-dark bkg-terciary cl-primary btn-m fnt-l" id="login-btn">
                             Login
                         </button>
 
@@ -241,8 +243,8 @@
             </div>
         </div>
     </main>
-    <footer class="py-3 footer-bs bkg-primary">
-        <ul class="nav justify-content-center fnt-main">
+    <footer class="py-3 bkg-primary w-100">
+        <ul class="nav fnt-main">
             <li class="nav-item">
                 <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
             </li>
@@ -255,8 +257,21 @@
             <li class="nav-item">
                 <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Contacto</a>
+            </li>
         </ul>
     </footer>
+    <script>
+        const loginBtn = document.getElementById("login-btn");
+
+        loginBtn.addEventListener("click", () => {
+            window.location.href = "./perfilDados.html";
+        })
+    </script>
 </body>
 
 </html>
