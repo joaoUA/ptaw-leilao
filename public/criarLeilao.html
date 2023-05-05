@@ -139,23 +139,23 @@
 
         <div class="modal" id="adArtigoModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fnt-main fnt-m">Adicionar Artigo</h5>
+                <div class="modal-content fnt-main">
+                    <div class="modal-header cl-terciary">
+                        <h5 class="modal-title fnt-m">Adicionar Artigo</h5>
                     </div>
 
                     <div class="modal-body">
-                        <form action="" class="form-control">
+                        <form action="" class="form-control cl-terciary">
                             <div class="p-1">
-                                <input type="text" class="col form-control fnt-main fnt-s" name="artigo-nome"
-                                    id="artigo-nome" placeholder="Nome do artigo">
+                                <input type="text" class="col form-control fnt-s" name="artigo-nome" id="artigo-nome"
+                                    placeholder="Nome do artigo">
                             </div>
 
                             <div class="p-1 d-flex justify-content-between gap-2">
-                                <input type="text" class="form-control fnt-main fnt-s" name="artigo-preco"
-                                    id="artigo-preco" placeholder="Preço">
-                                <select class="form-select form-control fnt-main fnt-s" id="artigo-categoria">
-                                    <option value="" selected class="fnt-main fnt-s">Categoria</option>
+                                <input type="text" class="form-control fnt-s" name="artigo-preco" id="artigo-preco"
+                                    placeholder="Preço">
+                                <select class="form-select form-control fnt-s" id="artigo-categoria">
+                                    <option value="" selected class="fnt-s">Categoria</option>
                                 </select>
                             </div>
 
@@ -174,16 +174,18 @@
                             </div>
 
                             <div class="mb-3 p-1" id="file-group">
-                                <label for="formFile" class="mx-1 form-label fnt-main fnt-s">Documento de Autenticação
+                                <label for="formFile" class="mx-1 form-label fnt-s">Documento de Autenticação
                                     (Opcional)</label>
-                                <input class="form-control fnt-main fnt-s" type="file" id="formFile">
+                                <input class="form-control fnt-s" type="file" id="formFile">
                             </div>
 
                             <div class="p-1 d-grid gap-2">
-                                <button class="btn btn-light fnt-main fnt-s bkg-primary" type="button"
+                                <button class="btn btn-light fnt-s bkg-primary cl-terciary" type="button"
                                     data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-                                <button class="btn btn-dark fnt-main fnt-s" type="button">Confirmar</button>
-                                <button class="btn btn-danger fnt-main fnt-s" type="button">Remover</button>
+                                <button class="btn btn-dark bkg-terciary cl-primary fnt-s"
+                                    type="button">Confirmar</button>
+                                <button class="btn btn-danger bkg-secondary cl-primary fnt-s"
+                                    type="button">Remover</button>
                             </div>
                         </form>
                     </div>
