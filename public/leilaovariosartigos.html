@@ -21,64 +21,62 @@
 
 <body>
     <header>
-        <!--Navbar-->
-        <nav class="bkg-secondary navbar navbar-expand navbar-dark">
+        <nav class="bkg-secondary navbar navbar-expand navbar-dark fnt-main">
             <div class="container-fluid">
-              <form action="" class="d-flex" role="search">
-                <input type="search" name="" id="" class="form-control me-2" />
-                <button type="submit" class="btn btn-light fnt-main fnt-s border-0 bg-white">Search</button>
-              </form>
+                <form action="" class="d-flex" role="search">
+                    <input type="search" name="" id="" class="form-control me-2" />
+                    <button type="submit" class="btn btn-light fnt-s border-0 bg-white">Search</button>
+                </form>
             </div>
-      
-            <ul class="nav nav-underline justify-content-center container-fluid">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link text-light fnt-main fnt-l">Início</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link text-light fnt-main fnt-l">Verificações</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link text-light fnt-main fnt-l">Sobre</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link text-light fnt-main fnt-l">Contacto</a>
-              </li>
+
+            <ul class="nav nav-underline justify-content-center container-fluid fnt-l">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-light">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">Verificações</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">Contacto</a>
+                </li>
             </ul>
-            <div
-              class="container-fluid d-flex justify-content-end align-items-center"
-            >
-              <button class="btn btn-primary btn-light me-2 fnt-main fnt-s border-0">Conta</button>
-              <div class="fs-2">
-                <i class="bi bi-person-circle text-light"></i>
-              </div>
+            <div class="container-fluid d-flex justify-content-end align-items-center">
+                <button class="btn btn-primary btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Conta</button>
+                <div class="fs-2">
+                    <i class="bi bi-person-circle text-light"></i>
+                </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <main>
         <div class="d-flex flex-row w-75 mx-auto my-5 gap-2">
-            <div class="d-flex flex-column w-25">
-                <div class="d-flex gap-2 align-items-center p-2">
+            <div class="d-flex flex-column w-25 fnt-main bkg-primary">
+                <div class="d-flex gap-2 align-items-center p-2 fnt-s bkg-terciary cl-primary">
                     <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0 fnt-main fnt-s">Artigo</p>
+                    <p class="m-0 ">Artigo</p>
+                </div>
+                <div class="d-flex gap-2 align-items-center p-2  bkg-terciary cl-primary">
+                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
+                    <p class="m-0">Artigo</p>
+                </div>
+                <div class="d-flex gap-2 align-items-center p-2 bkg-secondary cl-primary">
+                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
+                    <p class="m-0">Artigo</p>
                 </div>
                 <div class="d-flex gap-2 align-items-center p-2">
                     <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0 fnt-main fnt-s">Artigo</p>
+                    <p class="m-0">Artigo</p>
                 </div>
                 <div class="d-flex gap-2 align-items-center p-2">
                     <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0 fnt-main fnt-s">Artigo</p>
+                    <p class="m-0">Artigo</p>
                 </div>
-                <div class="d-flex gap-2 align-items-center p-2">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0 fnt-main fnt-s">Artigo</p>
-                </div>
-                <div class="d-flex gap-2 align-items-center p-2">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0 fnt-main fnt-s">Artigo</p>
-                </div>
-              </div>
+            </div>
             <div id="carouselIndicators" class="carousel slide w-50 border border-dark-subtle">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0"
@@ -110,40 +108,41 @@
                     <span class="visually-hidden">Seguinte</span>
                 </button>
             </div>
-            <div class="d-flex flex-column justify-content-between py-3 px-3 w-75 bkg-primary">
-                <div>
-                  <h1 class="fnt-main">Título do Artigo</h1>
-                  <h4 class="fnt-main fnt-l">Vendedor</h4>
+            <div class="d-flex flex-column justify-content-between p-3 w-75 bkg-primary fnt-main">
+                <div class="cl-terciary">
+                    <h1 class="fnt-xl">Título do Artigo</h1>
+                    <h4 class="fnt-m">Vendedor</h4>
                 </div>
                 <div class="container">
-                  <div class="row mb-3">
-                    <h1 class="col fnt-main fnt-xl">1000.00€</h1>
-                    <h2 class="col text-end fnt-main fnt-xl">03:20</h2>
-                  </div>
-                  <div class="row gap-3">
-                    <input type="text" name="licitacao-input" class="col form-control fnt-main fnt-s" placeholder="Valor da Licitação">
-                    <button type="button" class="btn col btn-dark fnt-main fnt-s">Licitar</button>
-                  </div>
+                    <div class="row mb-3 cl-terciary">
+                        <h1 class="col fnt-xl">1000.00€</h1>
+                        <h2 class="col text-end fnt-xl">03:20</h2>
+                    </div>
+                    <div class="row gap-3 fnt-s">
+                        <input type="text" name="licitacao-input" class="col form-control fnt-s"
+                            placeholder="Valor da Licitação">
+                        <button type="button" class="btn col btn-dark bkg-terciary cl-primary fnt-s">Licitar</button>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
     </main>
     <footer class="py-3 footer-bs bkg-primary">
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
-          </li>
+        <ul class="nav justify-content-center fnt-main">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Termos e Condições</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Política de Cookies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
+            </li>
         </ul>
-      </footer>
+    </footer>
 </body>
 
 </html>

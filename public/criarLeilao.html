@@ -21,30 +21,31 @@
 
 <body>
     <header>
-        <nav class="bkg-secondary navbar navbar-expand navbar-dark">
+        <nav class="bkg-secondary navbar navbar-expand navbar-dark fnt-main">
             <div class="container-fluid">
                 <form action="" class="d-flex" role="search">
-                    <input type="search" name="" id="" class="form-control me-2">
-                    <button type="submit" class="btn btn-light fnt-main fnt-s border-0 bg-white">Search</button>
+                    <input type="search" name="" id="" class="form-control me-2" />
+                    <button type="submit" class="btn btn-light fnt-s border-0 bg-white">Search</button>
                 </form>
             </div>
 
-            <ul class="nav nav-underline justify-content-center container-fluid">
+            <ul class="nav nav-underline justify-content-center container-fluid fnt-l">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light fnt-main fnt-l">Início</a>
+                    <a href="index.html" class="nav-link text-light">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light fnt-main fnt-l">Verificações</a>
+                    <a href="#" class="nav-link text-light">Verificações</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light fnt-main fnt-l">Sobre</a>
+                    <a href="#" class="nav-link text-light">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light fnt-main fnt-l">Contacto</a>
+                    <a href="#" class="nav-link text-light">Contacto</a>
                 </li>
             </ul>
             <div class="container-fluid d-flex justify-content-end align-items-center">
-                <button class="btn btn-primary btn-light me-2 fnt-main fnt-s border-0">Conta</button>
+                <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Conta</button>
                 <div class="fs-2">
                     <i class="bi bi-person-circle text-light"></i>
                 </div>
@@ -53,17 +54,18 @@
     </header>
     <main>
         <section class="container-fluid w-75 my-5">
-            <div id="table-section-heading" class="d-flex justify-content-between mb-2 align-items-center">
+            <div id="table-section-heading" class="d-flex justify-content-between mb-2 align-items-center fnt-main">
                 <div class="input-group w-25">
-                    <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control fnt-main fnt-s"
+                    <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control fnt-s"
                         placeholder="Nome do Leilão">
                 </div>
-                <button class="btn btn-dark fnt-main fnt-s" data-bs-toggle="modal" data-bs-target="#adArtigoModal">Adicionar
+                <button class="btn btn-dark bkg-terciary cl-primary fnt-s" data-bs-toggle="modal"
+                    data-bs-target="#adArtigoModal">Adicionar
                     Artigo</button>
             </div>
-            <table class="table table-striped table-hover table-bordered">
-                <thead class="table-light">
-                    <tr class="fs-4">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr class="bkg-terciary cl-primary fs-5">
                         <th scope="col">
                             <!--Número-->
                         </th>
@@ -84,14 +86,14 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider fnt-main cl-terciary">
                     <tr>
-                        <th scope="row" class="fnt-main fnt-s">1</th>
+                        <th scope="row" class="fnt-s">1</th>
                         <td>
                             <i class="bi bi-card-image"></i>
                         </td>
-                        <td class="fnt-main fnt-s">Nome do Artigo</td>
-                        <td class="fnt-main fnt-s">100.00€</td>
+                        <td class="fnt-s">Nome do Artigo</td>
+                        <td class="fnt-s">100.00€</td>
                         <td>
                             <i class="bi bi-brush-fill"></i>
                         </td>
@@ -100,11 +102,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row" class="fnt-main fnt-s">2</th>
+                        <th scope="row" class="fnt-s">2</th>
                         <td>
                             <i class="bi bi-card-image"></i>
                         </td>
-                        <td class="fnt-main fnt-s">Nome do Artigo</td>
+                        <td class="fnt-s">Nome do Artigo</td>
                         <td class="fnt-main fnt-s">100.00€</td>
                         <td>
                             <i class="bi bi-brush-fill"></i>
@@ -117,7 +119,7 @@
             </table>
 
             <div class="d-flex justify-content-end">
-                <p class="my-auto px-2 fnt-main fnt-s">Leiloar como artigo único</p>
+                <p class="my-auto px-2 fnt-main fnt-s  cl-terciary">Leiloar como artigo único</p>
 
                 <div class="form-check form-switch my-auto">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -129,7 +131,7 @@
             </div>
 
             <div class="d-flex justify-content-end my-3">
-                <button class="btn btn-dark fnt-main fnt-s">
+                <button class="btn btn-dark bkg-terciary cl-primary  fnt-main fnt-s">
                     Submeter Leilão
                 </button>
             </div>
@@ -145,13 +147,13 @@
                     <div class="modal-body">
                         <form action="" class="form-control">
                             <div class="p-1">
-                                <input type="text" class="col form-control fnt-main fnt-s" name="artigo-nome" id="artigo-nome"
-                                    placeholder="Nome do artigo">
+                                <input type="text" class="col form-control fnt-main fnt-s" name="artigo-nome"
+                                    id="artigo-nome" placeholder="Nome do artigo">
                             </div>
 
                             <div class="p-1 d-flex justify-content-between gap-2">
-                                <input type="text" class="form-control fnt-main fnt-s" name="artigo-preco" id="artigo-preco"
-                                    placeholder="Preço">
+                                <input type="text" class="form-control fnt-main fnt-s" name="artigo-preco"
+                                    id="artigo-preco" placeholder="Preço">
                                 <select class="form-select form-control fnt-main fnt-s" id="artigo-categoria">
                                     <option value="" selected class="fnt-main fnt-s">Categoria</option>
                                 </select>
@@ -178,8 +180,8 @@
                             </div>
 
                             <div class="p-1 d-grid gap-2">
-                                <button class="btn btn-light fnt-main fnt-s bkg-primary" type="button" data-bs-dismiss="modal"
-                                    aria-label="Close">Cancelar</button>
+                                <button class="btn btn-light fnt-main fnt-s bkg-primary" type="button"
+                                    data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
                                 <button class="btn btn-dark fnt-main fnt-s" type="button">Confirmar</button>
                                 <button class="btn btn-danger fnt-main fnt-s" type="button">Remover</button>
                             </div>
@@ -190,21 +192,21 @@
         </div>
     </main>
     <footer class="py-3 footer-bs bkg-primary">
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
-          </li>
+        <ul class="nav justify-content-center fnt-main">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Termos e Condições</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">Política de Cookies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
+            </li>
         </ul>
-      </footer>
+    </footer>
 </body>
 
 </html>

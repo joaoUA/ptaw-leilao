@@ -1,275 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Bootstrap CSS Link-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <!--Bootstrap JS Link (Defer)-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"
+        defer></script>
     <!--Bootstrap Icons-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
     <title>PTAW | Verificação</title>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="main.js" defer></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <nav class="bkg-secondary navbar navbar-expand navbar-dark">
-          <div class="container-fluid">
-              <form action="" class="d-flex" role="search">
-                  <input type="search" name="" id="" class="form-control me-2" />
-                  <button type="submit" class="btn btn-light fnt-main fnt-s border-0 bg-white">Search</button>
-              </form>
-          </div>
+        <nav class="bkg-secondary navbar navbar-expand navbar-dark fnt-main">
+            <div class="container-fluid">
+                <form action="" class="d-flex" role="search">
+                    <input type="search" name="" id="" class="form-control me-2" />
+                    <button type="submit" class="btn btn-light fnt-s border-0 bg-white">Search</button>
+                </form>
+            </div>
 
-          <ul class="nav nav-underline justify-content-center container-fluid">
-              <li class="nav-item">
-                  <a href="index.html" class="nav-link text-light fnt-main fnt-l">Início</a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link text-light fnt-main fnt-l">Verificações</a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link text-light fnt-main fnt-l">Sobre</a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link text-light fnt-main fnt-l">Contacto</a>
-              </li>
-          </ul>
-          <div class="container-fluid d-flex justify-content-end align-items-center">
-              <button class="btn btn-primary btn-light me-2 fnt-main fnt-s border-0" data-bs-toggle="modal" data-bs-target="#modalLogin">Conta</button>
-              <div class="fs-2">
-                  <i class="bi bi-person-circle text-light"></i>
-              </div>
-          </div>
-      </nav>
-  </header>
+            <ul class="nav nav-underline justify-content-center container-fluid fnt-l">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link text-light">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">Verificações</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">Contacto</a>
+                </li>
+            </ul>
+            <div class="container-fluid d-flex justify-content-end align-items-center">
+                <button class="btn btn-primary btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Conta</button>
+                <div class="fs-2">
+                    <i class="bi bi-person-circle text-light"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
-      <div class="container d-flex justify-content-around">
-        <div class="container m-5">
-          <div class="row bg-dark text-white">
-            <div class="col p-2 fnt-main fnt-s">Artigos a Verificar</div>
-          </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-            <div class="col-auto p-2">
-              <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-          </div>
-          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-            <div class="col-auto p-2">
-              <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-          </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-            <div class="col-auto p-2">
-              <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-          </div>
-          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-            <div class="col-auto p-2">
-              <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-          </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-            <div class="col-auto p-2">
-              <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-          </div>
-        </div>
-
-        <div class="container m-5">
-          <div class="row bg-dark text-white">
-            <div class="col p-2 fnt-main fnt-s">Vendedores a Verificar</div>
-          </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-            <div class="col-auto p-2">
-              <img
-                src=".\img\img-placeholder-48.png"
-                alt="placeholder"
-              />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Nome Vendedor</div>
-            <div class="col-md-auto my-auto fnt-main fnt-s">2023-06-22</div>
-          </div>
-          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-            <div class="col-auto p-2">
-              <img
-                src=".\img\img-placeholder-48.png"
-                alt="placeholder"
-              />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Nome Vendedor</div>
-            <div class="col-md-auto my-auto fnt-main fnt-s">2023-06-22</div>
-          </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-            <div class="col-auto p-2">
-              <img
-                src=".\img\img-placeholder-48.png"
-                alt="placeholder"
-              />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Nome Vendedor</div>
-            <div class="col-md-auto my-auto fnt-main fnt-s">2023-06-22</div>
-          </div>
-          <div class="row" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-            <div class="col-auto p-2">
-              <img
-                src=".\img\img-placeholder-48.png"
-                alt="placeholder"
-              />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Nome Vendedor</div>
-            <div class="col-md-auto my-auto fnt-main fnt-s">2023-06-22</div>
-          </div>
-          <div class="row bg-light" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-            <div class="col-auto p-2">
-              <img
-                src=".\img\img-placeholder-48.png"
-                alt="placeholder"
-              />
-            </div>
-            <div class="col p-0 my-auto fnt-main fnt-s">Nome Vendedor</div>
-            <div class="col-md-auto my-auto fnt-main fnt-s">2023-06-22</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="ModalArtigo" tabindex="-1" aria-labelledby="ModalArtigoLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="d-flex justify-content-end m-3">
-              <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#ModalLeilao" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center">
-              <span class="fnt-main fnt-m">Detalhes do Artigo</span>
-              <div class="my-5"><img src=".\img\img-placeholder-224.png" alt="placeholder"/></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <div class="modal fade" id="ModalVendedor" tabindex="-1" aria-labelledby="ModalVendedorLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="d-flex justify-content-end m-3">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body d-flex flex-column align-items-center">
-            <span class="fnt-main fnt-s">Nome do perfil</span>
-            <span class="fnt-main fnt-s">Data de Nascimento</span>
-            <span class="fnt-main fnt-s">Morada</span>
-            <span class="fnt-main fnt-s">E-mail</span>
-            <span class="fnt-main fnt-s">CC</span>
-            <span class="fnt-main fnt-s">IBAN</span>
-          </div>
-          <div class="d-flex justify-content-around m-3">
-            <button type="button" class="btn btn-light bkg-primary fnt-main fnt-s w-25" data-bs-dismiss="modal">Recusar</button>
-            <button type="button" class="btn btn-dark fnt-main fnt-s w-25" data-bs-dismiss="modal">Aprovar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="ModalLeilao" tabindex="-1" aria-labelledby="ModalLeilaoLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="d-flex justify-content-end mt-3 me-3">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body d-flex flex-column pt-0 mx-4">
-            <div class="row">
-              <div class="col p-2 fnt-main fnt-m">Titulo do Leilão</div>
-              <div class="col-md-auto p-2 my-auto fnt-main fnt-m">Nome do Vendedor</div>
-            </div>
-
-            <div class="row bg-light">
-              <div class="col-auto p-2" data-bs-toggle="modal" data-bs-target="#ModalArtigo">
-                <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-              </div>
-              <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-              <div class="col-md-auto my-auto">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <div class="container d-flex justify-content-around fnt-main">
+            <div class="container m-5 cl-terciary">
+                <div class="row bkg-terciary cl-primary">
+                    <p class="col p-2 fnt-s m-0">Artigos a Verificar</p>
                 </div>
-              </div>
-            </div>
-            <div class="row bg-light">
-              <div class="col-auto p-2" data-bs-toggle="modal" data-bs-target="#ModalArtigo">
-                <img
-                  src=".\img\img-placeholder-48.png"
-                  alt="placeholder"
-                />
-              </div>
-              <div class="col p-0 my-auto fnt-main fnt-s">Artigo</div>
-              <div class="col-md-auto my-auto">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <div class="row bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto fnt-s">Artigo</p>
                 </div>
-              </div>
+                <div class="row" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto fnt-s">Artigo</p>
+                </div>
+                <div class="row bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto fnt-s">Artigo</p>
+                </div>
+                <div class="row" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto fnt-s">Artigo</p>
+                </div>
+                <div class="row bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto fnt-s">Artigo</p>
+                </div>
             </div>
-          <div class="d-flex justify-content-around m-3 mt-4">
-            <button type="button" class="btn btn-light bkg-primary fnt-main fnt-s w-25" data-bs-dismiss="modal">Recusar</button>
-            <button type="button" class="btn btn-dark fnt-main fnt-s w-25" data-bs-dismiss="modal">Aprovar</button>
-          </div>
+
+            <div class="container m-5 cl-terciary fnt-m">
+                <div class="row bkg-terciary cl-primary">
+                    <div class="col p-2  fnt-s">Vendedores a Verificar</div>
+                </div>
+                <div class="row bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto  fnt-s">Nome Vendedor</p>
+                    <p class="col-md-auto my-auto  fnt-s">2023-06-22</p>
+                </div>
+                <div class="row" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto  fnt-s">Nome Vendedor</p>
+                    <p class="col-md-auto my-auto  fnt-s">2023-06-22</p>
+                </div>
+                <div class="row bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto  fnt-s">Nome Vendedor</p>
+                    <p class="col-md-auto my-auto  fnt-s">2023-06-22</p>
+                </div>
+                <div class="row" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto  fnt-s">Nome Vendedor</p>
+                    <p class="col-md-auto my-auto  fnt-s">2023-06-22</p>
+                </div>
+                <div class="row bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <div class="col-auto p-2">
+                        <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                    </div>
+                    <p class="col p-0 my-auto  fnt-s">Nome Vendedor</p>
+                    <p class="col-md-auto my-auto  fnt-s">2023-06-22</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+
+        <div class="modal fade" id="ModalArtigo" tabindex="-1" aria-labelledby="ModalArtigoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="d-flex justify-content-end p-3 pb-0">
+                        <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#ModalLeilao"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center pt-0 gap-2 mb-2">
+                        <span class="fnt-main fnt-m">Detalhes do Artigo</span>
+                        <div class="">
+                            <img src=".\img\img-placeholder-224.png" alt="placeholder" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ModalVendedor" tabindex="-1" aria-labelledby="ModalVendedorLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="d-flex justify-content-end p-3 pb-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center fnt-main fnt-s cl-terciary py-0">
+                        <span class="">Nome do perfil</span>
+                        <span class="">Data de Nascimento</span>
+                        <span class="">Morada</span>
+                        <span class="">E-mail</span>
+                        <span class="">CC</span>
+                        <span class="">IBAN</span>
+                    </div>
+                    <div class="d-flex justify-content-around m-3">
+                        <button type="button" class="btn btn-light bkg-primary cl-terciary fnt-main fnt-s w-25"
+                            data-bs-dismiss="modal">Recusar</button>
+                        <button type="button" class="btn btn-dark bkg-terciary cl-primary fnt-main fnt-s w-25"
+                            data-bs-dismiss="modal">Aprovar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ModalLeilao" tabindex="-1" aria-labelledby="ModalLeilaoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="d-flex justify-content-end p-3 pb-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column px-5 m-0 fnt-main cl-terciary">
+                        <div class="row">
+                            <div class="col p-2 fnt-m">Titulo do Leilão</div>
+                            <div class="col-md-auto p-2 my-auto fnt-m">Nome do Vendedor</div>
+                        </div>
+
+                        <div class="row bkg-primary">
+                            <div class="col-auto p-2" data-bs-toggle="modal" data-bs-target="#ModalArtigo">
+                                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                            </div>
+                            <div class="col p-0 my-auto fnt-s">Artigo</div>
+                            <div class="col-md-auto my-auto">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="flexSwitchCheckDefault">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bg-light">
+                            <div class="col-auto p-2" data-bs-toggle="modal" data-bs-target="#ModalArtigo">
+                                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                            </div>
+                            <div class="col p-0 my-auto fnt-s">Artigo</div>
+                            <div class="col-md-auto my-auto">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="flexSwitchCheckDefault">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-around p-2">
+                            <button type="button" class="btn btn-light bkg-primary cl-terciary fnt-s w-25"
+                                data-bs-dismiss="modal">Recusar</button>
+                            <button type="button" class="btn btn-dark bkg-terciary fnt-s w-25"
+                                data-bs-dismiss="modal">Aprovar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     </main>
     <footer class="py-3 footer-bs bkg-primary">
-      <ul class="nav justify-content-center">
-          <li class="nav-item">
-              <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
-          </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
-          </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
-          </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
-          </li>
-      </ul>
-  </footer>
-  </body>
+        <ul class="nav justify-content-center ">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
 </html>

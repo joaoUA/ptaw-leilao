@@ -54,3 +54,18 @@
 .bkg-acc-secondary {
 	background-color: var(--color-accent-secondary);
 }
+.cl-primary {
+	color: var(--color-primary);
+}
+.cl-secondary {
+	color: var(--color-secondary);
+}
+.cl-terciary {
+	color: var(--color-terciary);
+}
+.cl-acc-primary {
+	color: var(--color-accent-primary);
+}
+.cl-acc-secondary {
+	color: var(--color-accent-secondary);
+}
