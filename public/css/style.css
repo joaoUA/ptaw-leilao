@@ -79,6 +79,7 @@ header {
 }
 header > nav {
 	justify-self: center;
+	font-size: var(--font-size-large);
 }
 
 footer > ul {
@@ -138,9 +139,12 @@ body > main {
 	header {
 		grid-template-columns: auto min-content;
 	}
-	nav a {
-		font-size: 14px;
+
+	header > nav {
+		justify-self: center;
+		font-size: var(--font-size-medium);
 	}
+
 	.search-container {
 		display: none;
 	}
@@ -155,13 +159,6 @@ body > main {
 	.card-container {
 		grid-template-columns: 1fr 1fr;
 	}
-
-	/* Card */
-	/*.my-card-sub {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-	}*/
 }
 
 @media (max-width: 500px) {
