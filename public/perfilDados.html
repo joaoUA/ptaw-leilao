@@ -14,24 +14,24 @@
         defer></script>
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
-    <title>PTAW | HOME</title>
+    <title>PTAW | Perfil</title>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="main.js" defer></script>
 </head>
 
 <body>
     <header>
-        <nav class="bg-dark navbar navbar-expand navbar-dark">
+        <nav class="bkg-secondary navbar navbar-expand navbar-dark fnt-main">
             <div class="container-fluid">
                 <form action="" class="d-flex" role="search">
-                    <input type="search" name="" id="" class="form-control me-2">
-                    <button type="submit" class="btn btn-light">Search</button>
+                    <input type="search" name="" id="" class="form-control me-2" />
+                    <button type="submit" class="btn btn-light fnt-s border-0 bg-white">Search</button>
                 </form>
             </div>
 
-            <ul class="nav nav-underline justify-content-center container-fluid">
+            <ul class="nav nav-underline justify-content-center container-fluid fnt-l">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Início</a>
+                    <a href="index.html" class="nav-link text-light">Início</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-light">Verificações</a>
@@ -44,7 +44,8 @@
                 </li>
             </ul>
             <div class="container-fluid d-flex justify-content-end align-items-center">
-                <button class="btn btn-primary me-2">Conta</button>
+                <button class="btn btn-primary btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Conta</button>
                 <div class="fs-2">
                     <i class="bi bi-person-circle text-light"></i>
                 </div>
@@ -54,64 +55,72 @@
     <main class="container">
         <div class="row mt-5">
             <section class="col-3">
-                <div class="d-flex flex-column gap-2 bg-secondary py-3 px-4 rounded-1">
+                <div class="d-flex flex-column gap-2 bkg-terciary py-3 px-4 rounded-1 fnt-main fnt-s ">
                     <a href="#"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Dados
+                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Dados
                         Pessoais</a>
                     <a href="#"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Histórico
+                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Histórico
                         de Compras</a>
                     <a href="#"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Histórico
+                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Histórico
                         de Vendas</a>
                     <a href="#"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Carteira</a>
+                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Carteira</a>
                     <a href="#"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1">Sair</a>
+                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Sair</a>
                 </div>
             </section>
-            <section class="col-6 d-flex flex-column gap-2">
-                <h3>Perfil</h3>
+            <section class="col-6 d-flex flex-column gap-2 fnt-main cl-terciary mb-5">
+                <h3 class="fnt-xl">Perfil</h3>
                 <div class="d-flex flex-column gap-2 mb-4">
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control" placeholder="Nome Próprio">
-                        <input type="text" class="form-control" placeholder="Apelido">
+                        <input type="text" class="form-control fnt-s" placeholder="Nome Próprio">
+                        <input type="text" class="form-control fnt-s" placeholder="Apelido">
                     </div>
-                    <input type="date" class="form-control w-50" placeholder="Data Nascimento" value="">
+                    <input type="date" class="form-control w-50 fnt-s" placeholder="Data Nascimento" value="">
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control w-75" placeholder="Morada">
-                        <input type="text" class="form-control w-25" placeholder="Código Postal">
+                        <input type="text" class="form-control w-75 fnt-s" placeholder="Morada">
+                        <input type="text" class="form-control w-25 fnt-s" placeholder="Código Postal">
                     </div>
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control" placeholder="Cidade">
-                        <input type="text" class="form-control" placeholder="País">
+                        <input type="text" class="form-control fnt-s" placeholder="Cidade">
+                        <input type="text" class="form-control fnt-s" placeholder="País">
                     </div>
                 </div>
                 <div class="d-flex flex-column gap-2 mb-4">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control fnt-s" placeholder="Email">
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="password" class="form-control" placeholder="Palavra-Passe">
-                        <input type="password" class="form-control" placeholder="Confirmar Palavra-Passe">
+                        <input type="password" class="form-control fnt-s" placeholder="Palavra-Passe">
+                        <input type="password" class="form-control fnt-s" placeholder="Confirmar Palavra-Passe">
                     </div>
                 </div>
                 <div class="d-flex justify-content-between gap-2 mb-4">
-                    <input type="text" class="form-control" placeholder="CC">
-                    <input type="text" class="form-control" placeholder="IBAN">
+                    <input type="text" class="form-control fnt-s" placeholder="CC">
+                    <input type="text" class="form-control fnt-s" placeholder="IBAN">
                 </div>
                 <div class="d-flex justify-content-between gap-2">
-                    <button class="form-control btn btn-light">Cancelar</button>
-                    <button class="form-control btn btn-dark">Confirmar</button>
+                    <button class="form-control btn btn-light bkg-primary cl-terciary fnt-s">Cancelar</button>
+                    <button class="form-control btn btn-dark bkg-terciary cl-primary border-0 fnt-s">Confirmar</button>
                 </div>
             </section>
             <section class="col-3"></section>
         </div>
     </main>
-    <footer class="py-3 mt-4 footer-bs bg-white">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Entregas e Devoluções</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Termos e Condições</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Política de Cookies</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQ</a></li>
+    <footer class="py-3 footer-bs bkg-primary">
+        <ul class="nav justify-content-center ">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Entregas e Devoluções</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Termos e Condições</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">Política de Cookies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted fnt-m fnt-main">FAQ</a>
+            </li>
         </ul>
     </footer>
 </body>
