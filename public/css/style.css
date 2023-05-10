@@ -192,6 +192,7 @@ body > main {
 	display: flex;
 	justify-content: space-between;
 	padding: 0.5em;
+	align-items: center;
 }
 #modal-al-header > p {
 	margin: 0;
