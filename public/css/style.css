@@ -94,6 +94,7 @@ body > main {
 	flex-grow: auto;
 }
 
+/* Pagina Inicial - Cartas*/
 .my-card {
 	width: 100%;
 	display: flex;
@@ -104,7 +105,6 @@ body > main {
 	padding: 0.5em;
 	border-radius: 0.5em;
 }
-
 .my-card-img {
 	max-width: 100%;
 	border-radius: 0.5em;
@@ -126,12 +126,58 @@ body > main {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-
 .card-container {
 	width: 80%;
 	margin: auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Página Verificações */
+#vt-container {
+	margin: 2em 5%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 4em;
+}
+.vt {
+	flex-grow: 1;
+	flex-basis: 0;
+	font-size: var(--font-size-small);
+}
+.vt > .vt-item:nth-child(even) {
+	background-color: var(--color-primary);
+}
+.vt > .vt-item:not(:first-child):nth-child(odd) {
+	background-color: white;
+}
+
+.vt-title {
+	padding: 0.5em;
+	margin: 0;
+	background-color: var(--color-terciary);
+	color: var(--color-primary);
+}
+.vt-item {
+	display: flex;
+	align-items: center;
+	padding: 0.5em;
+	gap: 0.5em;
+}
+/*
+.vt-item > img {
+}
+*/
+.vt-item p {
+	padding: 0;
+	margin: 0;
+}
+.vt-item p:first-of-type {
+	flex-grow: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /* Media Queries */
@@ -159,6 +205,11 @@ body > main {
 	.card-container {
 		grid-template-columns: 1fr 1fr;
 	}
+
+	/*Verificações*/
+	#vt-container {
+		flex-direction: column;
+	}
 }
 
 @media (max-width: 500px) {
@@ -170,6 +221,10 @@ body > main {
 	}
 
 	#profile-link > button {
+		display: none;
+	}
+
+	#sellet-vt > .vt-item:not(:first-child) > p:last-of-type {
 		display: none;
 	}
 }
