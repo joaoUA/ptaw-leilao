@@ -224,7 +224,7 @@ body > main {
 		display: none;
 	}
 
-	#sellet-vt > .vt-item:not(:first-child) > p:last-of-type {
+	#seller-vt > .vt-item:not(:first-child) > p:last-of-type {
 		display: none;
 	}
 }
