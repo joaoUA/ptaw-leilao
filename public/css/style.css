@@ -180,6 +180,49 @@ body > main {
 	text-overflow: ellipsis;
 }
 
+/* Pagina Verificações - Modal Leilão*/
+#modal-al {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	margin: 0;
+	/*d-flex flex-column px-5 m-0 fnt-main cl-terciary*/
+}
+#modal-al-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em;
+}
+#modal-al-header > p {
+	margin: 0;
+	font-size: var(--font-size-medium);
+}
+#modal-al-header > p:last-child {
+	font-size: var(--font-size-small);
+}
+#modal-al-btn-container {
+	display: flex;
+	justify-content: center;
+	gap: 0.5em;
+}
+#modal-al-btn-container > button {
+	font-size: var(--font-size-small);
+}
+.modal-auction-item {
+	display: flex;
+	flex-direction: row;
+	padding: 0.5em;
+	align-items: center;
+	gap: 0.5em;
+}
+.modal-auction-item:not(:first-child):not(:last-child):nth-child(even) {
+	background-color: var(--color-primary);
+}
+.modal-auction-item > p {
+	flex-grow: 1;
+	margin: 0;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
 	header {
@@ -226,5 +269,9 @@ body > main {
 
 	#seller-vt > .vt-item:not(:first-child) > p:last-of-type {
 		display: none;
+	}
+
+	#modal-al-header > p {
+		font-size: var(--font-size-small);
 	}
 }
