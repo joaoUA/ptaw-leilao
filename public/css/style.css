@@ -165,4 +165,11 @@ body > main {
 	.card-container {
 		grid-template-columns: 1fr;
 	}
+	header > nav {
+		font-size: var(--font-size-small);
+	}
+
+	#profile-link > button {
+		display: none;
+	}
 }
