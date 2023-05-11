@@ -629,6 +629,79 @@ nav a {
 	font-size: var(--font-size-small);
 }
 
+/* Criar Leilão*/
+#ca-main-container {
+	max-width: 1200px;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+#table-section-heading {
+	display: flex;
+	gap: 1em;
+	justify-content: space-between;
+	align-items: center;
+}
+#table-section-heading > input {
+	flex-basis: 0;
+	flex-grow: 3;
+	max-width: 500px;
+}
+#table-section-heading > button {
+	flex-basis: 0;
+	flex-grow: 1;
+	font-size: var(--font-size-small);
+	max-width: fit-content;
+}
+
+#ca-main-container > table {
+	margin: 0;
+}
+
+#ca-options {
+	display: grid;
+	grid-template-columns: auto auto;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.5em;
+}
+#ca-options > p {
+	margin: 0;
+	width: fit-content;
+}
+#ca-options > div:nth-child(2) {
+	margin: 0;
+}
+#ca-options > div:nth-child(3) {
+	max-width: 100%;
+	grid-column: 1 / -1;
+}
+
+#ca-main-container > div:last-child {
+	margin: 0;
+}
+
+#article-img-container {
+	width: fit-content;
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	align-items: center;
+	justify-content: center;
+	row-gap: 0;
+	column-gap: 0.5em;
+}
+#article-img-container img:first-child {
+	grid-column: 1/2;
+	grid-row: 1/3;
+}
+
+#article-img-container img:not(:first-child) {
+	width: 48px;
+	height: 48px;
+}
+
 /*Utilidades*/
 .hidden {
 	display: none;
@@ -784,5 +857,15 @@ nav a {
 	}
 	.auction-form-container {
 		justify-self: flex-end;
+	}
+
+	#table-section-heading {
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.5em;
+	}
+
+	#article-img-container {
+		flex-direction: column;
 	}
 }
