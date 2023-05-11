@@ -128,22 +128,40 @@
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="d-flex justify-content-end p-3 pb-0">
+                    <div class="modal-top-bar">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body d-flex flex-column align-items-center fnt-main fnt-s cl-terciary py-0">
-                        <span class="">Nome do perfil</span>
-                        <span class="">Data de Nascimento</span>
-                        <span class="">Morada</span>
-                        <span class="">E-mail</span>
-                        <span class="">CC</span>
-                        <span class="">IBAN</span>
-                    </div>
-                    <div class="d-flex justify-content-around m-3">
-                        <button type="button" class="btn btn-light bkg-primary cl-terciary fnt-main fnt-s w-25"
-                            data-bs-dismiss="modal">Recusar</button>
-                        <button type="button" class="btn btn-dark bkg-terciary cl-primary fnt-main fnt-s w-25"
-                            data-bs-dismiss="modal">Aprovar</button>
+                    <div id="modal-seller" class="verfication-modal">
+                        <div class="modal-seller-item">
+                            <p>Nome:</p>
+                            <p>Ana Isabel Ferreira dos Santos</p>
+                        </div>
+                        <div class="modal-seller-item">
+                            <p>Data de Nascimento:</p>
+                            <p>05-11-1985</p>
+                        </div>
+                        <div class="modal-seller-item">
+                            <p>Morada:</p>
+                            <p>Rua dos Cravos, nº300</p>
+                        </div>
+                        <div class="modal-seller-item">
+                            <p>E-mail:</p>
+                            <p>anaisasantos@gmail.com</p>
+                        </div>
+                        <div class="modal-seller-item">
+                            <p>CC:</p>
+                            <p>123456789</p>
+                        </div>
+                        <div class="modal-seller-item">
+                            <p>IBAN:</p>
+                            <p>123456789</p>
+                        </div>
+                        <div class="modal-verification-btn-container">
+                            <button type="button" class="btn btn-light bkg-primary cl-terciary"
+                                data-bs-dismiss="modal">Recusar</button>
+                            <button type="button" class="btn btn-dark bkg-terciary cl-primary"
+                                data-bs-dismiss="modal">Aprovar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,7 +194,7 @@
                                 <input class="toggle-pill form-check-input" type="checkbox" role="switch">
                             </div>
                         </div>
-                        <div id="modal-al-btn-container">
+                        <div class="modal-verification-btn-container">
                             <button type="button" class="btn btn-light bkg-primary cl-terciary"
                                 data-bs-dismiss="modal">Recusar</button>
                             <button type="button" class="btn btn-dark bkg-terciary"

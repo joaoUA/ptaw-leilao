@@ -203,17 +203,28 @@ body > main {
 	margin: 0;
 	font-family: var(--font-primary);
 }
+
 .modal-top-bar {
 	padding: 0.5em 0.5em 0 0.5em;
 }
 .modal-top-bar > button {
 	float: right;
 }
+
 .toggle-pill {
 	border: none;
 }
 .toggle-pill:checked {
 	background-color: var(--color-terciary);
+}
+
+.modal-verification-btn-container {
+	display: flex;
+	justify-content: center;
+	gap: 0.5em;
+}
+.modal-verification-btn-container button {
+	font-size: var(--font-size-small);
 }
 
 /* Pagina Verificações - Modal Leilão*/
@@ -228,14 +239,6 @@ body > main {
 	font-size: var(--font-size-medium);
 }
 #modal-al-header > p:last-child {
-	font-size: var(--font-size-small);
-}
-#modal-al-btn-container {
-	display: flex;
-	justify-content: center;
-	gap: 0.5em;
-}
-#modal-al-btn-container > button {
 	font-size: var(--font-size-small);
 }
 .modal-auction-item {
@@ -253,7 +256,7 @@ body > main {
 	margin: 0;
 }
 
-/* Pagina Verificações - Modal */
+/* Pagina Verificações - Modal Artigo */
 #modal-auction-item-details {
 	align-items: center;
 }
@@ -264,6 +267,28 @@ body > main {
 #modal-auction-item-details > img {
 	min-width: 90px;
 	max-width: 40%;
+}
+
+/* Pagina Verificações - Modal Vendedor */
+.modal-seller-item {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	color: var(--color-terciary);
+	font-size: var(--font-size-medium);
+	padding: 0.3em 0.5em;
+}
+.modal-seller-item:nth-child(odd) {
+	background-color: var(--color-primary);
+}
+
+.modal-seller-item p {
+	margin: 0;
+	word-wrap: break-word;
+}
+.modal-seller-item p:first-child {
+	font-size: var(--font-size-small);
+	font-style: italic;
 }
 
 /* Media Queries */
@@ -315,6 +340,10 @@ body > main {
 	}
 
 	#modal-al-header > p {
+		font-size: var(--font-size-small);
+	}
+
+	.modal-seller-item p {
 		font-size: var(--font-size-small);
 	}
 }
