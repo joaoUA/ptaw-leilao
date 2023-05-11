@@ -169,6 +169,28 @@ body > main {
 	gap: 1em;
 }
 
+/*Pagina Inicial - Modal*/
+#login-modal-body {
+	gap: 0.5em;
+}
+#login-modal-body > a:last-child {
+	font-size: var(--font-size-small);
+	color: var(--color-terciary);
+	text-decoration: none;
+	text-align: center;
+}
+#login-modal-body > a:last-child:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#register-acc-modal-body {
+	gap: 1em;
+}
+#register-acc-modal-body > .modal-btn-container {
+	flex-direction: column;
+}
+
 /* Página Verificações */
 #vt-container {
 	display: flex;
@@ -216,7 +238,7 @@ body > main {
 }
 
 /* Pagina Verificações - Modal Geral*/
-.verfication-modal {
+.my-modal-body {
 	display: flex;
 	flex-direction: column;
 	padding: 1em;
@@ -238,12 +260,12 @@ body > main {
 	background-color: var(--color-terciary);
 }
 
-.modal-verification-btn-container {
+.modal-btn-container {
 	display: flex;
 	justify-content: center;
 	gap: 0.5em;
 }
-.modal-verification-btn-container button {
+.modal-btn-container button {
 	font-size: var(--font-size-small);
 }
 
@@ -417,6 +439,20 @@ body > main {
 	text-align: end;
 }
 
+/* Pagina Carteira*/
+#wallet-main-container {
+	display: flex;
+	gap: 2em;
+}
+#wallet-main-container > section {
+	flex-grow: 1;
+	font-family: var(--font-primary);
+}
+
+#add-credit-card {
+	max-width: 600px;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
 	header {
@@ -467,6 +503,15 @@ body > main {
 	.history-table tr td:last-child,
 	.history-table tr th:last-child {
 		display: none;
+	}
+
+	/*Carteira*/
+	#wallet-main-container {
+		flex-direction: column;
+		gap: 1em;
+	}
+	#add-credit-card {
+		max-width: 100%;
 	}
 }
 
@@ -527,5 +572,9 @@ body > main {
 	}
 	.history-table caption {
 		font-size: var(--font-size-large);
+	}
+
+	#wallet-main-container td {
+		font-size: var(--font-size-small);
 	}
 }
