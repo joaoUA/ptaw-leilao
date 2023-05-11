@@ -112,15 +112,13 @@
         <div class="modal fade" id="ModalArtigo" tabindex="-1" aria-labelledby="ModalArtigoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="d-flex justify-content-end p-3 pb-0">
+                    <div class="modal-top-bar">
                         <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#ModalLeilao"
                             aria-label="Close"></button>
                     </div>
-                    <div class="modal-body d-flex flex-column align-items-center pt-0 gap-2 mb-2">
-                        <span class="fnt-main fnt-m">Detalhes do Artigo</span>
-                        <div class="">
-                            <img src=".\img\img-placeholder-224.png" alt="placeholder" />
-                        </div>
+                    <div id="modal-auction-item-details" class="modal-body verfication-modal">
+                        <p>Detalhes do Artigo</p>
+                        <img src=".\img\img-placeholder-224.png" alt="placeholder" />
                     </div>
                 </div>
             </div>
@@ -154,10 +152,10 @@
         <div class="modal fade" id="ModalLeilao" tabindex="-1" aria-labelledby="ModalLeilaoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="d-flex justify-content-end p-3 pb-0">
+                    <div class="modal-top-bar">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div id="modal-al" class="modal-body">
+                    <div id="modal-al" class="modal-body verfication-modal">
                         <div id="modal-al-header">
                             <p>Título do Leilão</p>
                             <p>Nome do Vendedor</p>
@@ -167,8 +165,7 @@
                                 data-bs-target="#ModalArtigo" />
                             <p class="">Artigo</p>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault">
+                                <input class="toggle-pill form-check-input" type="checkbox" role="switch">
                             </div>
                         </div>
                         <div class="modal-auction-item">
@@ -176,8 +173,7 @@
                                 data-bs-target="#ModalArtigo" />
                             <p class="">Artigo</p>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault">
+                                <input class="toggle-pill form-check-input" type="checkbox" role="switch">
                             </div>
                         </div>
                         <div id="modal-al-btn-container">

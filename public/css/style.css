@@ -195,14 +195,28 @@ body > main {
 	text-overflow: ellipsis;
 }
 
-/* Pagina Verificações - Modal Leilão*/
-#modal-al {
+/* Pagina Verificações - Modal Geral*/
+.verfication-modal {
 	display: flex;
 	flex-direction: column;
 	padding: 1em;
 	margin: 0;
-	/*d-flex flex-column px-5 m-0 fnt-main cl-terciary*/
+	font-family: var(--font-primary);
 }
+.modal-top-bar {
+	padding: 0.5em 0.5em 0 0.5em;
+}
+.modal-top-bar > button {
+	float: right;
+}
+.toggle-pill {
+	border: none;
+}
+.toggle-pill:checked {
+	background-color: var(--color-terciary);
+}
+
+/* Pagina Verificações - Modal Leilão*/
 #modal-al-header {
 	display: flex;
 	justify-content: space-between;
@@ -237,6 +251,19 @@ body > main {
 .modal-auction-item > p {
 	flex-grow: 1;
 	margin: 0;
+}
+
+/* Pagina Verificações - Modal */
+#modal-auction-item-details {
+	align-items: center;
+}
+#modal-auction-item-details > p {
+	margin: 0;
+	font-size: var(--font-size-medium);
+}
+#modal-auction-item-details > img {
+	min-width: 90px;
+	max-width: 40%;
 }
 
 /* Media Queries */
