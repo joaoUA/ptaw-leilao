@@ -74,12 +74,12 @@
 
 /* Componentes*/
 header {
-	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
-}
-header > nav {
-	justify-self: center;
-	font-size: var(--font-size-large);
+	height: 50px;
+	display: flex;
+	gap: 0;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1em;
 }
 
 footer {
@@ -113,6 +113,79 @@ body > main {
 	max-width: 1600px;
 	padding: 2em 5%;
 	margin: 0 auto;
+}
+
+/* Header */
+nav a {
+	text-decoration: none;
+	color: var(--color-primary);
+	font-size: var(--font-size-medium);
+}
+
+#profile-icon,
+.search-icon {
+	cursor: pointer;
+}
+
+.search-container {
+	display: flex;
+	gap: 0.5em;
+}
+.input-container {
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+.icon-container {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: white;
+}
+
+#search-bar {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	padding: 0.2em;
+	display: flex;
+	border-radius: 0.5em;
+	background-color: white;
+	border: 1px solid var(--color-secondary);
+}
+#search-bar > input {
+	flex-basis: 0;
+	flex-grow: 2;
+}
+#search-bar > button {
+	flex-basis: 0;
+	flex-grow: 1;
+}
+#search-bar.hidden {
+	display: none;
+}
+
+#profile-menu {
+	top: 50px;
+	right: 0;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 0.5em;
+	background-color: white;
+	border: 1px solid var(--color-secondary);
+	list-style-type: none;
+}
+#profile-menu.hidden {
+	display: none;
+}
+#profile-menu a {
+	color: var(--color-terciary);
+	text-decoration: none;
+}
+#profile-menu a:hover {
+	text-decoration: underline;
 }
 
 /* Pagina Inicial - Cartas*/
@@ -556,21 +629,16 @@ body > main {
 	font-size: var(--font-size-small);
 }
 
+/*Utilidades*/
+.hidden {
+	display: none;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
-	header {
-		grid-template-columns: auto min-content;
-	}
-
 	header > nav {
-		justify-self: center;
-		font-size: var(--font-size-medium);
+		font-size: var(--font-size-small);
 	}
-
-	.search-container {
-		display: none;
-	}
-
 	/*Footer*/
 	footer > ul {
 		flex-direction: column;
@@ -662,14 +730,6 @@ body > main {
 	.card-container {
 		width: 100%;
 		gap: 0.5em;
-	}
-
-	header > nav {
-		font-size: var(--font-size-small);
-	}
-
-	#profile-link > button {
-		display: none;
 	}
 
 	#seller-vt > .vt-item:not(:first-child) > p:last-of-type {
