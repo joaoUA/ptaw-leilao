@@ -351,6 +351,72 @@ body > main {
 	flex-grow: 1;
 }
 
+.history-table {
+	width: 100%;
+	caption-side: top;
+	border-collapse: collapse;
+	border: none;
+	font-size: var(--font-size-small);
+}
+.history-table > caption {
+	font-size: var(--font-size-extra-large);
+	color: var(--color-terciary);
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+.history-table td,
+.history-table th {
+	font-weight: normal;
+	border: 0px;
+}
+.history-table tr:not(:first-child):nth-child(even) {
+	background-color: var(--color-primary);
+}
+.history-table tr:first-child {
+	background-color: var(--color-terciary);
+	color: var(--color-primary);
+}
+/*table image column*/
+.history-table tr td:first-child,
+.history-table tr th:first-child {
+	width: 8%;
+	padding: 0.5em;
+}
+/*table name column*/
+.history-table tr td:nth-child(2),
+.history-table tr th:nth-child(2) {
+	padding: 0.5em;
+}
+/*table price column*/
+.history-table tr td:nth-child(3),
+.history-table tr th:nth-child(3) {
+	width: 10%;
+	padding: 0.5em;
+}
+/*table date column*/
+.history-table tr td:nth-child(4),
+.history-table tr th:nth-child(4) {
+	width: 120px;
+	padding: 0.5em;
+}
+/*table file column*/
+.history-table tr td:nth-child(5),
+.history-table tr th:nth-child(5) {
+	width: 8%;
+	text-align: center;
+	padding: 0.5em;
+}
+/*table header row*/
+.history-table tr th {
+	text-align: center;
+}
+/*table data & price columns (except headers)*/
+.history-table tr td:nth-last-child(2),
+.history-table tr td:nth-last-child(3) {
+	text-align: end;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
 	header {
@@ -380,6 +446,27 @@ body > main {
 	/*Verificações*/
 	#vt-container {
 		flex-direction: column;
+	}
+
+	/*Historico*/
+	#history-main-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+	/*Sidebar*/
+	.sidebar-container {
+		max-width: none;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1em;
+		justify-content: space-around;
+		padding: 0.5em 1em;
+	}
+	/*Tables*/
+	.history-table tr td:last-child,
+	.history-table tr th:last-child {
+		display: none;
 	}
 }
 
@@ -425,5 +512,20 @@ body > main {
 
 	.modal-seller-item p {
 		font-size: var(--font-size-small);
+	}
+
+	.sidebar-container {
+		flex-direction: column;
+	}
+	.sidebar-item {
+		white-space: nowrap;
+	}
+
+	.history-table tr td:nth-child(3),
+	.history-table tr th:nth-child(3) {
+		display: none;
+	}
+	.history-table caption {
+		font-size: var(--font-size-large);
 	}
 }
