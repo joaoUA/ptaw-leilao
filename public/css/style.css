@@ -106,7 +106,11 @@ body {
 	flex-direction: column;
 }
 body > main {
-	flex-grow: auto;
+	flex-grow: 1;
+}
+
+.main-container {
+	padding: 2em 5%;
 }
 
 /* Pagina Inicial - Cartas*/
@@ -131,6 +135,12 @@ body > main {
 	align-items: center;
 	max-height: 100px;
 }
+.my-card-title,
+.my-card-value,
+.my-card-timer {
+	margin: 0;
+}
+
 .my-card-timer {
 	text-align: center;
 }
@@ -140,12 +150,21 @@ body > main {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	font-size: var(--font-size-large);
+}
+.my-card-bid-btn {
+	font-family: var(--font-primary);
+	background-color: var(--color-terciary);
+	color: var(--color-primary);
+	font-size: var(--font-size-medium);
 }
 .card-container {
-	width: 80%;
-	margin: auto;
 	display: grid;
+	width: 80%;
+	max-width: 1200px;
+	margin: 0 auto;
 	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1em;
 }
 
 /* Página Verificações */
@@ -291,6 +310,8 @@ body > main {
 	font-style: italic;
 }
 
+/* Pagina Perfil de Dados*/
+
 /* Media Queries */
 @media (max-width: 900px) {
 	header {
@@ -324,9 +345,31 @@ body > main {
 }
 
 @media (max-width: 500px) {
-	.card-container {
-		grid-template-columns: 1fr;
+	.main-container {
+		padding: 2em 0;
 	}
+	.my-card {
+		gap: 0.2em;
+		padding: 0.2em;
+	}
+	.my-card-sub {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		max-height: fit-content;
+	}
+	.my-card-title,
+	.my-card-timer,
+	.my-card-bid-btn,
+	.my-card-value {
+		font-size: var(--font-size-small);
+	}
+	.my-card-timer {
+		text-align: start;
+	}
+	.card-container {
+		gap: 0.5em;
+	}
+
 	header > nav {
 		font-size: var(--font-size-small);
 	}
