@@ -356,6 +356,23 @@ body > main {
 }
 
 /* Pagina Perfil de Dados*/
+#profile-main-container {
+	display: flex;
+	gap: 2em;
+}
+#profile {
+	flex-grow: 1;
+	max-width: 800px;
+}
+#profile > div {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+}
+#profile > div input,
+#profile > div button {
+	font-size: var(--font-size-small);
+}
 
 /* Pagina Histórico */
 .history-section {
@@ -512,6 +529,12 @@ body > main {
 	}
 	#add-credit-card {
 		max-width: 100%;
+	}
+
+	/*Perfil*/
+	#profile-main-container {
+		flex-direction: column;
+		gap: 1em;
 	}
 }
 
