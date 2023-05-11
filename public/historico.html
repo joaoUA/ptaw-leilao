@@ -46,84 +46,77 @@
             <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
                 data-bs-target="#modalLogin">Conta</button>
             <div class="fs-2">
-                <i class="bi bi-person-circle text-light"></i>
+                <i href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
             </div>
         </div>
     </header>
-    <main class="container">
-        <div class="row mt-5">
-            <section class="col-3">
-                <div class="d-flex flex-column gap-2 bkg-terciary py-3 px-4 rounded-1 fnt-main fnt-s ">
-                    <a href="./perfilDados.html"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Dados
-                        Pessoais</a>
-                    <a href="./historico.html"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Histórico
-                        de Compras</a>
-                    <a href="./historico.html"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Histórico
-                        de Vendas</a>
-                    <a href="./perfilCarteira.html"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Carteira</a>
-                    <a href="#"
-                        class="link-underline-opacity-0 link-light link-underline-opacity-75-hover link-offset-1 ">Sair</a>
-                </div>
+    <main>
+        <div id="history-main-container" class="main-container">
+            <aside class="sidebar-container">
+                <a href="./perfilDados.html" class="sidebar-item">Dados
+                    Pessoais</a>
+                <a href="./historico.html" class="sidebar-item">Histórico
+                    de Compras</a>
+                <a href="./historico.html" class="sidebar-item">Histórico
+                    de Vendas</a>
+                <a href="./perfilCarteira.html" class="sidebar-item">Carteira</a>
+                <a href="#" class="sidebar-item">Sair</a>
+            </aside>
+            <section class="history-section">
+                <h3 class="history-section-title">Histórico</h3>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="bkg-terciary cl-primary">
+                            <th scope="col" class="col-md-1 "></th>
+                            <th scope="col" class="col-auto"></th>
+                            <th scope="col" class="text-end col-md-2"> <i class="fa-solid fa-dollar-sign"></i>
+                            </th>
+                            <th scope="col" class="text-center col-md-2"><i class="fa-regular fa-calendar"></i>
+                            </th>
+                            <th scope="col" class=" col-md-1"><i class="fa-regular fa-file"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle cl-terciary">
+                        <tr>
+                            <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
+                            <td class="text-start fnt-s ">Nome do Artigo</td>
+                            <td class="text-end fnt-s ">100.00€</td>
+                            <td class="text-center fnt-s ">2023-06-31</td>
+                            <td><i class="fa-regular fa-square"></i></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
+                            <td class="text-start fnt-s ">Nome do Artigo</td>
+                            <td class="text-end fnt-s ">100.00€</td>
+                            <td class="text-center fnt-s ">2023-06-31</td>
+                            <td><i class="fa-solid fa-square"></i></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
+                            <td class="text-start fnt-s ">Nome do Artigo</td>
+                            <td class="text-end fnt-s ">100.00€</td>
+                            <td class="text-center fnt-s ">2023-06-31</td>
+                            <td><i class="fa-solid fa-square"></i></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
+                            <td class="text-start fnt-s ">Nome do Artigo</td>
+                            <td class="text-end fnt-s ">100.00€</td>
+                            <td class="text-center fnt-s ">2023-06-31</td>
+                            <td><i class="fa-regular fa-square"></i></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
+                            <td class="text-start fnt-s ">Nome do Artigo</td>
+                            <td class="text-end fnt-s ">100.00€</td>
+                            <td class="text-center fnt-s ">2023-06-31</td>
+                            <td><i class="fa-regular fa-square"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
-            <section class="col-9 d-flex flex-column gap-2 fnt-main">
-                <h3 class="fnt-XL">Histórico</h3>
-                <div class="d-flex flex-column gap-3">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr class="bkg-terciary cl-primary">
-                                <th scope="col" class="col-md-1 "></th>
-                                <th scope="col" class="col-auto"></th>
-                                <th scope="col" class="text-end col-md-2"> <i class="fa-solid fa-dollar-sign"></i>
-                                </th>
-                                <th scope="col" class="text-center col-md-2"><i class="fa-regular fa-calendar"></i>
-                                </th>
-                                <th scope="col" class=" col-md-1"><i class="fa-regular fa-file"></i>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="align-middle cl-terciary">
-                            <tr>
-                                <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
-                                <td class="text-start fnt-s ">Nome do Artigo</td>
-                                <td class="text-end fnt-s ">100.00€</td>
-                                <td class="text-center fnt-s ">2023-06-31</td>
-                                <td><i class="fa-regular fa-square"></i></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
-                                <td class="text-start fnt-s ">Nome do Artigo</td>
-                                <td class="text-end fnt-s ">100.00€</td>
-                                <td class="text-center fnt-s ">2023-06-31</td>
-                                <td><i class="fa-solid fa-square"></i></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
-                                <td class="text-start fnt-s ">Nome do Artigo</td>
-                                <td class="text-end fnt-s ">100.00€</td>
-                                <td class="text-center fnt-s ">2023-06-31</td>
-                                <td><i class="fa-solid fa-square"></i></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
-                                <td class="text-start fnt-s ">Nome do Artigo</td>
-                                <td class="text-end fnt-s ">100.00€</td>
-                                <td class="text-center fnt-s ">2023-06-31</td>
-                                <td><i class="fa-regular fa-square"></i></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><img src=".\img\img-placeholder-48.png" alt=""></td>
-                                <td class="text-start fnt-s ">Nome do Artigo</td>
-                                <td class="text-end fnt-s ">100.00€</td>
-                                <td class="text-center fnt-s ">2023-06-31</td>
-                                <td><i class="fa-regular fa-square"></i></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        </div>
     </main>
     <footer class="bkg-primary">
         <ul class="fnt-main">

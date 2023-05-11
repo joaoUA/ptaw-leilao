@@ -311,7 +311,45 @@ body > main {
 	font-style: italic;
 }
 
+/*Sidebar*/
+.sidebar-container {
+	background-color: var(--color-terciary);
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	font-family: var(--font-primary);
+	font-size: var(--font-size-small);
+	border-radius: 0.5em;
+	padding: 1em 1.5em;
+	max-width: 200px;
+}
+.sidebar-item {
+	text-decoration: none;
+	color: var(--color-primary);
+}
+.sidebar-item:hover {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
 /* Pagina Perfil de Dados*/
+
+/* Pagina Histórico */
+.history-section {
+	font-family: var(--font-primary);
+}
+.history-section-title {
+	font-size: var(--font-size-extra-large);
+	margin-bottom: 0.5em;
+}
+#history-main-container {
+	display: flex;
+	gap: 2em;
+}
+#history-main-container > section {
+	flex-grow: 1;
+}
 
 /* Media Queries */
 @media (max-width: 900px) {
