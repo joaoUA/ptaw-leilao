@@ -2,7 +2,7 @@ const loginBtn = document.getElementById("login-btn")
 
 const licitarBtns = Array.from(document.getElementsByClassName("btn btn-dark bkg-terciary cl-primary fnt-m"))
 
-loginBtn.addEventListener("click", () => {
+loginBtn?.addEventListener("click", () => {
     window.location.href = "./perfilDados.html";
 })
 
