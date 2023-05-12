@@ -122,6 +122,20 @@ nav a {
 	font-size: var(--font-size-medium);
 }
 
+nav {
+	flex-basis: 0;
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+}
+
+#profile-link-container {
+	flex-basis: 0;
+	flex-grow: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
 #profile-icon,
 .search-icon {
 	cursor: pointer;
@@ -130,6 +144,8 @@ nav a {
 .search-container {
 	display: flex;
 	gap: 0.5em;
+	flex-basis: 0;
+	flex-grow: 1;
 }
 .input-container {
 	position: absolute;
