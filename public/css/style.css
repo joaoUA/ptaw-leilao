@@ -260,7 +260,7 @@ nav {
 }
 
 /* Bundle Icon */
-.card-bundle::after {
+.my-card.card-bundle::after {
 	content: "Vários Itens";
 	position: absolute;
 	top: 5%;
