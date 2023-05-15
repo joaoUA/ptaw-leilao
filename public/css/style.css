@@ -206,6 +206,7 @@ nav {
 
 /* Pagina Inicial - Cartas*/
 .my-card {
+	position: relative;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -256,6 +257,24 @@ nav {
 	margin: 0 auto;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 1em;
+}
+
+/* Bundle Icon */
+.card-bundle::after {
+	content: "Vários Itens";
+	position: absolute;
+	top: 5%;
+	right: 0;
+	width: fit-content;
+	padding: 0.2em 0.8em;
+	background-color: red;
+	color: white;
+	border-radius: 0.5em 0em 0em 0.5em;
+	font-size: var(--font-size-small);
+	font-weight: bold;
+	background-color: var(--color-secondary);
+	border-bottom: 2px solid var(--color-terciary);
+	border-left: 2px solid var(--color-terciary);
 }
 
 /*Pagina Inicial - Modal*/
