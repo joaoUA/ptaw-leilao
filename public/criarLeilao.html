@@ -16,50 +16,46 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <title>Criar Leilão</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/25b734335a.js" crossorigin="anonymous"></script>
     <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <header class="px-2 justify-content-between align-items-center gap-2 bkg-secondary fnt-main">
+    <header class="bkg-secondary fnt-main">
         <div class="search-container">
-            <form action="" class="d-flex" role="search">
-                <input type="search" name="" id="" class="form-control me-2" />
-                <button type="submit" class="btn btn-light fnt-s border-0">Search</button>
+            <div id="search-icon" class="icon-container">
+                <i class="fa fa-search"></i>
+            </div>
+            <form id="search-bar" action="" class="hidden" role="search">
+                <input type="search" name="" id="" class="form-control me-2" placeholder="Pesquisar..." />
+                <button type="submit" class="form-control btn btn-light fnt-s border-0">Pesquisar</button>
             </form>
         </div>
-
-        <nav class="navbar navbar-expand navbar-dark">
-            <ul class="nav nav-underline justify-content-center">
-                <li class="nav-item">
-                    <a href="./index.html" class="nav-link text-light">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./verificacao.html" class="nav-link text-light">Verificações</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./criarLeilao.html" class="nav-link text-light">Criar Leilão</a>
-                </li>
-            </ul>
+        <nav>
+            <a href="./index.html">Início</a>
         </nav>
-        <div class="d-flex justify-content-end align-items-center">
-            <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
-                data-bs-target="#modalLogin">Conta</button>
-            <div class="fs-2">
-                <i class="bi bi-person-circle text-light"></i>
+        <div id="profile-link-container">
+            <div id="profile-icon-container" class=" fnt-xl">
+                <button class="btn btn-light btn-sm cl-terciary" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Login</button>
+                <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
             </div>
+            <ul id="profile-menu" class="hidden">
+                <a href="./perfilDados.html">Perfil</a>
+                <a href="./criarLeilao.html">Criar Leilão</a>
+                <a href="./verificacao.html">Painel Admin</a>
+            </ul>
         </div>
     </header>
     <main>
-        <section class="container-fluid w-75 my-5">
-            <div id="table-section-heading" class="d-flex justify-content-between mb-2 align-items-center fnt-main">
-                <div class="input-group w-25">
-                    <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control fnt-s"
-                        placeholder="Nome do Leilão">
-                </div>
-                <button class="btn btn-dark bkg-terciary cl-primary fnt-s" data-bs-toggle="modal"
-                    data-bs-target="#adArtigoModal">Adicionar
-                    Artigo</button>
+        <div id="ca-main-container" class="main-container">
+            <div id="table-section-heading">
+                <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control"
+                    placeholder="Nome de Leilão">
+                <button class="form-control btn btn-dark bkg-terciary cl-primary" data-bs-toggle="modal"
+                    data-bs-target="#adArtigoModal">Novo Artigo</button>
             </div>
+
             <table class="table table-striped table-hover">
                 <thead>
                     <tr class="bkg-terciary cl-primary fs-5">
@@ -115,25 +111,24 @@
                 </tbody>
             </table>
 
-            <div class="d-flex justify-content-end">
-                <p class="my-auto px-2 fnt-main fnt-s  cl-terciary">Leiloar como artigo único</p>
+            <div id="ca-options">
+                <p class="">Leiloar como artigo único</p>
 
-                <div class="form-check form-switch my-auto">
+                <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                 </div>
 
-                <div class="input-group w-25">
+                <div class="input-group">
                     <input type="text" name="" id="" class="form-control fnt-main fnt-s" placeholder="€" disabled>
                 </div>
             </div>
 
-            <div class="d-flex justify-content-end my-3">
+            <div class="d-flex justify-content-end">
                 <button class="btn btn-dark bkg-terciary cl-primary  fnt-main fnt-s">
-                    Submeter Leilão
+                    Submeter
                 </button>
             </div>
-        </section>
-
+        </div>
         <div class="modal" id="adArtigoModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content fnt-main">
@@ -141,7 +136,7 @@
                         <h5 class="modal-title fnt-m">Adicionar Artigo</h5>
                     </div>
 
-                    <div class="modal-body">
+                    <div class="my-modal-body">
                         <form action="" class="form-control cl-terciary">
                             <div class="p-1">
                                 <input type="text" class="col form-control fnt-s" name="artigo-nome" id="artigo-nome"
@@ -156,18 +151,12 @@
                                 </select>
                             </div>
 
-                            <div class="p-1 d-flex" id="images-group">
+                            <div id="article-img-container">
                                 <img src="./img/img-placeholder-114.png" class="img-thumbnail" alt="...">
-                                <div class="p-1 container">
-                                    <div class="">
-                                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                                    </div>
-                                    <div class="">
-                                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                                    </div>
-                                </div>
+                                <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
+                                <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
+                                <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
+                                <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
                             </div>
 
                             <div class="mb-3 p-1" id="file-group">
@@ -190,25 +179,25 @@
             </div>
         </div>
     </main>
-    <footer class="py-3 bkg-primary w-100">
-        <ul class="nav fnt-main">
+    <footer class="bkg-primary">
+        <ul class="fnt-main">
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
+                <a href="#">Entregas e Devoluções</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Termos e Condições</a>
+                <a href="#">Termos e Condições</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Política de Cookies</a>
+                <a href="#">Política de Cookies</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
+                <a href="#">FAQ</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Sobre</a>
+                <a href="#">Sobre</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Contacto</a>
+                <a href="#">Contacto</a>
             </li>
         </ul>
     </footer>

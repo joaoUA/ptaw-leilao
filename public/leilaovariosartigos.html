@@ -16,133 +16,133 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <title>Leilão</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src=""></script>
+    <script src="https://kit.fontawesome.com/25b734335a.js" crossorigin="anonymous"></script>
+    <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <header class="px-2 justify-content-between align-items-center gap-2 bkg-secondary fnt-main">
+    <header class="bkg-secondary fnt-main">
         <div class="search-container">
-            <form action="" class="d-flex" role="search">
-                <input type="search" name="" id="" class="form-control me-2" />
-                <button type="submit" class="btn btn-light fnt-s border-0">Search</button>
+            <div id="search-icon" class="icon-container">
+                <i class="fa fa-search"></i>
+            </div>
+            <form id="search-bar" action="" class="hidden" role="search">
+                <input type="search" name="" id="" class="form-control me-2" placeholder="Pesquisar..." />
+                <button type="submit" class="form-control btn btn-light fnt-s border-0">Pesquisar</button>
             </form>
         </div>
-
-        <nav class="navbar navbar-expand navbar-dark">
-            <ul class="nav nav-underline justify-content-center">
-                <li class="nav-item">
-                    <a href="./index.html" class="nav-link text-light">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./verificacao.html" class="nav-link text-light">Verificações</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./criarLeilao.html" class="nav-link text-light">Criar Leilão</a>
-                </li>
-            </ul>
+        <nav>
+            <a href="./index.html">Início</a>
         </nav>
-        <div class="d-flex justify-content-end align-items-center">
-            <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
-                data-bs-target="#modalLogin">Conta</button>
-            <div class="fs-2">
-                <i class="bi bi-person-circle text-light"></i>
+        <div id="profile-link-container">
+            <div id="profile-icon-container" class=" fnt-xl">
+                <button class="btn btn-light btn-sm cl-terciary" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Login</button>
+                <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
             </div>
+            <ul id="profile-menu" class="hidden">
+                <a href="./perfilDados.html">Perfil</a>
+                <a href="./criarLeilao.html">Criar Leilão</a>
+                <a href="./verificacao.html">Painel Admin</a>
+            </ul>
         </div>
     </header>
 
     <main>
-        <div class="d-flex flex-row w-75 mx-auto my-5 gap-2">
-            <div class="d-flex flex-column w-25 fnt-main bkg-primary">
-                <div class="d-flex gap-2 align-items-center p-2 fnt-s bkg-terciary cl-primary">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0 ">Artigo</p>
+        <div class="main-container auction-main-container">
+            <div class="auction-prev-container">
+                <div class="auction-prev-item past">
+                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <p>Artigo</p>
                 </div>
-                <div class="d-flex gap-2 align-items-center p-2  bkg-terciary cl-primary">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0">Artigo</p>
+                <div class="auction-prev-item past">
+                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <p>Artigo</p>
                 </div>
-                <div class="d-flex gap-2 align-items-center p-2 bkg-secondary cl-primary">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0">Artigo</p>
+                <div class="auction-prev-item current">
+                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <p>Artigo</p>
                 </div>
-                <div class="d-flex gap-2 align-items-center p-2">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0">Artigo</p>
+                <div class="auction-prev-item">
+                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <p>Artigo</p>
                 </div>
-                <div class="d-flex gap-2 align-items-center p-2">
-                    <img src=".\img\img-placeholder-48.png" class="d-block" alt="image">
-                    <p class="m-0">Artigo</p>
+                <div class="auction-prev-item">
+                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <p>Artigo</p>
+                </div>
+
+
+            </div>
+            <div class="auction">
+                <div id="carouselIndicators" class="carousel slide w-50 border border-dark-subtle">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0"
+                            class="active border bg-dark" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1"
+                            class="border bg-dark" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2"
+                            class="border bg-dark" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
+                        </div>
+                        <div class="carousel-item">
+                            <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
+                        </div>
+                        <div class="carousel-item">
+                            <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Seguinte</span>
+                    </button>
+                </div>
+                <div class="auction-info-container">
+                    <h1>Título do Artigo</h1>
+                    <h4>Vendedor</h4>
+                    <p>descrição do artigo...</p>
+                    <div class="auction-bid-container">
+                        <h1>10000€</h1>
+                        <h2>99:99</h2>
+                    </div>
+                    <div class="auction-form-container">
+                        <input type="number" class="form-control" name="licitacao-input" id="" placeholder="Licitação">
+                        <button class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">Licitar</button>
+                    </div>
                 </div>
             </div>
-            <div id="carouselIndicators" class="carousel slide w-50 border border-dark-subtle">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0"
-                        class="active border bg-dark" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1"
-                        class="border bg-dark" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2"
-                        class="border bg-dark" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
-                    </div>
-                    <div class="carousel-item">
-                        <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
-                    </div>
-                    <div class="carousel-item">
-                        <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
-                    </div>
-                </div>
-                <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Seguinte</span>
-                </button>
-            </div>
-            <div class="d-flex flex-column justify-content-between p-3 w-75 bkg-primary fnt-main">
-                <div class="cl-terciary">
-                    <h1 class="fnt-xl">Título do Artigo</h1>
-                    <h4 class="fnt-m">Vendedor</h4>
-                </div>
-                <div class="container">
-                    <div class="row mb-3 cl-terciary">
-                        <h1 class="col fnt-xl">1000.00€</h1>
-                        <h2 class="col text-end fnt-xl">03:20</h2>
-                    </div>
-                    <div class="row gap-3 fnt-s">
-                        <input type="text" name="licitacao-input" class="col form-control fnt-s"
-                            placeholder="Valor da Licitação">
-                        <button type="button" class="btn col btn-dark bkg-terciary cl-primary fnt-s">Licitar</button>
-                    </div>
-                </div>
-            </div>
+            <div></div>
         </div>
+
     </main>
-    <footer class="py-3 bkg-primary w-100">
-        <ul class="nav fnt-main">
+    <footer class="bkg-primary">
+        <ul class="fnt-main">
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
+                <a href="#">Entregas e Devoluções</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Termos e Condições</a>
+                <a href="#">Termos e Condições</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Política de Cookies</a>
+                <a href="#">Política de Cookies</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
+                <a href="#">FAQ</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Sobre</a>
+                <a href="#">Sobre</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Contacto</a>
+                <a href="#">Contacto</a>
             </li>
         </ul>
     </footer>

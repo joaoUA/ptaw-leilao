@@ -16,262 +16,265 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
     <title>Home</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://kit.fontawesome.com/25b734335a.js" crossorigin="anonymous"></script>
     <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <header class="px-2 justify-content-between align-items-center gap-2 bkg-secondary fnt-main">
+    <header class="bkg-secondary fnt-main">
         <div class="search-container">
-            <form action="" class="d-flex" role="search">
-                <input type="search" name="" id="" class="form-control me-2" />
-                <button type="submit" class="btn btn-light fnt-s border-0">Search</button>
+            <div id="search-icon" class="icon-container">
+                <i class="fa fa-search"></i>
+            </div>
+            <form id="search-bar" action="" class="hidden" role="search">
+                <input type="search" name="" id="" class="form-control me-2" placeholder="Pesquisar..." />
+                <button type="submit" class="form-control btn btn-light fnt-s border-0">Pesquisar</button>
             </form>
         </div>
-
-        <nav class="navbar navbar-expand navbar-dark">
-            <ul class="nav nav-underline justify-content-center">
-                <li class="nav-item">
-                    <a href="./index.html" class="nav-link text-light">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./verificacao.html" class="nav-link text-light">Verificações</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./criarLeilao.html" class="nav-link text-light">Criar Leilão</a>
-                </li>
-            </ul>
+        <nav>
+            <a href="./index.html">Início</a>
         </nav>
-        <div class="d-flex justify-content-end align-items-center">
-            <button class="btn btn-light me-2 fnt-s border-0" data-bs-toggle="modal"
-                data-bs-target="#modalLogin">Conta</button>
-            <div class="fs-2">
-                <i href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
+        <div id="profile-link-container">
+            <div id="profile-icon-container" class=" fnt-xl">
+                <button class="btn btn-light btn-sm cl-terciary" data-bs-toggle="modal"
+                    data-bs-target="#modalLogin">Login</button>
+                <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
             </div>
+            <ul id="profile-menu" class="hidden">
+                <a href="./perfilDados.html">Perfil</a>
+                <a href="./criarLeilao.html">Criar Leilão</a>
+                <a href="./verificacao.html">Painel Admin</a>
+            </ul>
         </div>
     </header>
     <main>
-        <div class="fnt-main card-container my-5 gap-4">
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-            <div class="my-card">
-                <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
-                <div class="my-card-sub p-2">
-                    <h5 class="my-card-title fnt-l m-0">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                        lkjaslkdj lk</h5>
-                    <p class="fnt-l m-0 my-card-timer">Timer</p>
-                    <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                    <a href="#" class="btn btn-dark bkg-terciary cl-primary fnt-m">Licitar</a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content fnt-main cl-terciary">
-                    <div class="modal-header">
-                        <h5 class="modal-title fnt-l" id="exampleModalLabel">Login</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="main-container">
+            <div class="card-container fnt-main">
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
                     </div>
-
-                    <div class="modal-body d-flex flex-column align-items-stretch p-5 gap-4 cl-terciary">
-                        <div class="d-flex flex-column gap-1">
-                            <p class="m-0 fnt-s ">E-mail</p>
-                            <input type="email" class="form-control fnt-s " placeholder="email@email.com" />
-
-                        </div>
-                        <div class="d-flex flex-column gap-1">
-                            <p class="m-0 fnt-s ">Password</p>
-                            <input type="password" class="form-control fnt-s " placeholder="Palavra-Passe" />
-                            <button class="align-self-end p-0 border-0 bg-transparent primaryColor registar-sh fnt-s "
-                                data-bs-toggle="modal" data-bs-target="#modalNovaPass">
-                                Esqueceu-se da password?
-                            </button>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+                <div class="my-card">
+                    <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+                    <div class="my-card-sub">
+                        <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
+                            lkjaslkdj lk</h5>
+                        <p class=" my-card-timer">Timer</p>
+                        <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                        <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content fnt-main cl-terciary">
+                        <div class="modal-header">
+                            <h5 class="modal-title fnt-l" id="exampleModalLabel">
+                                Login
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <button type="button" class="btn btn-dark bkg-terciary cl-primary btn-m fnt-l" id="login-btn">
-                            Login
-                        </button>
+                        <div id="login-modal-body" class="my-modal-body">
+                            <div class="d-flex flex-column gap-1">
+                                <p class="m-0 fnt-s ">E-mail</p>
+                                <input type="email" class="form-control fnt-s " placeholder="email@email.com" />
 
-                        <button class="p-0 border-0 bg-transparent cl-terciary registar-sh fnt-s "
-                            data-bs-toggle="modal" data-bs-target="#modalRegister">
-                            Não tem conta? Criar conta!
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header fnt-main">
-                        <h5 class="modal-title fnt-l" id="exampleModalLabel">
-                            Registar
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="d-flex flex-column gap-3 modal-body p-5 fnt-main">
-                        <div class="d-flex flex-column gap-2">
-                            <div class="d-flex justify-content-between gap-2">
-                                <input type="text" class="form-control fnt-s" placeholder="Nome Próprio" />
-                                <input type="text" class="form-control fnt-s" placeholder="Apelido" />
                             </div>
-                            <input type="date" class="form-control w-50 fnt-s" placeholder="Data Nascimento" value="" />
-                            <div class="d-flex justify-content-between gap-2">
-                                <input type="text" class="form-control w-75 fnt-s" placeholder="Morada" />
-                                <input type="text" class="form-control w-25 fnt-s" placeholder="Cód Postal" />
+                            <div class="d-flex flex-column gap-1">
+                                <p class="m-0 fnt-s ">Password</p>
+                                <input type="password" class="form-control fnt-s " placeholder="Palavra-Passe" />
+                                <button
+                                    class="align-self-end p-0 border-0 bg-transparent primaryColor registar-sh fnt-s "
+                                    data-bs-toggle="modal" data-bs-target="#modalNovaPass">
+                                    Esqueceu-se da password?
+                                </button>
                             </div>
-                            <div class="d-flex justify-content-between gap-2">
-                                <input type="text" class="form-control fnt-s" placeholder="Cidade" />
-                                <input type="text" class="form-control fnt-s" placeholder="País" />
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column gap-2 ">
-                            <input type="email" class="form-control fnt-s" placeholder="Email" />
-                            <div class="d-flex justify-content-between gap-2">
-                                <input type="password" class="form-control fnt-s" placeholder="Palavra-Passe" />
-                                <input type="password" class="form-control fnt-s"
-                                    placeholder="Confirmar Palavra-Passe" />
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between gap-2 ">
-                            <input type="text" class="form-control fnt-s" placeholder="CC" />
-                            <input type="text" class="form-control fnt-s" placeholder="IBAN" />
-                        </div>
-                        <div class="d-flex flex-column gap-2">
-                            <button class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">
-                                Confirmar
-                            </button>
-                            <button class="form-control btn btn-light bkg-primary cl-terciary fnt-s"
-                                data-bs-toggle="modal" data-bs-target="#modalLogin">Cancelar</button>
-                        </div>
 
+                            <div class="modal-btn-container">
+                                <button type="button" class="w-100 btn btn-dark bkg-terciary cl-primary btn-m fnt-l"
+                                    id="login-btn">
+                                    Login
+                                </button>
+                            </div>
+                            <a class="" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                                Não tem conta? Criar conta!
+                            </a>
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
 
-        <div class="modal fade" id="modalNovaPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content fnt-main">
-                    <div class="modal-header cl-terciary">
-                        <h5 class="modal-title fnt-l" id="exampleModalLabel">
-                            Recuperar Password
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header fnt-main  cl-terciary">
+                            <h5 class="modal-title fnt-l" id="exampleModalLabel">
+                                Registar
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div id="register-acc-modal-body" class="my-modal-body">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <input type="text" class="form-control fnt-s" placeholder="Nome Próprio" />
+                                    <input type="text" class="form-control fnt-s" placeholder="Apelido" />
+                                </div>
+                                <input type="date" class="form-control w-50 fnt-s" placeholder="Data Nascimento"
+                                    value="" />
+                                <div class="d-flex justify-content-between gap-2">
+                                    <input type="text" class="form-control w-75 fnt-s" placeholder="Morada" />
+                                    <input type="text" class="form-control w-25 fnt-s" placeholder="Cód Postal" />
+                                </div>
+                                <div class="d-flex justify-content-between gap-2">
+                                    <input type="text" class="form-control fnt-s" placeholder="Cidade" />
+                                    <input type="text" class="form-control fnt-s" placeholder="País" />
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column gap-2 ">
+                                <input type="email" class="form-control fnt-s" placeholder="Email" />
+                                <div class="d-flex justify-content-between gap-2">
+                                    <input type="password" class="form-control fnt-s" placeholder="Palavra-Passe" />
+                                    <input type="password" class="form-control fnt-s"
+                                        placeholder="Confirmar Palavra-Passe" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between gap-2 ">
+                                <input type="text" class="form-control fnt-s" placeholder="CC" />
+                                <input type="text" class="form-control fnt-s" placeholder="IBAN" />
+                            </div>
+                            <div class="modal-btn-container">
+                                <button class="form-control btn btn-light bkg-primary cl-terciary"
+                                    data-bs-toggle="modal" data-bs-target="#modalLogin">
+                                    Cancelar
+                                </button>
+                                <button class="form-control btn btn-dark bkg-terciary cl-primary">
+                                    Confirmar
+                                </button>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div class="d-flex flex-column gap-4 p-5">
-                        <input type="text" class="form-control fnt-s" placeholder="Introduza o seu e-mail" />
-                        <div class="d-flex flex-column gap-2">
-                            <button class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">
-                                Confirmar
-                            </button>
-                            <button class="form-control btn btn-light bkg-primary cl-terciary fnt-s"
-                                data-bs-toggle="modal" data-bs-target="#modalLogin">Cancelar</button>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalNovaPass" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content fnt-main">
+                        <div class="modal-header cl-terciary">
+                            <h5 class="modal-title fnt-l" id="exampleModalLabel">
+                                Recuperar Password
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="d-flex flex-column gap-4 p-5">
+                            <input type="text" class="form-control fnt-s" placeholder="Introduza o seu e-mail" />
+                            <div class="d-flex flex-column gap-2">
+                                <button class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">
+                                    Confirmar
+                                </button>
+                                <button class="form-control btn btn-light bkg-primary cl-terciary fnt-s"
+                                    data-bs-toggle="modal" data-bs-target="#modalLogin">Cancelar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <footer class="py-3 bkg-primary w-100">
-        <ul class="nav fnt-main">
+    <footer class="bkg-primary">
+        <ul class="fnt-main">
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Entregas e Devoluções</a>
+                <a href="#">Entregas e Devoluções</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Termos e Condições</a>
+                <a href="#">Termos e Condições</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Política de Cookies</a>
+                <a href="#">Política de Cookies</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">FAQ</a>
+                <a href="#">FAQ</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Sobre</a>
+                <a href="#">Sobre</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted fnt-m">Contacto</a>
+                <a href="#">Contacto</a>
             </li>
         </ul>
     </footer>
-    <script>
-        const loginBtn = document.getElementById("login-btn");
-
-        loginBtn.addEventListener("click", () => {
-            window.location.href = "./perfilDados.html";
-        })
-    </script>
 </body>
 
 </html>
