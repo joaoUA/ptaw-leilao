@@ -640,6 +640,14 @@ nav {
 	font-size: var(--font-size-medium);
 }
 
+.auction-info-container> div:first-of-type > p {
+    display: inline;
+}
+
+.auction-info-container > div:first-of-type > div {
+    float: right;
+}
+
 .auction-bid-container {
 	display: flex;
 	gap: 0.5em;
