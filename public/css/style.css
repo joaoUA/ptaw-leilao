@@ -168,6 +168,7 @@ nav {
 	border-radius: 0.5em;
 	background-color: white;
 	border: 1px solid var(--color-secondary);
+	z-index: 98;
 }
 #search-bar > input {
 	flex-basis: 0;
@@ -192,6 +193,7 @@ nav {
 	background-color: white;
 	border: 1px solid var(--color-secondary);
 	list-style-type: none;
+	z-index: 99;
 }
 #profile-menu.hidden {
 	display: none;
@@ -900,6 +902,10 @@ nav {
 	}
 	.auction-form-container {
 		justify-self: flex-end;
+	}
+
+	.auction{
+		flex-direction: column;
 	}
 
 	#table-section-heading {
