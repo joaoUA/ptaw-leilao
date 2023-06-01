@@ -105,11 +105,11 @@
                     </div>
 
                     <div id="article-img-container">
-                        <img src="./img/img-placeholder-114.png" class="img-thumbnail" alt="...">
-                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
-                        <img src="./img/img-placeholder-48.png" alt="" srcset="" class="img-thumbnail">
+                        <img src="{{asset('img/img-placeholder-114.png')}}" class="img-thumbnail" alt="...">
+                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
+                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
+                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
+                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
                     </div>
 
                     <div class="mb-3 p-1" id="file-group">

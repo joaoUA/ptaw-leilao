@@ -15,13 +15,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
+                    <img src="{{asset('img/img-placeholder-360.png')}}" class="d-block w-100" alt="image">
                 </div>
                 <div class="carousel-item">
-                    <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
+                    <img src="{{asset('img/img-placeholder-360.png')}}" class="d-block w-100" alt="image">
                 </div>
                 <div class="carousel-item">
-                    <img src=".\img\img-placeholder-360.png" class="d-block w-100" alt="image">
+                    <img src="{{asset('img/img-placeholder-360.png')}}" class="d-block w-100" alt="image">
                 </div>
             </div>
             <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselIndicators"

@@ -8,23 +8,23 @@
                 <p class="vt-item-name">Leilões a Verificar</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Título do Leilão</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Título do Leilão</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Título do Leilão</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Título do Leilão</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Título do Leilão</p>
             </div>
         </div>
@@ -34,27 +34,27 @@
                 <p class="fnt-s">Vendedores a Verificar</p>
             </div>
             <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Nome do Vendedor</p>
                 <p class="">2023-06-22</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Nome do Vendedor</p>
                 <p class="">2023-06-22</p>
             </div>
             <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Nome do Vendedor</p>
                 <p class="">2023-06-22</p>
             </div>
             <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Nome do Vendedor</p>
                 <p class="">2023-06-22</p>
             </div>
             <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src=".\img\img-placeholder-48.png" alt="placeholder" />
+                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
                 <p class="vt-item-name">Nome do Vendedor</p>
                 <p class="">2023-06-22</p>
             </div>

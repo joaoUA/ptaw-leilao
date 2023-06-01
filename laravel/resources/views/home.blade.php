@@ -4,83 +4,83 @@
 <div class="main-container">
     <div class="card-container fnt-main">
         <div class="my-card">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card card-bundle">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card card-bundle">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
         <div class="my-card card-bundle">
-            <img src=".\img\img-placeholder-224.png" class="my-card-img" alt="..." />
+            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
                 <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
                     lkjaslkdj lk</h5>
                 <p class=" my-card-timer">Timer</p>
                 <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="#" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
     </div>
