@@ -14,5 +14,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/history', function () {
+    return view('history');
+});
+
+Route::get('/new', function () {
+    return view('newAuction');
+});
+
+Route::get('/auction', function () {
+    return view('auction');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/history', function () {
+    return view('history');
+});
+
+Route::get('/wallet', function () {
+    return view('wallet');
+});
+
+Route::get('/verification', function () {
+    return view('verification');
 });

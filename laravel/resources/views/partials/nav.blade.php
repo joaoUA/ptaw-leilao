@@ -9,7 +9,7 @@
         </form>
     </div>
     <nav>
-        <a href="./index.html">Início</a>
+        <a href="/">Início</a>
     </nav>
     <div id="profile-link-container">
         <div id="profile-icon-container" class=" fnt-xl">
@@ -18,9 +18,9 @@
             <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
         </div>
         <ul id="profile-menu" class="hidden">
-            <a href="./perfilDados.html">Perfil</a>
-            <a href="./criarLeilao.html">Criar Leilão</a>
-            <a href="./verificacao.html">Painel Admin</a>
+            <a href="/profile">Perfil</a>
+            <a href="/new">Criar Leilão</a>
+            <a href="/verification">Painel Admin</a>
         </ul>
     </div>
 </header>
