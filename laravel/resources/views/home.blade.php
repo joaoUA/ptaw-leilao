@@ -3,86 +3,17 @@
 
 <div class="main-container">
     <div class="card-container fnt-main">
-        <div class="my-card">
+        @foreach ($auctions as $auction)
+        <div class="my-card {{ count($auction->pecaleilao) > 1 ? 'card-bundle' : ''}}">
             <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
             <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
+                <h5 class="my-card-title ">{{$auction->descricao}}</h5>
+                <p class=" my-card-timer">10:00</p>
+                <p class="text-danger fnt-m m-0 my-card-value">{{$auction->pecaleilao[0]->preco_inicial}}</p>
                 <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
             </div>
         </div>
-        <div class="my-card card-bundle">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
-        <div class="my-card card-bundle">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
-        <div class="my-card card-bundle">
-            <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
-            <div class="my-card-sub">
-                <h5 class="my-card-title ">Titulo xyz xpto assim assado asdjaskldjlka sjdlkasj lkajd
-                    lkjaslkdj lk</h5>
-                <p class=" my-card-timer">Timer</p>
-                <p class="text-danger fnt-m m-0 my-card-value">100.00€</p>
-                <a href="/auction" class="my-card-bid-btn btn btn-dark">Licitar</a>
-            </div>
-        </div>
+        @endforeach 
     </div>
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
