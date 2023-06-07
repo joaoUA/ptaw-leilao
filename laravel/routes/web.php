@@ -24,7 +24,7 @@ Route::get('/new', function () {
     return view('newAuction');
 });
 
-Route::get('/auction', function () {
+Route::get('/auction/{id}', function () {
     return view('auction');
 });
 
