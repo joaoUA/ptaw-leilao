@@ -1,4 +1,3 @@
-const loginBtn = document.getElementById("login-btn")
 const licitarBtns = Array.from(document.querySelectorAll(".my-card-sub > a"))
 const searchIcon = document.getElementById("search-icon");
 const profileIcon = document.getElementById("profile-icon");
@@ -26,6 +25,7 @@ profileIcon?.addEventListener('click', () => {
 
 
 btnRegisterAccount?.addEventListener('click', () => {
+    //#region Input Elements
     const inputFirstname = document.getElementById("input-register-first-name");
     const inputSurname = document.getElementById("input-register-surname");
     const inputBirthday = document.getElementById("input-register-birthday");
@@ -38,7 +38,9 @@ btnRegisterAccount?.addEventListener('click', () => {
     const inputConfirmPassword = document.getElementById("input-register-confirm-password");
     const inputNif = document.getElementById("input-register-nif");
     const inputIban = document.getElementById("input-register-iban");
+    //#endregion
 
+    //#region Input Values
     const firstName = inputFirstname.value.trim();
     const surname = inputSurname.value.trim();
     const birthday = inputBirthday.value;
@@ -51,7 +53,7 @@ btnRegisterAccount?.addEventListener('click', () => {
     const confirmPassword = inputConfirmPassword.value;
     const nif = parseInt(inputNif.value);
     const iban = inputIban.value.trim();
-
+    //#endregion
 
     if (password != confirmPassword)
         return;
@@ -91,5 +93,32 @@ btnRegisterAccount?.addEventListener('click', () => {
 
         })
         .catch(error => console.log(error))
+
+})
+
+btnLogin?.addEventListener('click', () => {
+    const inputEmail = document.getElementById("input-login-email");
+    const inputPassword = document.getElementById("input-login-password");
+
+    const email = inputEmail.value.trim();
+    const password = inputPassword.value;
+
+    const credentials = {
+        email: email,
+        password: password,
+    }
+
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+    })
+        .then(response => response.json())
+        .then(data => {
+            location.reload();
+        })
+        .catch(error => console.error(error));
 
 })

@@ -40,12 +40,11 @@
             <div id="login-modal-body" class="my-modal-body">
                 <div class="d-flex flex-column gap-1">
                     <p class="m-0 fnt-s ">E-mail</p>
-                    <input type="email" class="form-control fnt-s " placeholder="email@email.com" />
-
+                    <input type="email" id="input-login-email" class="form-control fnt-s " placeholder="email@email.com" />
                 </div>
                 <div class="d-flex flex-column gap-1">
                     <p class="m-0 fnt-s ">Password</p>
-                    <input type="password" class="form-control fnt-s " placeholder="Palavra-Passe" />
+                    <input type="password" id="input-login-password" class="form-control fnt-s " placeholder="Palavra-Passe" />
                     <button
                         class="align-self-end p-0 border-0 bg-transparent primaryColor registar-sh fnt-s "
                         data-bs-toggle="modal" data-bs-target="#modalNovaPass">
