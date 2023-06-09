@@ -21,4 +21,9 @@ class Auction extends Model
     {
         return $this->hasMany(AuctionItem::class, 'leilao_id');
     }
+
+    public function estado()
+    {
+        return $this->belongsTo(Status::class, 'estado_id');
+    }
 }

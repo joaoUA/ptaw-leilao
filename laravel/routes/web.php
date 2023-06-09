@@ -23,7 +23,7 @@ Route::get('/history', function () {
 
 Route::get('/new', [NewAuctionController::class, 'index']);
 
-Route::get('/auction', function () {
+Route::get('/auction/{id}', function () {
     return view('auction');
 });
 
