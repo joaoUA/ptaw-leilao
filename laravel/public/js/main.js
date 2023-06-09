@@ -8,6 +8,7 @@ const profileMenu = document.getElementById("profile-menu");
 //REGISTAR MODAL
 const btnRegisterAccount = document.getElementById("btn-confirm-register-account");
 const btnLogin = document.getElementById("btn-login");
+const btnLogout = document.getElementById("btn-logout");
 
 licitarBtns?.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -112,13 +113,40 @@ btnLogin?.addEventListener('click', () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         },
         body: JSON.stringify(credentials),
     })
         .then(response => response.json())
         .then(data => {
+            alert(data['message']);
             location.reload();
         })
         .catch(error => console.error(error));
 
+})
+
+btnLogout?.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    fetch('/api/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: ''
+    })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                if (response.ok) {
+                    console.log('Logout successful');
+                } else {
+                    console.error('Logout failed');
+                }
+            }
+        })
+        .catch(error => console.log(error));
 })

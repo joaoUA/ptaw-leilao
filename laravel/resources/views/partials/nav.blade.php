@@ -13,8 +13,10 @@
     </nav>
     <div id="profile-link-container">
         <div id="profile-icon-container" class=" fnt-xl">
+            @if (!Auth::check())
             <button class="btn btn-light btn-sm cl-terciary" data-bs-toggle="modal"
                 data-bs-target="#modalLogin">Login</button>
+            @endif
             <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
         </div>
         <ul id="profile-menu" class="hidden">
