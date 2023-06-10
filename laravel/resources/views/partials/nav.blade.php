@@ -13,17 +13,23 @@
     </nav>
     <div id="profile-link-container">
         <div id="profile-icon-container" class=" fnt-xl">
+            @if (!Auth::check())
             <button class="btn btn-light btn-sm cl-terciary" data-bs-toggle="modal"
                 data-bs-target="#modalLogin">Login</button>
+            @endif
             <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
         </div>
         <ul id="profile-menu" class="hidden">
-            <a href="/profile">Perfil</a>
-            <a href="/new">Criar Leilão</a>
-            <a href="/verification">Painel Admin</a>
+            @if (Auth::check())
+                <a href="/profile">Perfil</a>
+                <a href="/new">Criar Leilão</a>
+                <a href="/verification">Painel Admin</a>
+            @endif
         </ul>
     </div>
 </div>
+
+<!--MODAL LOGIN-->
 <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -38,12 +44,11 @@
             <div id="login-modal-body" class="my-modal-body">
                 <div class="d-flex flex-column gap-1">
                     <p class="m-0 fnt-s ">E-mail</p>
-                    <input type="email" class="form-control fnt-s " placeholder="email@email.com" />
-
+                    <input type="email" id="input-login-email" class="form-control fnt-s " placeholder="email@email.com" />
                 </div>
                 <div class="d-flex flex-column gap-1">
                     <p class="m-0 fnt-s ">Password</p>
-                    <input type="password" class="form-control fnt-s " placeholder="Palavra-Passe" />
+                    <input type="password" id="input-login-password" class="form-control fnt-s " placeholder="Palavra-Passe" />
                     <button
                         class="align-self-end p-0 border-0 bg-transparent primaryColor registar-sh fnt-s "
                         data-bs-toggle="modal" data-bs-target="#modalNovaPass">
@@ -52,8 +57,7 @@
                 </div>
 
                 <div class="modal-btn-container">
-                    <button type="button" class="w-100 btn btn-dark bkg-terciary cl-primary btn-m fnt-l"
-                        id="login-btn">
+                    <button type="button" id="btn-login" class="w-100 btn btn-dark bkg-terciary cl-primary btn-m fnt-l">
                         Login
                     </button>
                 </div>
@@ -65,6 +69,7 @@
     </div>
 </div>
 
+<!--MODAL REGISTAR CONTA-->
 <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -73,54 +78,54 @@
                 <h5 class="modal-title fnt-l" id="exampleModalLabel">
                     Registar
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button id="btn-close-register-modal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div id="register-acc-modal-body" class="my-modal-body">
                 <div class="d-flex flex-column gap-2">
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control fnt-s" placeholder="Nome Próprio" />
-                        <input type="text" class="form-control fnt-s" placeholder="Apelido" />
+                        <input type="text" id="input-register-first-name" class="form-control fnt-s" placeholder="Nome Próprio" required/>
+                        <input type="text" id="input-register-surname" class="form-control fnt-s" placeholder="Apelido" required/>
                     </div>
-                    <input type="date" class="form-control w-50 fnt-s" placeholder="Data Nascimento"
-                        value="" />
+                    <input type="date" id="input-register-birthday" class="form-control w-50 fnt-s" placeholder="Data Nascimento"
+                        value="" required/>
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control w-75 fnt-s" placeholder="Morada" />
-                        <input type="text" class="form-control w-25 fnt-s" placeholder="Cód Postal" />
+                        <input type="text" id="input-register-address" class="form-control w-75 fnt-s" placeholder="Morada" required/>
+                        <input type="text" id="input-register-post-code" class="form-control w-25 fnt-s" placeholder="Cód Postal" required/>
                     </div>
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control fnt-s" placeholder="Cidade" />
-                        <input type="text" class="form-control fnt-s" placeholder="País" />
+                        <input type="text" id="input-register-city" class="form-control fnt-s" placeholder="Cidade" required/>
+                        <input type="text" id="input-register-country" class="form-control fnt-s" placeholder="País" required/>
                     </div>
                 </div>
                 <div class="d-flex flex-column gap-2 ">
-                    <input type="email" class="form-control fnt-s" placeholder="Email" />
+                    <input type="email" id="input-register-email" class="form-control fnt-s" placeholder="Email" required/>
                     <div class="d-flex justify-content-between gap-2">
-                        <input type="password" class="form-control fnt-s" placeholder="Palavra-Passe" />
-                        <input type="password" class="form-control fnt-s"
-                            placeholder="Confirmar Palavra-Passe" />
+                        <input type="password" id="input-register-password" class="form-control fnt-s" placeholder="Palavra-Passe" required/>
+                        <input type="password" id="input-register-confirm-password" class="form-control fnt-s"
+                            placeholder="Confirmar Palavra-Passe" required/>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between gap-2 ">
-                    <input type="text" class="form-control fnt-s" placeholder="NIF" />
-                    <input type="text" class="form-control fnt-s" placeholder="IBAN" />
+                    <input type="text" id="input-register-nif" class="form-control fnt-s" placeholder="NIF" required />
+                    <input type="text" id="input-register-iban" class="form-control fnt-s" placeholder="IBAN" required/>
                 </div>
                 <div class="modal-btn-container">
-                    <button class="form-control btn btn-light bkg-primary cl-terciary"
+                    <button type="button" class="form-control btn btn-light bkg-primary cl-terciary"
                         data-bs-toggle="modal" data-bs-target="#modalLogin">
                         Cancelar
                     </button>
-                    <button class="form-control btn btn-dark bkg-terciary cl-primary">
+                    <button type="button" id="btn-confirm-register-account" class="form-control btn btn-dark bkg-terciary cl-primary">
                         Confirmar
                     </button>
                 </div>
-
             </div>
 
         </div>
     </div>
 </div>
 
+<!--MODAL RECUPERAR PASSWORD-->
 <div class="modal fade" id="modalNovaPass" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -144,5 +149,6 @@
         </div>
     </div>
 </div>
+
 </header>
 <main>

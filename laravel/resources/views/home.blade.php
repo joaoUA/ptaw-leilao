@@ -1,8 +1,14 @@
 @include('partials/head')
 @include('partials/nav')
 
+@php
+    $auth = Auth::check();
+@endphp
+
+
 <div class="main-container">
     <div class="card-container fnt-main">
+        
         @foreach ($auctions as $auction)
             <div class="my-card {{ count($auction->pecaleilao) > 1 ? 'card-bundle' : ''}}">
                 <img src="{{asset('img/img-placeholder-224.png')}}" class="my-card-img" alt="..." />
@@ -23,7 +29,7 @@
                         
                         @endphp
                     </p>
-                    <a href="/auction/{{$auction->id}}" class="my-card-bid-btn btn btn-dark">Licitar</a>
+                    <button href="/auction/{{$auction->id}}" class="my-card-bid-btn btn btn-dark" {{ !$auth ? 'disabled' : ''}} >Licitar</button>
                 </div>
             </div>
         @endforeach 
