@@ -6,5 +6,5 @@
     <a href="/history" class="sidebar-item">Histórico
         de Vendas</a>
     <a href="/wallet" class="sidebar-item">Carteira</a>
-    <a href="#" class="sidebar-item">Sair</a>
+    <a href="#" id="btn-logout" class="sidebar-item">Sair</a>
 </aside>

@@ -1,4 +1,3 @@
-const loginBtn = document.getElementById("login-btn")
 const licitarBtns = Array.from(document.querySelectorAll(".my-card-sub > a"))
 const searchIcon = document.getElementById("search-icon");
 const profileIcon = document.getElementById("profile-icon");
@@ -9,6 +8,13 @@ const btnSubmitNewAuction = document.getElementById("btn-submit-new-auction");
 const searchBar = document.getElementById("search-bar")
 const profileMenu = document.getElementById("profile-menu");
 
+//REGISTAR MODAL
+const btnRegisterAccount = document.getElementById("btn-confirm-register-account");
+const btnLogin = document.getElementById("btn-login");
+const btnLogout = document.getElementById("btn-logout");
+
+//PERFIL
+const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-changes");
 const auctionItems = [];
 let currentItemId = 0;
 
@@ -29,6 +35,7 @@ searchIcon?.addEventListener('click', () => {
 profileIcon?.addEventListener('click', () => {
     profileMenu?.classList.toggle('hidden')
 });
+
 
 btnNewAuctionItem.addEventListener('click', () => {
     const itemInputName = document.getElementById("artigo-nome");
@@ -126,4 +133,133 @@ btnSubmitNewAuction.addEventListener('click', () => {
     }).catch(error => {
         console.error(error);
     });
+  
+btnRegisterAccount?.addEventListener('click', () => {
+    //#region Input Elements
+    const inputFirstname = document.getElementById("input-register-first-name");
+    const inputSurname = document.getElementById("input-register-surname");
+    const inputBirthday = document.getElementById("input-register-birthday");
+    const inputAddress = document.getElementById("input-register-address");
+    const inputPostcode = document.getElementById("input-register-post-code");
+    const inputCity = document.getElementById("input-register-city");
+    const inputCountry = document.getElementById("input-register-country");
+    const inputEmail = document.getElementById("input-register-email");
+    const inputPassword = document.getElementById("input-register-password");
+    const inputConfirmPassword = document.getElementById("input-register-confirm-password");
+    const inputNif = document.getElementById("input-register-nif");
+    const inputIban = document.getElementById("input-register-iban");
+    //#endregion
+
+    //#region Input Values
+    const firstName = inputFirstname.value.trim();
+    const surname = inputSurname.value.trim();
+    const birthday = inputBirthday.value;
+    const address = inputAddress.value.trim();
+    const postcode = inputPostcode.value.trim();
+    const city = inputCity.value.trim();
+    const country = inputCountry.value.trim();
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+    const confirmPassword = inputConfirmPassword.value;
+    const nif = parseInt(inputNif.value);
+    const iban = inputIban.value.trim();
+    //#endregion
+
+    if (password != confirmPassword)
+        return;
+
+    const account = {
+        id: 5,
+        name: `${firstName} ${surname}`,
+        birthday: birthday,
+        address: address,
+        postcode: postcode,
+        city: city,
+        country: country,
+        email: email,
+        password: password,
+        nif: nif,
+        iban: iban
+    };
+
+    fetch('/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(account),
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            else
+                throw new Error(`Erro: ${response.status}`);
+        })
+        .then(data => {
+            alert(data['message']);
+
+            location.reload();
+
+        })
+        .catch(error => console.log(error))
+
+});
+
+btnLogin?.addEventListener('click', () => {
+    const inputEmail = document.getElementById("input-login-email");
+    const inputPassword = document.getElementById("input-login-password");
+
+    const email = inputEmail.value.trim();
+    const password = inputPassword.value;
+
+    const credentials = {
+        email: email,
+        password: password,
+    }
+
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: JSON.stringify(credentials),
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert(data['message']);
+            location.reload();
+        })
+        .catch(error => console.error(error));
+
+});
+
+btnLogout?.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    fetch('/api/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: ''
+    })
+        .then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                if (response.ok) {
+                    console.log('Logout successful');
+                } else {
+                    console.error('Logout failed');
+                }
+            }
+        })
+        .catch(error => console.log(error));
+});
+
+btnConfirmProfileChanges?.addEventListener('click', () => {
+    //
 });
