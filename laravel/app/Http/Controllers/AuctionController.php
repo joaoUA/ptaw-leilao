@@ -3,19 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auction;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AuctionController extends Controller
 {
-    //
-
     public function auction($id) {
        
         $auction = Auction::find($id);
 
-        return view('auction', ['auction' => $auction]);
+        if($auction == null || $auction->pecaleilao == null)
+            abort(404, 'Leilão não encontrado!');
 
+        $activeAuction = null;
+
+        foreach ($auction->pecaleilao as $auctionItem) {
+            if ($auctionItem->estado->nome == 'Ativo') {
+                $activeAuction = $auctionItem;
+                break;
+            }
+        }
+        
+        if($activeAuction == null){
+            echo 'sem itens ativos';
+            return;
+        }
+        else
+        {
+            return view('auction', [
+                'auction' => $auction,
+                'activeAuction' => $activeAuction,
+                'auctionItemsCount' => count($auction->pecaleilao)
+            ]);
+        }
     }
-    
 }

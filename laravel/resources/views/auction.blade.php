@@ -2,7 +2,35 @@
 @include('partials/nav')
 
 <div class="main-container auction-main-container">
-    <div></div>
+    <div>
+        @if ($auctionItemsCount > 1)
+        @foreach ($auction->pecaleilao as $item)
+            @php
+                $estado = '';
+
+                if ($item->estado->nome == 'Ativo') {
+                    $estado = 'current';
+                } elseif ($item->estado->nome == 'Terminado') {
+                    $estado = 'past';
+                } else {
+                    $estado = '';
+                }
+
+                $nome = '';
+
+                if ($item->pecaarte[0] != null)
+                    $nome = $item->pecaarte[0]->nome;
+                else {
+                    $nome = '';
+                }
+            @endphp
+            <div class="auction-prev-item {{$estado}}">
+                <img src=".\img\img-placeholder-48.png" alt="">
+                <p>{{$nome}}</p>
+            </div>
+        @endforeach            
+        @endif
+    </div>
     <div class="auction">
         <div id="carouselIndicators" class="carousel slide w-50 border border-dark-subtle">
             <div class="carousel-indicators">
@@ -36,30 +64,17 @@
             </button>
         </div>
         <div class="auction-info-container">
-            <h1>Título do Artigo</h1>
+            <h1>{{$auction->descricao}}</h1>
             <h4>{{$auction->vendedor->nome}}</h4>
-            @php
-                $active = null;
-                foreach ($auction->pecaleilao as $item) {
-                    if ($item->estado->nome == 'Ativo') {
-                        $active = $item;
-                        break;
-                    }
-                }
-
-                //todo
-                // if ($active != null) 
-                // lidar com o caso de nao haver itens ativos               
-            @endphp
             <div>
-                <p>{{$active->pecaarte[0]->categoria->nome}}</p>
-                @if ($active->pecaarte[0]->autenticado == 1)
+                <p>{{$activeAuction->pecaarte[0]->categoria->nome}}</p>
+                @if($activeAuction->pecaarte[0]->autenticado)
                     <div class="badge bg-success">Verificado</div>
                 @endif
             </div>
-            <p>{{$auction->descricao}}</p>
+            <p>{{$activeAuction->pecaarte[0]->nome}}</p>
             <div class="auction-bid-container">
-                <h1>{{$active->preco_inicial}}</h1>
+                <h1>{{$activeAuction->preco_inicial}}€</h1>
                 <h2>99:99</h2>
             </div>
             <div class="auction-form-container">
