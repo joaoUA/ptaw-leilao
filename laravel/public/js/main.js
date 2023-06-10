@@ -113,7 +113,38 @@ btnSubmitNewAuction.addEventListener('click', () => {
     const auction = {
       name: auctionName,
       collection: false,
-      items: auctionItems
+      items: [
+        {
+          id: 10,
+          precoInicial: 3500,
+          pecaArteId: 10,
+          nome: "raul pedro",
+          artista: "pedro raul",
+          ano: "2003-03-23",
+          autenticado: false,
+          categoria: "pintura"
+        },
+        {
+          id: 11,
+          precoInicial: 2400,
+          pecaArteId: 11,
+          nome: "chouriço grande",
+          artista: "vetoven",
+          ano: "2003-03-24",
+          autenticado: false,
+          categoria: "pintura"
+        },
+        {
+          id: 12,
+          precoInicial: 3000,
+          pecaArteId: 12,
+          nome: "bolas de berlim",
+          artista: "pedro proença",
+          ano: "2003-03-25",
+          autenticado: false,
+          categoria: "pintura"
+        }
+      ]
     };
 
 
