@@ -18,10 +18,6 @@ const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-ch
 const auctionItems = [];
 let currentItemId = 0;
 
-loginBtn?.addEventListener("click", () => {
-    window.location.href = "./perfilDados.html";
-})
-
 licitarBtns?.forEach(btn => {
     btn.addEventListener("click", () => {
         window.location.href = "./leilao.html"
@@ -37,7 +33,7 @@ profileIcon?.addEventListener('click', () => {
 });
 
 
-btnNewAuctionItem.addEventListener('click', () => {
+btnNewAuctionItem?.addEventListener('click', () => {
     const itemInputName = document.getElementById("artigo-nome");
     const itemInputPrice = document.getElementById("artigo-preco");
     const itemInputCategory = document.getElementById("artigo-categoria");
@@ -108,7 +104,7 @@ btnNewAuctionItem.addEventListener('click', () => {
     document.getElementById('btn-cancel-new-auction').click();
 });
 
-btnSubmitNewAuction.addEventListener('click', () => {
+btnSubmitNewAuction?.addEventListener('click', () => {
     const auctionName = document.getElementById("input-leilao-nome").value.trim();
 
     const auction = {
@@ -133,7 +129,8 @@ btnSubmitNewAuction.addEventListener('click', () => {
     }).catch(error => {
         console.error(error);
     });
-  
+});
+
 btnRegisterAccount?.addEventListener('click', () => {
     //#region Input Elements
     const inputFirstname = document.getElementById("input-register-first-name");
@@ -262,4 +259,4 @@ btnLogout?.addEventListener('click', (event) => {
 
 btnConfirmProfileChanges?.addEventListener('click', () => {
     //
-});
+})
