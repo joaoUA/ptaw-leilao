@@ -12,6 +12,10 @@ class ArtPiece extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
+    protected $casts = [
+        'ano' => 'date',
+    ];
+
     public function categoria()
     {
         return $this->belongsTo(Category::class, 'categoria_id');

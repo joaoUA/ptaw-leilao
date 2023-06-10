@@ -39,14 +39,30 @@ btnNewAuctionItem.addEventListener('click', () => {
     const itemCategory = itemInputCategory.value;
 
 
-    if(itemName == "" || itemPrice == "" || itemCategory == ""){
+    if (itemName == "" || itemPrice == "" || itemCategory == "") {
         alert("Preencha todos os campos");
         return;
     }
-    auctionItems.push({"id": currentItemId,"name": itemName, "price": itemPrice, "category": itemCategory})
-    console.log(itemName);
-    console.log(itemPrice);
-    console.log(itemCategory);
+
+    /*
+    auctionItems.push({
+        id: currentItemId,
+        precoInicial: itemPrice,
+
+        "id": currentItemId,
+        "nome": itemName,
+        "price": itemPrice,
+        "category": itemCategory
+        
+        id: 10,
+        precoInicial: 3500,
+        pecaArteId: 10,
+        nome: "raul pedro",
+        artista: "pedro raul",
+        ano: "2003-03-23",
+        categoria: "pintura"
+        
+    });*/
     const tr = document.createElement('tr');
     const th = document.createElement('th');
     th.setAttribute('scope', 'row');
@@ -111,60 +127,68 @@ btnSubmitNewAuction.addEventListener('click', () => {
     const auctionName = document.getElementById("input-leilao-nome").value.trim();
 
     const auction = {
-      name: auctionName,
-      collection: false,
-      items: [
-        {
-          id: 10,
-          precoInicial: 3500,
-          pecaArteId: 10,
-          nome: "raul pedro",
-          artista: "pedro raul",
-          ano: "2003-03-23",
-          autenticado: false,
-          categoria: "pintura"
-        },
-        {
-          id: 11,
-          precoInicial: 2400,
-          pecaArteId: 11,
-          nome: "chouriço grande",
-          artista: "vetoven",
-          ano: "2003-03-24",
-          autenticado: false,
-          categoria: "pintura"
-        },
-        {
-          id: 12,
-          precoInicial: 3000,
-          pecaArteId: 12,
-          nome: "bolas de berlim",
-          artista: "pedro proença",
-          ano: "2003-03-25",
-          autenticado: false,
-          categoria: "pintura"
-        }
-      ]
+        name: auctionName,
+        collection: false,
+        items: [
+            {
+                id: 10,
+                precoInicial: 3500,
+                pecaArteId: 10,
+                nome: "raul pedro",
+                artista: "pedro raul",
+                ano: "2003-03-23",
+                categoria: "pintura"
+            },
+            {
+                id: 11,
+                precoInicial: 2400,
+                pecaArteId: 11,
+                nome: "chouriço grande",
+                artista: "vetoven",
+                ano: "2003-03-24",
+                categoria: "pintura"
+            },
+            {
+                id: 12,
+                precoInicial: 3000,
+                pecaArteId: 12,
+                nome: "bolas de berlim",
+                artista: "pedro proença",
+                ano: "2003-03-25",
+                categoria: "pintura"
+            }
+        ]
     };
 
-
-
-
-
-
     fetch("/api/auction", {
-      method: "POST",
-      headers: {"Content-Type": "aplication/json"},
-      body: JSON.stringify(auction),
-    }).then(response=>{
-      if(response.ok){
-        return response.json();
-      }else{
-        throw new Error("Request failed with status " + response.status);
-      }
-    }).then(data=>{
-      console.log(data);
-    }).catch(error=>{
-      console.error(error);
-    })
+        method: "POST",
+        headers: { "Content-Type": "aplication/json" },
+        body: JSON.stringify(auction),
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Request failed with status " + response.status);
+        }
+    }).then(data => {
+        console.log(data);
+    }).catch(error => {
+        console.log(error);
+        if (error instanceof Error) {
+            // Handle network or other JavaScript errors
+        } else {
+            const data = JSON.parse(error.message);
+            if (data.hasOwnProperty('errors') && typeof data.errors === 'object') {
+                const errors = data.errors;
+
+                // Loop through the errors and display them
+                for (const field in errors) {
+                    if (errors.hasOwnProperty(field)) {
+                        const errorMessage = errors[field].join(', ');
+                        console.log(`Error in field ${field}: ${errorMessage}`);
+                    }
+                }
+            }
+        }
+    });
 });
