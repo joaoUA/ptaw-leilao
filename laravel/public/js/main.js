@@ -223,7 +223,12 @@ btnLogin?.addEventListener('click', () => {
         },
         body: JSON.stringify(credentials),
     })
-        .then(response => response.json())
+        .then(response => {
+            if (response.ok)
+                return response.json()
+            else
+                throw new Error(`Erro: ${response.status}`);
+        })
         .then(data => {
             alert(data['message']);
             location.reload();

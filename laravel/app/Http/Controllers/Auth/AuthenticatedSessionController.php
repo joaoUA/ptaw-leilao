@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
                 'email' => 'required|email|max:100',
                 'password' => 'required|string|max:100',
             ]);
-
+            
             if ($validator->fails()) 
                 throw new ValidationException($validator);
 
