@@ -12,6 +12,10 @@ class AuctionItem extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
+    protected $casts = [
+        'data_entrega' => 'date',
+    ];
+
     public function comprador()
     {
         return $this->belongsTo(User::class, 'comprador_id');

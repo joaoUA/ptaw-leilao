@@ -918,3 +918,5 @@ nav {
         flex-direction: column;
     }
 }
+input:required:invalid { border-color: red; }
+select:required:invalid { border-color: red; }
