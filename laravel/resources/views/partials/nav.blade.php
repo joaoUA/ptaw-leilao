@@ -20,9 +20,11 @@
             <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
         </div>
         <ul id="profile-menu" class="hidden">
-            <a href="/profile">Perfil</a>
-            <a href="/new">Criar Leilão</a>
-            <a href="/verification">Painel Admin</a>
+            @if (Auth::check())
+                <a href="/profile">Perfil</a>
+                <a href="/new">Criar Leilão</a>
+                <a href="/verification">Painel Admin</a>
+            @endif
         </ul>
     </div>
 </div>

@@ -10,6 +10,9 @@ const btnRegisterAccount = document.getElementById("btn-confirm-register-account
 const btnLogin = document.getElementById("btn-login");
 const btnLogout = document.getElementById("btn-logout");
 
+//PERFIL
+const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-changes");
+
 licitarBtns?.forEach(btn => {
     btn.addEventListener("click", () => {
         window.location.href = "./leilao.html"
@@ -23,7 +26,6 @@ searchIcon?.addEventListener('click', () => {
 profileIcon?.addEventListener('click', () => {
     profileMenu?.classList.toggle('hidden')
 });
-
 
 btnRegisterAccount?.addEventListener('click', () => {
     //#region Input Elements
@@ -95,7 +97,7 @@ btnRegisterAccount?.addEventListener('click', () => {
         })
         .catch(error => console.log(error))
 
-})
+});
 
 btnLogin?.addEventListener('click', () => {
     const inputEmail = document.getElementById("input-login-email");
@@ -124,7 +126,7 @@ btnLogin?.addEventListener('click', () => {
         })
         .catch(error => console.error(error));
 
-})
+});
 
 btnLogout?.addEventListener('click', (event) => {
     event.preventDefault();
@@ -149,4 +151,8 @@ btnLogout?.addEventListener('click', (event) => {
             }
         })
         .catch(error => console.log(error));
-})
+});
+
+btnConfirmProfileChanges?.addEventListener('click', () => {
+    //
+});
