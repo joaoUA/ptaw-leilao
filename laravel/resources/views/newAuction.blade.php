@@ -8,7 +8,6 @@
         <button class="form-control btn btn-dark bkg-terciary cl-primary" data-bs-toggle="modal"
             data-bs-target="#adArtigoModal">Novo Artigo</button>
     </div>
-
     <table class="table table-striped table-hover">
         <thead>
             <tr class="bkg-terciary cl-primary fs-5">
@@ -33,34 +32,6 @@
             </tr>
         </thead>
         <tbody class="table-group-divider fnt-main cl-terciary">
-            <tr>
-                <th scope="row" class="fnt-s">1</th>
-                <td>
-                    <i class="bi bi-card-image"></i>
-                </td>
-                <td class="fnt-s">Nome do Artigo</td>
-                <td class="fnt-s">100.00€</td>
-                <td>
-                    <i class="bi bi-brush-fill"></i>
-                </td>
-                <td>
-                    <i class="bi bi-check-square"></i>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" class="fnt-s">2</th>
-                <td>
-                    <i class="bi bi-card-image"></i>
-                </td>
-                <td class="fnt-s">Nome do Artigo</td>
-                <td class="fnt-main fnt-s">100.00€</td>
-                <td>
-                    <i class="bi bi-brush-fill"></i>
-                </td>
-                <td>
-                    <i class="bi bi-dash-square-dotted"></i>
-                </td>
-            </tr>
         </tbody>
     </table>
 
@@ -77,7 +48,7 @@
     </div>
 
     <div class="d-flex justify-content-end">
-        <button class="btn btn-dark bkg-terciary cl-primary  fnt-main fnt-s">
+        <button class="btn btn-dark bkg-terciary cl-primary  fnt-main fnt-s" id="btn-submit-new-auction">
             Submeter
         </button>
     </div>
@@ -92,15 +63,18 @@
             <div class="my-modal-body">
                 <form action="" class="form-control cl-terciary">
                     <div class="p-1">
-                        <input type="text" class="col form-control fnt-s" name="artigo-nome" id="artigo-nome"
+                        <input type="text" class="col form-control fnt-s" required name="artigo-nome" id="artigo-nome"
                             placeholder="Nome do artigo">
                     </div>
 
                     <div class="p-1 d-flex justify-content-between gap-2">
-                        <input type="text" class="form-control fnt-s" name="artigo-preco" id="artigo-preco"
+                        <input type="number" class="form-control fnt-s" required name="artigo-preco" id="artigo-preco"
                             placeholder="Preço">
-                        <select class="form-select form-control fnt-s" id="artigo-categoria">
-                            <option value="" selected class="fnt-s">Categoria</option>
+                        <select class="form-select form-control fnt-s" required  id="artigo-categoria">
+                            <option value="" disabled selected class="fnt-s">Categoria</option>
+                            @foreach ($categories as $category)
+                                <option value="{{$category->nome}}">{{$category->nome}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -120,9 +94,10 @@
 
                     <div class="p-1 d-grid gap-2">
                         <button class="btn btn-light fnt-s bkg-primary cl-terciary" type="button"
-                            data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                            data-bs-dismiss="modal" aria-label="Close" id="btn-cancel-new-auction">Cancelar</button>
                         <button class="btn btn-dark bkg-terciary cl-primary fnt-s"
-                            type="button">Confirmar</button>
+                            type="button" id="btn-confirm-new-auction-item">Confirmar</button>
+                    
                         <button class="btn btn-danger bkg-secondary cl-primary fnt-s"
                             type="button">Remover</button>
                     </div>
