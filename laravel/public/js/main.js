@@ -43,26 +43,17 @@ btnNewAuctionItem.addEventListener('click', () => {
         alert("Preencha todos os campos");
         return;
     }
-
-    /*
     auctionItems.push({
         id: currentItemId,
+        //Peça Leilao:
         precoInicial: itemPrice,
+        //Peça Arte:
+        nome: itemName,
+        artista: null,
+        ano: null,
+        categoria: itemCategory
+    })
 
-        "id": currentItemId,
-        "nome": itemName,
-        "price": itemPrice,
-        "category": itemCategory
-        
-        id: 10,
-        precoInicial: 3500,
-        pecaArteId: 10,
-        nome: "raul pedro",
-        artista: "pedro raul",
-        ano: "2003-03-23",
-        categoria: "pintura"
-        
-    });*/
     const tr = document.createElement('tr');
     const th = document.createElement('th');
     th.setAttribute('scope', 'row');
@@ -111,53 +102,12 @@ btnNewAuctionItem.addEventListener('click', () => {
 });
 
 btnSubmitNewAuction.addEventListener('click', () => {
-    /*const uniqueAuctionSwitch = document.getElementById("flexSwitchCheckDefault");
-    if(uniqueAuctionSwitch.checked == true){
-        console.log("preto");
-    }*/
-
-    /*fetch('/submit-auction', { method: 'POST', headers: { 'Content-Type': 'application/json', 
-    'X-CSRF-TOKEN': window.csrfToken}, body: JSON.stringify({teste:"david"}), })
-    .then(function (response){
-        console.log(response.data);
-    })
-    .catch(function (error){
-        console.log(error);
-    })*/
     const auctionName = document.getElementById("input-leilao-nome").value.trim();
 
     const auction = {
         name: auctionName,
         collection: false,
-        items: [
-            {
-                id: 10,
-                precoInicial: 3500,
-                pecaArteId: 10,
-                nome: "raul pedro",
-                artista: "pedro raul",
-                ano: "2003-03-23",
-                categoria: "pintura"
-            },
-            {
-                id: 11,
-                precoInicial: 2400,
-                pecaArteId: 11,
-                nome: "chouriço grande",
-                artista: "vetoven",
-                ano: "2003-03-24",
-                categoria: "pintura"
-            },
-            {
-                id: 12,
-                precoInicial: 3000,
-                pecaArteId: 12,
-                nome: "bolas de berlim",
-                artista: "pedro proença",
-                ano: "2003-03-25",
-                categoria: "pintura"
-            }
-        ]
+        items: auctionItems,
     };
 
     fetch("/api/auction", {
@@ -171,24 +121,9 @@ btnSubmitNewAuction.addEventListener('click', () => {
             throw new Error("Request failed with status " + response.status);
         }
     }).then(data => {
-        console.log(data);
+        alert(data['message']);
+        location.reload();
     }).catch(error => {
-        console.log(error);
-        if (error instanceof Error) {
-            // Handle network or other JavaScript errors
-        } else {
-            const data = JSON.parse(error.message);
-            if (data.hasOwnProperty('errors') && typeof data.errors === 'object') {
-                const errors = data.errors;
-
-                // Loop through the errors and display them
-                for (const field in errors) {
-                    if (errors.hasOwnProperty(field)) {
-                        const errorMessage = errors[field].join(', ');
-                        console.log(`Error in field ${field}: ${errorMessage}`);
-                    }
-                }
-            }
-        }
+        console.error(error);
     });
 });

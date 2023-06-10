@@ -6,6 +6,7 @@ use App\Models\ArtPiece;
 use App\Models\Auction;
 use App\Models\AuctionItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -14,7 +15,7 @@ class SubmitAuctionController extends Controller
     public function post(Request $request){
         $data = $request->json()->all();
         try {
-
+            DB::beginTransaction();
             $auctionBP = [
                 'nome' => $data['name'],
                 'vendedorId' => 2,
@@ -85,7 +86,7 @@ class SubmitAuctionController extends Controller
                 $artPieceValidator = Validator::make($artPieceBP, [
                     'nome' => 'required|string|max:100',
                     'artista' => 'nullable|string|max:100',
-                    'ano' => 'required|date',
+                    'ano' => 'nullable|date',
                     'autenticado' => 'required|boolean',
                     'categoriaId' => 'required|integer|exists:categoria,id',
                     'pecaLeilaoId' => 'required|integer|exists:peca_leilao,id',
@@ -104,10 +105,16 @@ class SubmitAuctionController extends Controller
                 $artPiece->save();
                     
             }
+
+            DB::commit();
             return response()->json(['message' => 'Leilão criado com sucesso' ], 200);
 
         } catch (ValidationException $e) {
+            DB::rollBack();
             return response()->json(['message' => $e->validator->errors()  ], 200);
+        } catch(\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'Ocorreu um erro ao criar o leilão'], 500);
         }
     }
 }
