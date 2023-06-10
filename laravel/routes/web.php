@@ -24,7 +24,7 @@ Route::get('/history', function () {
 
 Route::get('/new', [NewAuctionController::class, 'index']);
 
-Route::get('/auction/{id}', [AuctionController::class, 'auction']);
+Route::get('/auction/{id}', [AuctionController::class, 'auction'])->name('auction');
     
 
 Route::get('/profile', function () {

@@ -1,4 +1,4 @@
-const licitarBtns = Array.from(document.querySelectorAll(".my-card-sub > a"))
+const licitarBtns = Array.from(document.querySelectorAll(".my-card-sub > button"))
 const searchIcon = document.getElementById("search-icon");
 const profileIcon = document.getElementById("profile-icon");
 
@@ -18,11 +18,7 @@ const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-ch
 const auctionItems = [];
 let currentItemId = 0;
 
-licitarBtns?.forEach(btn => {
-    btn.addEventListener("click", () => {
-        window.location.href = "./leilao.html"
-    })
-});
+//licitarBtns.forEach(btn => {})
 
 searchIcon?.addEventListener('click', () => {
     searchBar?.classList.toggle('hidden');
