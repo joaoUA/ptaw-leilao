@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuctionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,8 @@ Route::get('/new', function () {
     return view('newAuction');
 });
 
-Route::get('/auction/{id}', function () {
-    return view('auction');
-});
+Route::get('/auction/{id}', [AuctionController::class, 'auction']);
+    
 
 Route::get('/profile', function () {
     return view('profile');

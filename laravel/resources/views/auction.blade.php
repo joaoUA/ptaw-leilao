@@ -37,14 +37,29 @@
         </div>
         <div class="auction-info-container">
             <h1>Título do Artigo</h1>
-            <h4>Vendedor</h4>
+            <h4>{{$auction->vendedor->nome}}</h4>
+            @php
+                $active = null;
+                foreach ($auction->pecaleilao as $item) {
+                    if ($item->estado->nome == 'Ativo') {
+                        $active = $item;
+                        break;
+                    }
+                }
+
+                //todo
+                // if ($active != null) 
+                // lidar com o caso de nao haver itens ativos               
+            @endphp
             <div>
-                <p>Categoria</p>
-                <div class="badge bg-success">Verificado</div>
+                <p>{{$active->pecaarte[0]->categoria->nome}}</p>
+                @if ($active->pecaarte[0]->autenticado == 1)
+                    <div class="badge bg-success">Verificado</div>
+                @endif
             </div>
-            <p>descrição do artigo...</p>
+            <p>{{$auction->descricao}}</p>
             <div class="auction-bid-container">
-                <h1>10000€</h1>
+                <h1>{{$active->preco_inicial}}</h1>
                 <h2>99:99</h2>
             </div>
             <div class="auction-form-container">
