@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auction;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Redirect;
 
 class AuctionController extends Controller
 {
     public function auction($id) {
-       
+
+        if(Gate::denies('seller') && Gate::denies('bidder') && Gate::denies('admin'))
+            return Redirect::to('/');
+
         $auction = Auction::find($id);
 
         if($auction == null || $auction->pecaleilao == null)
@@ -24,15 +29,13 @@ class AuctionController extends Controller
         
         if($activeAuction == null){
             echo 'sem itens ativos';
-            return;
+            return Redirect::to('/');
         }
-        else
-        {
-            return view('auction', [
-                'auction' => $auction,
-                'activeAuction' => $activeAuction,
-                'auctionItemsCount' => count($auction->pecaleilao)
-            ]);
-        }
+        
+        return view('auction', [
+            'auction' => $auction,
+            'activeAuction' => $activeAuction,
+            'auctionItemsCount' => count($auction->pecaleilao)
+        ]);
     }
 }
