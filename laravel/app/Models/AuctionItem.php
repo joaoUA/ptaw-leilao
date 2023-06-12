@@ -30,4 +30,9 @@ class AuctionItem extends Model
     {
         return $this->belongsTo(AuctionItemStatus::class, 'estado_id');
     }
+
+    public function pecaArte()
+    {
+        return $this->hasMany(ArtPiece::class, 'peca_leilao_id');
+    }
 }

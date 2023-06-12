@@ -26,8 +26,6 @@
             <img src=".\img\img-placeholder-48.png" alt="">
             <p>Artigo</p>
         </div>
-
-
     </div>
     <div class="auction">
         <div id="carouselIndicators" class="carousel slide w-50 border border-dark-subtle">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\NewAuctionController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,8 @@ Route::get('/history', function () {
 
 Route::get('/new', [NewAuctionController::class, 'index']);
 
-Route::get('/auction/{id}', function () {
-    return view('auction');
-});
+Route::get('/auction/{id}', [AuctionController::class, 'auction'])->name('auction');
+    
 
 Route::get('/profile', function () {
     return view('profile');

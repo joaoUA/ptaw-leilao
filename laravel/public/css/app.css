@@ -115,6 +115,13 @@ body > main {
     margin: 0 auto;
 }
 
+/* Links */
+a.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 /* Header */
 nav a {
     text-decoration: none;
@@ -918,5 +925,9 @@ nav {
         flex-direction: column;
     }
 }
-input:required:invalid { border-color: red; }
-select:required:invalid { border-color: red; }
+input:required:invalid {
+    border-color: red;
+}
+select:required:invalid {
+    border-color: red;
+}

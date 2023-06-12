@@ -29,7 +29,7 @@
                         
                         @endphp
                     </p>
-                    <button href="/auction/{{$auction->id}}" class="my-card-bid-btn btn btn-dark" {{ !$auth ? 'disabled' : ''}} >Licitar</button>
+                    <a href="{{ route('auction', ['id' => $auction->id]) }}" class="my-card-bid-btn btn btn-dark {{!$auth ? 'disabled' : ''}}">Licitar</a>
                 </div>
             </div>
         @endforeach 
