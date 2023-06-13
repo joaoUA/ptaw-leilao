@@ -18,6 +18,11 @@ const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-ch
 const auctionItems = [];
 let currentItemId = 0;
 
+//PEDIR MUDANÇA DE CARGO
+const btnRequestSellerStatus = document.getElementById("btn-request-seller-status");
+const btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
+
+
 //licitarBtns.forEach(btn => {})
 
 searchIcon?.addEventListener('click', () => {
@@ -260,4 +265,22 @@ btnLogout?.addEventListener('click', (event) => {
 
 btnConfirmProfileChanges?.addEventListener('click', () => {
     //
-})
+});
+
+btnRequestSellerStatus?.addEventListener('click', () => {
+    fetch('/api/role/seller', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ test: "test" }),
+    })
+        .then(response => {
+            if (response.ok)
+                return response.json();
+            else
+                throw new Error(`Erro: ${response.status}`)
+        })
+        .then(data => console.log(data['message']))
+        .catch(error => console.error(error));
+});

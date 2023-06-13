@@ -10,22 +10,16 @@
             <div id="roles-container">
                 <div class="role-item">
                     <p class="role-name">Vendedor</p>
-                    <button class="btn-request-role">Pedir</button>
+                    <button id="btn-request-seller-status" class="btn-request-role">Pedir</button>
                 </div>
                 <div class="role-item">
                     <p class="role-name">Administrador</p>
-                    <button class="btn-request-role">Atribuído</button>
+                    <button id="btn-request-admin-status" class="btn-request-role">Pedir</button>
                 </div>
             </div>
-
         </div>
-        
-        
         <div id="profile-data">
             <h3 class="fnt-xl">Dados</h3>
-            @php
-                $user = Auth::user();
-            @endphp
             <div class="d-flex flex-column gap-2">
                 <!-- todo -->
                 <!-- separar nome na base de dados entre 'nome' e 'apelido'-->

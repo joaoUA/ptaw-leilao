@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SubmitAuctionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -29,3 +30,4 @@ Route::post('/login', [AuthenticatedSessionController::class, 'login']);
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 
+Route::post('/role/{role}', [RoleController::class, 'requestRole']);
