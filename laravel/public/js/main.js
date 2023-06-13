@@ -277,8 +277,11 @@ btnRequestSellerStatus?.addEventListener('click', () => {
         body: JSON.stringify({ test: "test" }),
     })
         .then(response => {
-            if (response.ok)
+            if (response.ok) {
+                btnRequestSellerStatus.classList.add('btn-request-await');
+                btnRequestSellerStatus.innerText = "Espera de confirmação";
                 return response.json();
+            }
             else
                 throw new Error(`Erro: ${response.status}`)
         })

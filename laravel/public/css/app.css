@@ -513,7 +513,6 @@ nav {
 .role-item > button {
     width: fit-content;
 
-    background-color: var(--color-primary);
     border-radius: 0.5em;
     color: var(--color-terciary);
     padding: 0.4em 0.8em;
@@ -521,6 +520,19 @@ nav {
     outline: none;
 
     font-size: var(--font-size-small);
+}
+
+.btn-request-standard {
+    background-color: var(--color-primary);
+}
+.btn-request-await {
+    background-color: var(--color-accent-secondary);
+}
+.btn-request-accepted {
+    background-color: var(--color-accent-primary);
+}
+.btn-request-refused {
+    background-color: var(--color-secondary);
 }
 
 /* Pagina Histórico */
