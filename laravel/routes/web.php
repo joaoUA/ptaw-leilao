@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\NewAuctionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VerificationsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
@@ -43,9 +44,13 @@ Route::get('/wallet', function () {
         return Redirect::to('/');
 });
 
-Route::get('/verification', function () {
+Route::get('/verification', [VerificationsController::class, 'verification' ]);
+
+
+/*function () {
     if(Gate::allows('admin'))
         return view('verification');
     else
         return Redirect::to('/');
 });
+*/
