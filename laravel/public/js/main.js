@@ -278,8 +278,7 @@ btnRequestSellerStatus?.addEventListener('click', () => {
     })
         .then(response => {
             if (response.ok) {
-                btnRequestSellerStatus.classList.add('btn-request-await');
-                btnRequestSellerStatus.innerText = "Espera de confirmação";
+                window.location.reload();
                 return response.json();
             }
             else
