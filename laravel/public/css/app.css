@@ -481,13 +481,45 @@ nav {
     flex-grow: 1;
     max-width: 800px;
 }
-#profile > div {
+#profile-data {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
 }
-#profile > div input,
-#profile > div button {
+#profile-data input,
+#profile-data button {
+    font-size: var(--font-size-small);
+}
+
+#profile-data > div {
+    margin-bottom: 1.5em;
+}
+
+#roles-container > div:nth-child(even) {
+    background-color: var(--color-primary);
+}
+
+.role-item {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5em;
+    align-items: center;
+    padding: 0.2em 0.4em;
+    gap: 1em;
+}
+.role-item > p {
+    width: max-content;
+    margin: 0;
+}
+.role-item > button {
+    width: fit-content;
+
+    background-color: var(--color-primary);
+    border-radius: 0.5em;
+    color: var(--color-terciary);
+    padding: 0.4em 0.8em;
+    font-weight: bold;
+    outline: none;
+
     font-size: var(--font-size-small);
 }
 
