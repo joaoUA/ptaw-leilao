@@ -274,7 +274,7 @@ btnRequestSellerStatus?.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ test: "test" }),
+        body: JSON.stringify({}),
     })
         .then(response => {
             if (response.ok) {
@@ -284,6 +284,25 @@ btnRequestSellerStatus?.addEventListener('click', () => {
             else
                 throw new Error(`Erro: ${response.status}`)
         })
-        .then(data => console.log(data['message']))
         .catch(error => console.error(error));
 });
+
+btnRequestAdminStatus?.addEventListener('click', () => {
+    const userId = btnRequestAdminStatus.getAttribute('data-user-id');
+    fetch(`/api/role/${userId}/admin`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+    })
+        .then(response => {
+            if (response.ok) {
+                //window.location.reload();
+                return;
+            }
+            else
+                throw new Error(`Erro: ${response.status}`);
+        })
+        .catch(error => console.log(error));
+})

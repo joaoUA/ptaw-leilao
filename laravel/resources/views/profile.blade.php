@@ -35,7 +35,28 @@
                 </div>
                 <div class="role-item">
                     <p class="role-name">Administrador</p>
-                    <button data-user-id={{$user->id}} id="btn-request-admin-status" class="btn-request-role">Pedir</button>
+                    @php
+                        $style = '';
+                        $text = '';
+
+                        if($adminRequest == null){
+                            $style = 'btn-request-standard';
+                            $text = 'Pedir';
+                        }
+                        elseif($adminRequest->data_decisao == null){
+                            $style = 'btn-request-await';
+                            $text = 'Em Espera';
+                        }
+                        elseif($adminRequest->concedido){
+                            $style = 'btn-request-accepted';
+                            $text = 'Aceite';
+                        }
+                        else{
+                            $style = 'btn-request-refused';
+                            $text = 'Rejeitado';
+                        }
+                    @endphp
+                    <button data-user-id={{$user->id}} id="btn-request-admin-status" class="btn-request-role {{$style}}">{{$text}}</button>
                 </div>
             </div>
         </div>

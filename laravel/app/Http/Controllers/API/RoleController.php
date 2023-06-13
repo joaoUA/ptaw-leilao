@@ -8,7 +8,6 @@ use App\Models\Role;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
