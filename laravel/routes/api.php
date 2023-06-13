@@ -30,4 +30,4 @@ Route::post('/login', [AuthenticatedSessionController::class, 'login']);
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 
-Route::post('/role/{role}', [RoleController::class, 'requestRole']);
+Route::post('/role/{id}/{role}', [RoleController::class, 'requestRole']);

@@ -10,11 +10,11 @@
             <div id="roles-container">
                 <div class="role-item">
                     <p class="role-name">Vendedor</p>
-                    <button id="btn-request-seller-status" class="btn-request-role">Pedir</button>
+                    <button data-user-id="{{$user->id}}" id="btn-request-seller-status" class="btn-request-role">Pedir</button>
                 </div>
                 <div class="role-item">
                     <p class="role-name">Administrador</p>
-                    <button id="btn-request-admin-status" class="btn-request-role">Pedir</button>
+                    <button data-user-id={{$user->id}} id="btn-request-admin-status" class="btn-request-role">Pedir</button>
                 </div>
             </div>
         </div>

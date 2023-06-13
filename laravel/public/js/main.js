@@ -268,7 +268,8 @@ btnConfirmProfileChanges?.addEventListener('click', () => {
 });
 
 btnRequestSellerStatus?.addEventListener('click', () => {
-    fetch('/api/role/seller', {
+    const userId = btnRequestSellerStatus.getAttribute('data-user-id')
+    fetch(`/api/role/${userId}/seller`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
