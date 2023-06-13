@@ -10,7 +10,28 @@
             <div id="roles-container">
                 <div class="role-item">
                     <p class="role-name">Vendedor</p>
-                    <button data-user-id="{{$user->id}}" id="btn-request-seller-status" class="btn-request-role">Pedir</button>
+                    @php
+                        $style = '';
+                        $text = '';
+
+                        if($sellerRequest == null){
+                            $style = 'btn-request-standard';
+                            $text = 'Pedir';
+                        }
+                        elseif($sellerRequest->data_decisao == null){
+                            $style = 'btn-request-await';
+                            $text = 'Em Espera';
+                        }
+                        elseif($sellerRequest->concedido){
+                            $style = 'btn-request-accepted';
+                            $text = 'Aceite';
+                        }
+                        else{
+                            $style = 'btn-request-refused';
+                            $text = 'Rejeitado';
+                        }
+                    @endphp
+                    <button data-user-id="{{$user->id}}" id="btn-request-seller-status" class="btn-request-role {{$style}}">{{$text}}</button>
                 </div>
                 <div class="role-item">
                     <p class="role-name">Administrador</p>
