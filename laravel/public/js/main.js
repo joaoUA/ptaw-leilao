@@ -4,6 +4,8 @@ const profileIcon = document.getElementById("profile-icon");
 
 const btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 const btnSubmitNewAuction = document.getElementById("btn-submit-new-auction");
+const btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault");
+const NewAuctionCollectionPrice = document.getElementById("collectionPrice");
 
 const searchBar = document.getElementById("search-bar")
 const profileMenu = document.getElementById("profile-menu");
@@ -37,9 +39,11 @@ btnNewAuctionItem?.addEventListener('click', () => {
     const itemPrice = itemInputPrice.value;
     const itemCategory = itemInputCategory.value;
 
-
     if (itemName == "" || itemPrice == "" || itemCategory == "") {
         alert("Preencha todos os campos");
+        return;
+    }else if (itemPrice <= 0){
+        alert("Insira um valor positivo.");
         return;
     }
     auctionItems.push({
@@ -97,21 +101,58 @@ btnNewAuctionItem?.addEventListener('click', () => {
     itemInputName.value = "";
     itemInputPrice.value = "";
     itemInputCategory.selectedIndex = 0;
+    if(auctionItems.length > 1){
+        btnNewAuctionCollection.disabled = false;
+    }
+
+
     document.getElementById('btn-cancel-new-auction').click();
+});
+
+btnNewAuctionCollection?.addEventListener('click', () => {
+    if(btnNewAuctionCollection.checked){
+        NewAuctionCollectionPrice.disabled = false;
+    }else{
+        NewAuctionCollectionPrice.disabled = true;
+        NewAuctionCollectionPrice.value = "";
+    }
 });
 
 btnSubmitNewAuction?.addEventListener('click', () => {
     const auctionName = document.getElementById("input-leilao-nome").value.trim();
+    const collection = btnNewAuctionCollection.checked;
+    let collectionPrice = 0;
 
+    if(auctionName == ""){
+        alert("Nome do leilão inválido.");
+        return;
+    }else if(auctionItems.length == 0){
+        alert("Adicione artigos ao leilão.");
+        return;
+    }else if(collection){
+        collectionPrice = NewAuctionCollectionPrice.value;
+        if(NewAuctionCollectionPrice.value == ""){
+            alert("Adicione um valor à coleção.");
+            return;
+        }else if (NewAuctionCollectionPrice.value <= 0 ){
+            alert("Insira um valor positivo.");
+            return;
+        }
+    }
+    
     const auction = {
         name: auctionName,
-        collection: false,
+        collection: collection,
+        collectionPrice : collectionPrice,
         items: auctionItems,
     };
 
     fetch("/api/auction", {
         method: "POST",
-        headers: { "Content-Type": "aplication/json" },
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
         body: JSON.stringify(auction),
     }).then(response => {
         if (response.ok) {
