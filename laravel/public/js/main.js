@@ -427,6 +427,8 @@ auctionVerificationItems?.forEach(element => {
             auctionTitle.innerText = auction['descricao'];
             auctionSeller.innerText = auction['vendedor']['nome'];
 
+            document.querySelectorAll('.modal-auction-item').forEach(element => element.remove());
+
             auction['peca_leilao'].forEach(auctionItem => {
                 const modalAuctionItemDiv = document.createElement('div');
                 modalAuctionItemDiv.classList.add('modal-auction-item');
@@ -436,9 +438,9 @@ auctionVerificationItems?.forEach(element => {
                 imageElement.id = 'modal-article-image';
                 imageElement.src = './img/img-placeholder-48.png';
                 imageElement.alt = 'placeholder';
+
                 imageElement.setAttribute('data-bs-toggle', 'modal');
                 imageElement.setAttribute('data-bs-target', '#ModalArtigo');
-
                 const paragraphElement = document.createElement('p');
                 paragraphElement.innerText = auctionItem['peca_arte'][0]['nome'];
 
