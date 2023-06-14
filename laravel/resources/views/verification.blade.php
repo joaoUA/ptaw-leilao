@@ -43,8 +43,9 @@
                     <p>Detalhes do Artigo</p>
                     <img id="modal-auction-item-image" src=".\img\img-placeholder-224.png" alt="placeholder" />
                     <p id="modal-auction-item-name"></p> <!--Nome-->
+                    <p id="modal-auction-item-year"></p> <!--Ano-->
                     <p id="modal-auction-item-author"></p> <!--Autor-->
-                    <p id="modal-auction-item-year"></p> <!--Preço-->
+                    <p id="modal-auction-item-price"></p> <!--Preço-->
                     <p id="modal-auction-item-category"></p> <!--Categoria-->
                 </div>
             </div>

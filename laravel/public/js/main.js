@@ -474,10 +474,12 @@ auctionVerificationItems?.forEach(element => {
                     const modalArticleAuthor = document.getElementById('modal-auction-item-author');
                     const modalArticleYear = document.getElementById('modal-auction-item-year');
                     const modalArticleCategory = document.getElementById('modal-auction-item-category');
+                    const modalArticlePrice = document.getElementById('modal-auction-item-price');
 
-                    modalArticleName.innerText = `Preço Inicial: ${auctionItem['preco_inicial']}`;
-                    modalArticleAuthor.innerText = `Artista: ${auctionItem['peca_arte'][0]['artista'] || 'N/A'}`;
+                    modalArticleName.innerText = `Nome: ${auctionItem['peca_arte'][0]['nome']}`;
                     modalArticleYear.innerText = `Data: ${auctionItem['peca_arte'][0]['ano'] || 'N/A'}`;
+                    modalArticleAuthor.innerText = `Artista: ${auctionItem['peca_arte'][0]['artista'] || 'N/A'}`;
+                    modalArticlePrice.innerText = `Preço Inicial: ${auctionItem['preco_inicial']}€`;
                     modalArticleCategory.innerText = `Categoria: ${auctionItem['peca_arte'][0]['categoria_id']}`;
                 });
             });
