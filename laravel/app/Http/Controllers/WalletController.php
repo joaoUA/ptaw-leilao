@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use Exception;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
@@ -12,30 +13,33 @@ use Illuminate\Support\Facades\Redirect;
 
 class WalletController extends Controller
 {
-    public function wallet(){
-        if(Gate::denies('bidder') && Gate::denies('seller') && Gate::denies('admin'))
+    public function wallet()
+    {
+        if (Gate::denies('bidder') && Gate::denies('seller') && Gate::denies('admin'))
             return Redirect::to('/');
-            
+
         $user = Auth::user();
-        
+
         $wallet = Card::where('utilizador_id', $user->id)->first();
-            
-        
+
+
         return view('wallet', [
-            'card'=>$wallet,
-            'userId'=>$user->id
+            'card' => $wallet,
+            'userId' => $user->id
         ]);
     }
 
-    public function registerCard(Request $request){
+    public function registerCard(Request $request)
+    {
         $data = $request->json()->all();
 
-        $hasCard = Card::where('utilizador_id', $data['utilizador_id'])->exists(); 
+        try {
 
-        if($hasCard==true)
-            return response()->json(['message' => 'Apenas pode registar um cartão'], 422);
+            $hasCard = Card::where('utilizador_id', $data['utilizador_id'])->exists();
 
-        try{
+            if ($hasCard == true)
+                return response()->json(['message' => 'Apenas pode registar um cartão'], 422);
+
             $cardData = [
                 'id' => $data['id'],
                 'nome' => $data['nome'],
@@ -45,16 +49,16 @@ class WalletController extends Controller
                 'utilizador_id' => $data['utilizador_id']
             ];
 
-            $validator = Validator::make($cardData,[
+            $validator = Validator::make($cardData, [
                 'id' => 'required|integer',
                 'nome' => 'required|string|max:30',
                 'mes' => 'required|integer|max:12',
                 'ano' => 'required|integer',
                 'cvc' => 'required|integer|max:999',
             ]);
-            if($validator->fails())
+            if ($validator->fails())
                 throw new ValidationException($validator);
-            
+
             $card = new Card();
             $card->id = $cardData['id'];
             $card->nome = $cardData['nome'];
@@ -66,13 +70,24 @@ class WalletController extends Controller
             $card->save();
 
             return response()->json(['message' => 'Cartão registado com sucesso'], 200);
-        }catch(ValidationException $e){
-            return response()->json(['message' => $e->errors()  ], 422);
+        } catch (ValidationException $e) {
+            return response()->json(['message' => $e->errors()], 422);
         }
-
-        
     }
 
-   
+    public function deleteCard(Request $request, $id)
+    {
+
+        try {
+            $card = Card::where('utilizador_id', $id)->first();
+            if ($card == null)
+                throw new Exception("Não existe cartão");
+
+            $card->delete();
+
+            return response()->json(['message' => 'Cartão eliminado com sucesso'], 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 422);
+        }
+    }
 }
-    

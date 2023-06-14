@@ -1,46 +1,52 @@
-const licitarBtns = Array.from(document.querySelectorAll(".my-card-sub > button"))
+const licitarBtns = Array.from(
+    document.querySelectorAll(".my-card-sub > button")
+);
 const searchIcon = document.getElementById("search-icon");
 const profileIcon = document.getElementById("profile-icon");
 
-const btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
+const btnNewAuctionItem = document.getElementById(
+    "btn-confirm-new-auction-item"
+);
 const btnSubmitNewAuction = document.getElementById("btn-submit-new-auction");
 
-const searchBar = document.getElementById("search-bar")
+const searchBar = document.getElementById("search-bar");
 const profileMenu = document.getElementById("profile-menu");
 
 //REGISTAR MODAL
-const btnRegisterAccount = document.getElementById("btn-confirm-register-account");
+const btnRegisterAccount = document.getElementById(
+    "btn-confirm-register-account"
+);
 const btnLogin = document.getElementById("btn-login");
 const btnLogout = document.getElementById("btn-logout");
 
 //PERFIL
-const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-changes");
+const btnConfirmProfileChanges = document.getElementById(
+    "btn-confirm-profile-changes"
+);
 const auctionItems = [];
 let currentItemId = 0;
 
 //CARTEIRA
 const btnConfirmCard = document.getElementById("btn-confirm-card");
-const btnDeleteCard = document.getElementById("")
+const btnDeleteCard = document.getElementById("btn-delete-card");
 
 //licitarBtns.forEach(btn => {})
 
-searchIcon?.addEventListener('click', () => {
-    searchBar?.classList.toggle('hidden');
+searchIcon?.addEventListener("click", () => {
+    searchBar?.classList.toggle("hidden");
 });
 
-profileIcon?.addEventListener('click', () => {
-    profileMenu?.classList.toggle('hidden')
+profileIcon?.addEventListener("click", () => {
+    profileMenu?.classList.toggle("hidden");
 });
 
-
-btnNewAuctionItem?.addEventListener('click', () => {
+btnNewAuctionItem?.addEventListener("click", () => {
     const itemInputName = document.getElementById("artigo-nome");
     const itemInputPrice = document.getElementById("artigo-preco");
     const itemInputCategory = document.getElementById("artigo-categoria");
     const itemName = itemInputName.value.trim();
     const itemPrice = itemInputPrice.value;
     const itemCategory = itemInputCategory.value;
-
 
     if (itemName == "" || itemPrice == "" || itemCategory == "") {
         alert("Preencha todos os campos");
@@ -54,38 +60,38 @@ btnNewAuctionItem?.addEventListener('click', () => {
         nome: itemName,
         artista: null,
         ano: null,
-        categoria: itemCategory
-    })
+        categoria: itemCategory,
+    });
 
-    const tr = document.createElement('tr');
-    const th = document.createElement('th');
-    th.setAttribute('scope', 'row');
-    th.className = 'fnt-s';
-    th.setAttribute('data-id', currentItemId);
-    th.textContent = ' ';
+    const tr = document.createElement("tr");
+    const th = document.createElement("th");
+    th.setAttribute("scope", "row");
+    th.className = "fnt-s";
+    th.setAttribute("data-id", currentItemId);
+    th.textContent = " ";
     currentItemId++;
 
-    const tdIcon = document.createElement('td');
-    const icon = document.createElement('i');
-    icon.className = 'bi bi-card-image';
+    const tdIcon = document.createElement("td");
+    const icon = document.createElement("i");
+    icon.className = "bi bi-card-image";
     tdIcon.appendChild(icon);
 
-    const tdName = document.createElement('td');
-    tdName.className = 'fnt-s';
+    const tdName = document.createElement("td");
+    tdName.className = "fnt-s";
     tdName.textContent = itemName;
 
-    const tdPrice = document.createElement('td');
-    tdPrice.className = 'fnt-s';
+    const tdPrice = document.createElement("td");
+    tdPrice.className = "fnt-s";
     tdPrice.textContent = `${itemPrice}€`;
 
-    const tdCategory = document.createElement('td');
-    const iconCategory = document.createElement('i');
-    iconCategory.className = 'bi bi-brush-fill';
+    const tdCategory = document.createElement("td");
+    const iconCategory = document.createElement("i");
+    iconCategory.className = "bi bi-brush-fill";
     tdCategory.appendChild(iconCategory);
 
-    const tdAuthentication = document.createElement('td');
-    const authIcon = document.createElement('i');
-    authIcon.className = 'bi bi-check-square';
+    const tdAuthentication = document.createElement("td");
+    const authIcon = document.createElement("i");
+    authIcon.className = "bi bi-check-square";
     tdAuthentication.appendChild(authIcon);
 
     tr.appendChild(th);
@@ -101,11 +107,13 @@ btnNewAuctionItem?.addEventListener('click', () => {
     itemInputName.value = "";
     itemInputPrice.value = "";
     itemInputCategory.selectedIndex = 0;
-    document.getElementById('btn-cancel-new-auction').click();
+    document.getElementById("btn-cancel-new-auction").click();
 });
 
-btnSubmitNewAuction?.addEventListener('click', () => {
-    const auctionName = document.getElementById("input-leilao-nome").value.trim();
+btnSubmitNewAuction?.addEventListener("click", () => {
+    const auctionName = document
+        .getElementById("input-leilao-nome")
+        .value.trim();
 
     const auction = {
         name: auctionName,
@@ -117,21 +125,26 @@ btnSubmitNewAuction?.addEventListener('click', () => {
         method: "POST",
         headers: { "Content-Type": "aplication/json" },
         body: JSON.stringify(auction),
-    }).then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error("Request failed with status " + response.status);
-        }
-    }).then(data => {
-        alert(data['message']);
-        location.reload();
-    }).catch(error => {
-        console.error(error);
-    });
+    })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error(
+                    "Request failed with status " + response.status
+                );
+            }
+        })
+        .then((data) => {
+            alert(data["message"]);
+            location.reload();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 });
 
-btnRegisterAccount?.addEventListener('click', () => {
+btnRegisterAccount?.addEventListener("click", () => {
     //#region Input Elements
     const inputFirstname = document.getElementById("input-register-first-name");
     const inputSurname = document.getElementById("input-register-surname");
@@ -142,7 +155,9 @@ btnRegisterAccount?.addEventListener('click', () => {
     const inputCountry = document.getElementById("input-register-country");
     const inputEmail = document.getElementById("input-register-email");
     const inputPassword = document.getElementById("input-register-password");
-    const inputConfirmPassword = document.getElementById("input-register-confirm-password");
+    const inputConfirmPassword = document.getElementById(
+        "input-register-confirm-password"
+    );
     const inputNif = document.getElementById("input-register-nif");
     const inputIban = document.getElementById("input-register-iban");
     //#endregion
@@ -162,8 +177,7 @@ btnRegisterAccount?.addEventListener('click', () => {
     const iban = inputIban.value.trim();
     //#endregion
 
-    if (password != confirmPassword)
-        return;
+    if (password != confirmPassword) return;
 
     const account = {
         id: 5,
@@ -176,34 +190,30 @@ btnRegisterAccount?.addEventListener('click', () => {
         email: email,
         password: password,
         nif: nif,
-        iban: iban
+        iban: iban,
     };
 
-    fetch('/api/register', {
-        method: 'POST',
+    fetch("/api/register", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(account),
     })
-        .then(response => {
+        .then((response) => {
             if (response.ok) {
                 return response.json();
-            }
-            else
-                throw new Error(`Erro: ${response.status}`);
+            } else throw new Error(`Erro: ${response.status}`);
         })
-        .then(data => {
-            alert(data['message']);
+        .then((data) => {
+            alert(data["message"]);
 
             location.reload();
-
         })
-        .catch(error => console.log(error))
-
+        .catch((error) => console.log(error));
 });
 
-btnLogin?.addEventListener('click', () => {
+btnLogin?.addEventListener("click", () => {
     const inputEmail = document.getElementById("input-login-email");
     const inputPassword = document.getElementById("input-login-password");
 
@@ -213,60 +223,61 @@ btnLogin?.addEventListener('click', () => {
     const credentials = {
         email: email,
         password: password,
-    }
+    };
 
-    fetch('/api/login', {
-        method: 'POST',
+    fetch("/api/login", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content"),
         },
         body: JSON.stringify(credentials),
     })
-        .then(response => {
-            if (response.ok)
-                return response.json()
-            else
-                throw new Error(`Erro: ${response.status}`);
+        .then((response) => {
+            if (response.ok) return response.json();
+            else throw new Error(`Erro: ${response.status}`);
         })
-        .then(data => {
-            alert(data['message']);
+        .then((data) => {
+            alert(data["message"]);
             location.reload();
         })
-        .catch(error => console.error(error));
-
+        .catch((error) => console.error(error));
 });
 
-btnLogout?.addEventListener('click', (event) => {
+btnLogout?.addEventListener("click", (event) => {
     event.preventDefault();
 
-    fetch('/api/logout', {
-        method: 'POST',
+    fetch("/api/logout", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content"),
         },
-        body: ''
+        body: "",
     })
-        .then(response => {
+        .then((response) => {
             if (response.redirected) {
                 window.location.href = response.url;
             } else {
                 if (response.ok) {
-                    console.log('Logout successful');
+                    console.log("Logout successful");
                 } else {
-                    console.error('Logout failed');
+                    console.error("Logout failed");
                 }
             }
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
 });
 
-btnConfirmProfileChanges?.addEventListener('click', () => {
+btnConfirmProfileChanges?.addEventListener("click", () => {
     //
-})
+});
 
-btnConfirmCard?.addEventListener('click',async()=>{
+btnConfirmCard?.addEventListener("click", async () => {
     //#region Input Elements
     const inputCardName = document.getElementById("input-card-name");
     const inputCardNumber = document.getElementById("input-card-number");
@@ -285,31 +296,55 @@ btnConfirmCard?.addEventListener('click',async()=>{
     //#endregion
 
     const card = {
-        id:CardNumber,
-        nome:CardName,
-        mes:CardMonth,
-        ano:CardYear,
-        cvc:CardCvc,
-        utilizador_id:userId
+        id: CardNumber,
+        nome: CardName,
+        mes: CardMonth,
+        ano: CardYear,
+        cvc: CardCvc,
+        utilizador_id: userId,
     };
 
-    let responseMessage; 
+    let responseMessage;
 
     try {
-        const response =  await fetch('/api/card', {
-            method: 'POST',
+        const response = await fetch("/api/card", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(card),
         });
-    
+
         const data = await response.json();
 
         responseMessage = data["message"];
 
-        if(!response.ok)
-            throw new Error(`Erro: ${response.status}`);
+        if (!response.ok) throw new Error(`Erro: ${response.status}`);
+
+        alert(responseMessage);
+        location.reload();
+    } catch (error) {
+        console.log(responseMessage);
+    }
+});
+
+btnDeleteCard?.addEventListener("click", async () => {
+    const userId = btnDeleteCard.getAttribute("data-user-id");
+
+    try {
+        const response = await fetch(`/api/card/${userId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({}),
+        });
+
+        const data = await response.json();
+
+        responseMessage = data["message"];
+
+        if (!response.ok) throw new Error(`Erro: ${response.status}`);
 
         alert(responseMessage);
         location.reload();

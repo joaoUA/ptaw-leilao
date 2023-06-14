@@ -59,7 +59,7 @@
                             data-bs-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="button" class="btn btn-dark bkg-terciary cl-primary" id="btn-delete-card">
+                        <button type="button" class="btn btn-dark bkg-terciary cl-primary" id="btn-delete-card" data-user-id={{$userId}}>
                             Confirmar
                         </button>
                     </div>
