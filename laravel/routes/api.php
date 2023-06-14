@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuctionItemController;
 use App\Http\Controllers\API\BidController;
 use App\Http\Controllers\API\RoleChangeController;
 use App\Http\Controllers\API\RoleController;
@@ -38,3 +39,5 @@ Route::post('/role-change/{id}/{role}', [RoleController::class, 'requestRole']);
 Route::get('/user/{id}', [UserController::class, 'show']);
 
 Route::get('/auction/{id}', [SubmitAuctionController::class, 'show']);
+
+Route::post('auction/{id}/authentication', [AuctionItemController::class, 'authentication']);

@@ -31,9 +31,13 @@ const userVerificationItems = Array.from(document.getElementById('seller-vt').ge
 const auctionVerificationItems = Array.from(document.getElementById('auction-vt').getElementsByClassName('vt-item'));
 const btnConfirmRoleChangeRequest = document.getElementById('btn-user-modal-confirm-request');
 const btnRejectRoleChangeRequest = document.getElementById('btn-user-modal-reject-request');
+const btnConfirmAuctionVerification = document.getElementById('btn-auction-modal-confirm-request');
+const btnRejectAuctionVerification = document.getElementById('btn-auction-modal-reject-request');
+
 //remover da lista o primeir div que é o titulo
 auctionVerificationItems.shift();
 userVerificationItems.shift();
+
 
 
 //licitarBtns.forEach(btn => {})
@@ -421,6 +425,9 @@ auctionVerificationItems?.forEach(element => {
             const data = await response.json();
             const auction = data['auction'];
 
+            const modalBody = document.getElementById('modal-al');
+            modalBody.setAttribute('data-auction-id', auction['id']);
+
             const auctionTitle = document.getElementById('modal-auction-name');
             const auctionSeller = document.getElementById('modal-auction-seller');
 
@@ -510,3 +517,45 @@ btnRejectRoleChangeRequest?.addEventListener('click', () => {
         .then(data => console.log(data))
         .catch(error => console.error(error));
 })
+
+btnConfirmAuctionVerification?.addEventListener('click', () => {
+    const modalBody = document.getElementById('modal-al');
+    const auctionId = modalBody.getAttribute('data-auction-id');
+
+    updateAuctionAuthenticationStatus(auctionId, true);
+
+});
+
+btnRejectAuctionVerification?.addEventListener('click', () => {
+    const modalBody = document.getElementById('modal-al');
+    const auctionId = modalBody.getAttribute('data-auction-id');
+
+    updateAuctionAuthenticationStatus(auctionId, false);
+})
+
+async function updateAuctionAuthenticationStatus(auctionId, status) {
+    let responseMessage;
+    try {
+        const responseAuthentication = await fetch(`/api/auction/${auctionId}/authentication`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                status: status
+            })
+        })
+        const data = await responseAuthentication.json();
+        responseMessage = data['message'];
+
+        if (!responseAuthentication.ok)
+            throw new Error(`${responseAuthentication.status}: ${responseMessage}`);
+        console.log(responseMessage);
+
+        const
+
+            location.reload();
+    } catch (error) {
+        console.log(responseMessage);
+    }
+}

@@ -109,9 +109,9 @@
                     <!--Peças Geradas Pelo JS-->
                     <div class="modal-btn-container">
                         <button type="button" class="btn btn-light bkg-primary cl-terciary"
-                            data-bs-dismiss="modal">Recusar</button>
+                            data-bs-dismiss="modal" id="btn-auction-modal-reject-request">Recusar</button>
                         <button type="button" class="btn btn-dark bkg-terciary"
-                            data-bs-dismiss="modal">Aprovar</button>
+                            data-bs-dismiss="modal" id="btn-auction-modal-confirm-request">Aprovar</button>
                     </div>
                 </div>
             </div>
