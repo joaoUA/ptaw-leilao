@@ -42,7 +42,7 @@ btnNewAuctionItem?.addEventListener('click', () => {
     if (itemName == "" || itemPrice == "" || itemCategory == "") {
         alert("Preencha todos os campos");
         return;
-    }else if (itemPrice <= 0){
+    } else if (itemPrice <= 0) {
         alert("Insira um valor positivo.");
         return;
     }
@@ -101,7 +101,7 @@ btnNewAuctionItem?.addEventListener('click', () => {
     itemInputName.value = "";
     itemInputPrice.value = "";
     itemInputCategory.selectedIndex = 0;
-    if(auctionItems.length > 1){
+    if (auctionItems.length > 1) {
         btnNewAuctionCollection.disabled = false;
     }
 
@@ -110,62 +110,49 @@ btnNewAuctionItem?.addEventListener('click', () => {
 });
 
 btnNewAuctionCollection?.addEventListener('click', () => {
-    if(btnNewAuctionCollection.checked){
+    if (btnNewAuctionCollection.checked) {
         NewAuctionCollectionPrice.disabled = false;
-    }else{
+    } else {
         NewAuctionCollectionPrice.disabled = true;
         NewAuctionCollectionPrice.value = "";
     }
 });
 
-btnSubmitNewAuction?.addEventListener('click', () => {
+btnSubmitNewAuction?.addEventListener('click', async () => {
     const auctionName = document.getElementById("input-leilao-nome").value.trim();
     const collection = btnNewAuctionCollection.checked;
     let collectionPrice = 0;
 
-    if(auctionName == ""){
-        alert("Nome do leilão inválido.");
-        return;
-    }else if(auctionItems.length == 0){
-        alert("Adicione artigos ao leilão.");
-        return;
-    }else if(collection){
-        collectionPrice = NewAuctionCollectionPrice.value;
-        if(NewAuctionCollectionPrice.value == ""){
-            alert("Adicione um valor à coleção.");
-            return;
-        }else if (NewAuctionCollectionPrice.value <= 0 ){
-            alert("Insira um valor positivo.");
-            return;
-        }
-    }
-    
     const auction = {
         name: auctionName,
         collection: collection,
-        collectionPrice : collectionPrice,
+        collectionPrice: collectionPrice,
         items: auctionItems,
     };
 
-    fetch("/api/auction", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        },
-        body: JSON.stringify(auction),
-    }).then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error("Request failed with status " + response.status);
-        }
-    }).then(data => {
-        alert(data['message']);
+    let errorMessage;
+
+    try {
+        const response = await fetch("/api/auction", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify(auction),
+        });
+
+        const data = await response.json();
+        errorMessage = data['message'];
+
+        if (!response.ok)
+            throw new Error(`Erro ao submeter leilão: ${response.status}`);
+
         location.reload();
-    }).catch(error => {
-        console.error(error);
-    });
+
+    } catch (error) {
+        console.log(errorMessage);
+    };
 });
 
 btnRegisterAccount?.addEventListener('click', () => {

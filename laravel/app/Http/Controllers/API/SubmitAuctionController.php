@@ -40,7 +40,7 @@ class SubmitAuctionController extends Controller
                 'estadoId' => 'required|integer|exists:estado_leilao,id'
             ]);
             if ( $auctionValidator->fails())
-                throw new ValidationException(Auth::id());
+                throw new ValidationException($auctionValidator);
             
             //CRIAR E ADICIONAR LEILAO À BD
             $auction = new Auction();
@@ -134,7 +134,7 @@ class SubmitAuctionController extends Controller
 
         } catch (ValidationException $e) {
             DB::rollBack();
-            return response()->json(['message' => $e->validator->errors()  ], 200);
+            return response()->json(['message' => $e->validator->errors()  ], 422);
         } catch(\Exception $e) {
             DB::rollBack();
             return response()->json(['message' => 'Ocorreu um erro ao criar o leilão'], 500);
