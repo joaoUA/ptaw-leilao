@@ -148,7 +148,7 @@ class SubmitAuctionController extends Controller
         
         // $auction = Auction::find($id);
         // return response()->json(['auction' => $auction]);
-        $auction = Auction::with('vendedor','pecaLeilao.pecaArte')->find($id);
+        $auction = Auction::with('vendedor','pecaLeilao.pecaArte.categoria')->find($id);
         return response()->json(['auction' => $auction]);
 
     }

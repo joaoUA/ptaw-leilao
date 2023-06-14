@@ -480,7 +480,7 @@ auctionVerificationItems?.forEach(element => {
                     modalArticleYear.innerText = `Data: ${auctionItem['peca_arte'][0]['ano'] || 'N/A'}`;
                     modalArticleAuthor.innerText = `Artista: ${auctionItem['peca_arte'][0]['artista'] || 'N/A'}`;
                     modalArticlePrice.innerText = `Preço Inicial: ${auctionItem['preco_inicial']}€`;
-                    modalArticleCategory.innerText = `Categoria: ${auctionItem['peca_arte'][0]['categoria_id']}`;
+                    modalArticleCategory.innerText = `Categoria: ${auctionItem['peca_arte'][0]['categoria']['nome']}`;
                 });
             });
         } catch (error) {
