@@ -49,4 +49,18 @@ class BidController extends Controller
             return response()->json(['message' => $e->getMessage()]);
         }
     }
+
+    public function highestBid(Request $request, $auctionItemId){
+        $auctionItem = AuctionItem::find($auctionItemId);
+
+        $highestBid = 0;
+
+        if( $auctionItem->preco_final == null)
+            $highestBid = $auctionItem->preco_inicial;
+        else
+            $highestBid = $auctionItem->preco_final;
+
+
+        return response()->json(['highestBid' => $highestBid]);
+    }
 }
