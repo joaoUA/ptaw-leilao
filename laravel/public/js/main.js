@@ -33,6 +33,7 @@ const btnConfirmCard = document.getElementById("btn-confirm-card");
 const btnDeleteCard = document.getElementById("btn-delete-card");
 //LICITAR
 const btnBid = document.getElementById('btn-bid');
+const bidInputField = document.getElementById('bid-input-field');
 //PEDIR MUDANÇA DE CARGO
 const btnRequestSellerStatus = document.getElementById("btn-request-seller-status");
 const btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
@@ -145,6 +146,10 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
     const auctionName = document.getElementById("input-leilao-nome").value.trim();
     const collection = btnNewAuctionCollection.checked;
     let collectionPrice = 0;
+
+    if(collection){
+        collectionPrice = NewAuctionCollectionPrice.value;
+    }
 
     const auction = {
         name: auctionName,
@@ -386,38 +391,41 @@ btnConfirmProfileChanges?.addEventListener('click', () => {
 
 })
 
-btnBid?.addEventListener('click', () => {
+btnBid?.addEventListener('click', async () => {
     const auctionId = btnBid.getAttribute('data-auction-id');
     const auctionItemId = btnBid.getAttribute('data-auction-item-id');
     const userId = btnBid.getAttribute('data-user-id');
-    const bidInputField = document.getElementById('bid-input-field');
-    let bid = bidInputField.value;
 
+    let bid = bidInputField.value;
     if (bid == '')
         return;
-
     bid = parseInt(bid);
 
-    fetch('/api/bid', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        }, body: JSON.stringify({
-            auctionId: auctionId,
-            auctionItemId: auctionItemId,
-            bid: bid,
-            userId: userId
-        })
-    }).then(response => {
-        if (response.ok)
-            return response.json();
-        else {
-            throw new Error(`Erro: ${response.status}`);
-        }
-    })
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
+    bidInputField.value = null;
 
+    try {
+        const response = await fetch('/api/bid', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }, body: JSON.stringify({
+                auctionId: auctionId,
+                auctionItemId: auctionItemId,
+                bid: bid,
+                userId: userId
+            })
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            const errorMessage = data['message'];
+            throw new Error(`${response.status}: ${errorMessage}`);
+        }
+        const successMessage = data['message'];
+        console.log(successMessage);
+
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 btnRequestSellerStatus?.addEventListener('click', () => {
@@ -536,3 +544,24 @@ btnRejectRoleChangeRequest?.addEventListener('click', () => {
         .then(data => console.log(data))
         .catch(error => console.error(error));
 })
+
+//ATUALIZAR LICITAÇÃO ATUAL CASO NA PÁGINA DE LEILÃO
+let highestBid = 0;
+if (bidInputField != null) {
+    setInterval(getHighestBid, 1000);
+
+    const auctionItemId = btnBid.getAttribute('data-auction-item-id');
+
+    async function getHighestBid() {
+        try {
+            const response = await fetch(`/api/highest-bid/${auctionItemId}`)
+            const data = await response.json();
+
+            const highestBid = data['highestBid'];
+            const bidElement = document.getElementById('highest-bid');
+            bidElement.innerText = `${highestBid}€`;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}

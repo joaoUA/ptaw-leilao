@@ -74,7 +74,7 @@
             </div>
             <p>{{$activeAuction->pecaarte[0]->nome}}</p>
             <div class="auction-bid-container">
-                <h1>{{$activeAuction->preco_inicial}}€</h1>
+                <h1 id="highest-bid">{{$activeAuction->preco_final != null ? $activeAuction->preco_final : $activeAuction->preco_inicial}}€</h1>
                 <h2>99:99</h2>
             </div>
             <div class="auction-form-container">
