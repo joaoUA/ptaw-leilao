@@ -33,31 +33,15 @@
             <div class="vt-item vt-title bkg-terciary cl-primary">
                 <p class="fnt-s">Vendedores a Verificar</p>
             </div>
-            <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
+
+            @foreach ($requests as $request)
+                <div class="vt-item" data-request-id={{$request->id}} data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder">
+                    <p class="vt-item-name">{{$request->utilizador->nome}}</p>
+                    <p>{{$request->data_pedido}}</p>
+                </div>
+            @endforeach
+
         </div>
     </div>
 
@@ -84,35 +68,35 @@
                 <div class="modal-top-bar">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="modal-seller" class="my-modal-body">
+                <div data-request-id=0 id="modal-seller" class="my-modal-body">
                     <div class="modal-seller-item">
                         <p>Nome:</p>
-                        <p>Ana Isabel Ferreira dos Santos</p>
+                        <p id="modal-seller-name">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>Data de Nascimento:</p>
-                        <p>05-11-1985</p>
+                        <p id="modal-seller-birthday">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>Morada:</p>
-                        <p>Rua dos Cravos, nº300</p>
+                        <p id="modal-seller-address">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>E-mail:</p>
-                        <p>anaisasantos@gmail.com</p>
+                        <p id="modal-seller-email">---</p>
                     </div>
                     <div class="modal-seller-item">
-                        <p>CC:</p>
-                        <p>123456789</p>
+                        <p>NIF:</p>
+                        <p id="modal-seller-nif">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>IBAN:</p>
-                        <p>123456789</p>
+                        <p id="modal-seller-iban">---</p>
                     </div>
                     <div class="modal-btn-container">
-                        <button type="button" class="btn btn-light bkg-primary cl-terciary"
+                        <button type="button" id="btn-user-modal-reject-request" class="btn btn-light bkg-primary cl-terciary"
                             data-bs-dismiss="modal">Recusar</button>
-                        <button type="button" class="btn btn-dark bkg-terciary cl-primary"
+                        <button type="button" id="btn-user-modal-confirm-request" class="btn btn-dark bkg-terciary cl-primary"
                             data-bs-dismiss="modal">Aprovar</button>
                     </div>
                 </div>

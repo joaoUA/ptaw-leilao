@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\NewAuctionController;
 use App\Http\Controllers\WalletController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VerificationsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
@@ -27,12 +29,7 @@ Route::get('/new', [NewAuctionController::class, 'index']);
 
 Route::get('/auction/{id}', [AuctionController::class, 'auction'])->name('auction');
     
-Route::get('/profile', function () {
-    if(Gate::allows('bidder') || Gate::allows('seller') || Gate::allows('admin'))
-        return view('profile');
-    else
-        return Redirect::to('/');
-});
+Route::get('/profile', [ProfileController::class, 'profile']);
 
 Route::get('/history', function () {
     if(Gate::allows('bidder') || Gate::allows('seller') || Gate::allows('admin'))
@@ -44,9 +41,13 @@ Route::get('/history', function () {
 Route::get('/wallet', [WalletController::class,'wallet']);
     
 
-Route::get('/verification', function () {
+Route::get('/verification', [VerificationsController::class, 'verification' ]);
+
+
+/*function () {
     if(Gate::allows('admin'))
         return view('verification');
     else
         return Redirect::to('/');
 });
+*/
