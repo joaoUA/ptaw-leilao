@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
+use App\Models\Auction;
+use App\Models\AuctionItem;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
+class BidController extends Controller
+{
+
+    public function __construct()
+    {
+        
+    }
+
+    public function bid(Request $request){
+        $data = $request->json()->all();
+        
+        $bid = $data['bid'];
+        $userId = $data['userId'];
+
+        try {
+            $auction = Auction::find($data['auctionId']);
+            if($auction == null)
+                throw new Exception("Leilão não encontrado!");
+            $auctionItem = AuctionItem::find($data['auctionItemId']);
+            if($auctionItem == null)
+                throw new Exception("Item de leilao nao encontrado");
+
+            if( $auction->preco_final == null && $bid <= $auctionItem->preco_inicial)
+                throw new Exception("Licitação Inválida");
+            if( $bid <= $auctionItem->preco_final)
+                throw new Exception("Licitação Inválida");
+            if( $auctionItem->comprado_id == $userId)
+                throw new Exception("Licitação Inválida");
+            
+                //utilizador naõ pode ser o mesmo
+
+            $auctionItem->preco_final = $bid;
+            $auctionItem->
+            $auctionItem->save();
+            return response()->json(['message' => "Sucesso"]);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()]);
+        }
+    }
+}
