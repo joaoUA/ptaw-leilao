@@ -42,10 +42,10 @@
                 <div id="modal-auction-item-details" class="my-modal-body">
                     <p>Detalhes do Artigo</p>
                     <img id="modal-auction-item-image" src=".\img\img-placeholder-224.png" alt="placeholder" />
-                    <p id="modal-auction-item-name"></p>
-                    <p id="modal-auction-item-author">nao sei</p>
-                    <p id="modal-auction-item-year">0000</p>
-                    <p id="modal-auction-item-category">pintura</p>
+                    <p id="modal-auction-item-name"></p> <!--Nome-->
+                    <p id="modal-auction-item-author"></p> <!--Autor-->
+                    <p id="modal-auction-item-year"></p> <!--Preço-->
+                    <p id="modal-auction-item-category"></p> <!--Categoria-->
                 </div>
             </div>
         </div>

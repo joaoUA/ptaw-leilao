@@ -436,6 +436,8 @@ auctionVerificationItems?.forEach(element => {
 
             document.querySelectorAll('.modal-auction-item').forEach(element => element.remove());
 
+            console.log(auction);
+
             auction['peca_leilao'].forEach(auctionItem => {
                 const modalAuctionItemDiv = document.createElement('div');
                 modalAuctionItemDiv.classList.add('modal-auction-item');
@@ -466,6 +468,18 @@ auctionVerificationItems?.forEach(element => {
 
                 const modalTitle = document.getElementById('modal-al-header');
                 modalTitle.insertAdjacentElement('afterend', modalAuctionItemDiv);
+
+                imageElement.addEventListener('click', () => {
+                    const modalArticleName = document.getElementById('modal-auction-item-name');
+                    const modalArticleAuthor = document.getElementById('modal-auction-item-author');
+                    const modalArticleYear = document.getElementById('modal-auction-item-year');
+                    const modalArticleCategory = document.getElementById('modal-auction-item-category');
+
+                    modalArticleName.innerText = `Preço Inicial: ${auctionItem['preco_inicial']}`;
+                    modalArticleAuthor.innerText = `Artista: ${auctionItem['peca_arte'][0]['artista'] || 'N/A'}`;
+                    modalArticleYear.innerText = `Data: ${auctionItem['peca_arte'][0]['ano'] || 'N/A'}`;
+                    modalArticleCategory.innerText = `Categoria: ${auctionItem['peca_arte'][0]['categoria_id']}`;
+                });
             });
         } catch (error) {
             console.log(error);
