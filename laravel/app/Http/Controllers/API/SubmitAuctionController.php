@@ -8,6 +8,7 @@ use App\Models\AuctionItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -29,7 +30,7 @@ class SubmitAuctionController extends Controller
                 'collection' => $data['collection'],
                 'collectionPrice' => $data['collectionPrice'],
                 'vendedorId' => $user->id,
-                'estadoId' => 4
+                'estadoId' => 1
             ];
             //VERIFICAR VALIDADE DOS VALORES DO LEILAO
             $auctionValidator = Validator::make($auctionBP, [
@@ -139,5 +140,15 @@ class SubmitAuctionController extends Controller
             DB::rollBack();
             return response()->json(['message' => 'Ocorreu um erro ao criar o leilão'], 500);
         }
+    }
+
+    //GET AUCTION
+    public function show(Request $request, $id){
+        
+        // $auction = Auction::find($id);
+        // return response()->json(['auction' => $auction]);
+        $auction = Auction::with('vendedor','pecaLeilao.pecaArte')->find($id);
+        return response()->json(['auction' => $auction]);
+
     }
 }

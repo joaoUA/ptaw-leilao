@@ -381,6 +381,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 0.5em;
+    margin-top: 0.5em;
 }
 .modal-btn-container button {
     font-size: var(--font-size-small);

@@ -36,3 +36,5 @@ Route::get('/role-request/{id}', [RoleChangeController::class, 'show']);
 Route::post('/role-change/{id}', [RoleChangeController::class, 'update']);
 Route::post('/role-change/{id}/{role}', [RoleController::class, 'requestRole']);
 Route::get('/user/{id}', [UserController::class, 'show']);
+
+Route::get('/auction/{id}', [SubmitAuctionController::class, 'show']);

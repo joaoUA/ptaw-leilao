@@ -8,9 +8,9 @@
                 <p class="vt-item-name">Leilões a Verificar</p>
             </div>
             @foreach ($auctions as $auction)
-                <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                <div class="vt-item" data-auction-id={{$auction->id}} data-bs-toggle="modal" data-bs-target="#ModalLeilao">
                     <img src="{{ asset('img/img-placeholder-48.png') }}" alt="placeholder">
-                    <p class="vt-item-name">Título do Leilão</p>
+                    <p class="vt-item-name">{{$auction->descricao}}</p>
                 </div>
             @endforeach
         </div>
@@ -99,25 +99,10 @@
                 </div>
                 <div id="modal-al" class="my-modal-body">
                     <div id="modal-al-header">
-                        <p>Título do Leilão</p>
-                        <p>Nome do Vendedor</p>
+                        <p id="modal-auction-name"></p> <!--Título-->
+                        <p id="modal-auction-seller"></p> <!--Vendedor-->
                     </div>
-                    <div class="modal-auction-item">
-                        <img src=".\img\img-placeholder-48.png" alt="placeholder" data-bs-toggle="modal"
-                            data-bs-target="#ModalArtigo" />
-                        <p class="">Artigo</p>
-                        <div class="form-check form-switch">
-                            <input class="toggle-pill form-check-input" type="checkbox" role="switch">
-                        </div>
-                    </div>
-                    <div class="modal-auction-item">
-                        <img src=".\img\img-placeholder-48.png" alt="placeholder" data-bs-toggle="modal"
-                            data-bs-target="#ModalArtigo" />
-                        <p class="">Artigo</p>
-                        <div class="form-check form-switch">
-                            <input class="toggle-pill form-check-input" type="checkbox" role="switch">
-                        </div>
-                    </div>
+                    <!--Peças Geradas Pelo JS-->
                     <div class="modal-btn-container">
                         <button type="button" class="btn btn-light bkg-primary cl-terciary"
                             data-bs-dismiss="modal">Recusar</button>

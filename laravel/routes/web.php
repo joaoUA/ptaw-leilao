@@ -45,12 +45,3 @@ Route::get('/wallet', function () {
 });
 
 Route::get('/verification', [VerificationsController::class, 'verification' ]);
-
-
-/*function () {
-    if(Gate::allows('admin'))
-        return view('verification');
-    else
-        return Redirect::to('/');
-});
-*/

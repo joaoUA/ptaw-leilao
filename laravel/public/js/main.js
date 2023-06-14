@@ -27,9 +27,13 @@ const btnRequestSellerStatus = document.getElementById("btn-request-seller-statu
 const btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
 
 //ITEMS DA TABELA DE VERIFICAÇÃO
-const userVerificationItems = Array.from(document.getElementsByClassName('vt-item'));
+const userVerificationItems = Array.from(document.getElementById('seller-vt').getElementsByClassName('vt-item'));
+const auctionVerificationItems = Array.from(document.getElementById('auction-vt').getElementsByClassName('vt-item'));
 const btnConfirmRoleChangeRequest = document.getElementById('btn-user-modal-confirm-request');
 const btnRejectRoleChangeRequest = document.getElementById('btn-user-modal-reject-request');
+//remover da lista o primeir div que é o titulo
+auctionVerificationItems.shift();
+userVerificationItems.shift();
 
 
 //licitarBtns.forEach(btn => {})
@@ -405,6 +409,58 @@ userVerificationItems?.forEach(element => {
 
         } catch (error) {
             console.error(error);
+        }
+    });
+})
+
+auctionVerificationItems?.forEach(element => {
+    element.addEventListener('click', async () => {
+        const auctionId = element.getAttribute('data-auction-id');
+        try {
+            let response = await fetch(`api/auction/${auctionId}`);
+            const data = await response.json();
+            const auction = data['auction'];
+
+            const auctionTitle = document.getElementById('modal-auction-name');
+            const auctionSeller = document.getElementById('modal-auction-seller');
+
+            auctionTitle.innerText = auction['descricao'];
+            auctionSeller.innerText = auction['vendedor']['nome'];
+
+            auction['peca_leilao'].forEach(auctionItem => {
+                const modalAuctionItemDiv = document.createElement('div');
+                modalAuctionItemDiv.classList.add('modal-auction-item');
+                modalAuctionItemDiv.setAttribute('data-auction-item-id', auctionItem['id']);
+
+                const imageElement = document.createElement('img');
+                imageElement.id = 'modal-article-image';
+                imageElement.src = './img/img-placeholder-48.png';
+                imageElement.alt = 'placeholder';
+                imageElement.setAttribute('data-bs-toggle', 'modal');
+                imageElement.setAttribute('data-bs-target', '#ModalArtigo');
+
+                const paragraphElement = document.createElement('p');
+                paragraphElement.innerText = auctionItem['peca_arte'][0]['nome'];
+
+                const formCheckDiv = document.createElement('div');
+                formCheckDiv.classList.add('form-check', 'form-switch');
+
+                const inputElement = document.createElement('input');
+                inputElement.type = 'checkbox';
+                inputElement.classList.add('toggle-pill', 'form-check-input');
+                inputElement.setAttribute('role', 'switch');
+
+                modalAuctionItemDiv.appendChild(imageElement);
+                modalAuctionItemDiv.appendChild(paragraphElement);
+                modalAuctionItemDiv.appendChild(formCheckDiv);
+                formCheckDiv.appendChild(inputElement);
+
+                const modalTitle = document.getElementById('modal-al-header');
+                modalTitle.insertAdjacentElement('afterend', modalAuctionItemDiv);
+            });
+            console.log(auction);
+        } catch (error) {
+            console.log(error);
         }
     });
 })
