@@ -18,6 +18,16 @@ const btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-ch
 const auctionItems = [];
 let currentItemId = 0;
 
+//PEDIR MUDANÇA DE CARGO
+const btnRequestSellerStatus = document.getElementById("btn-request-seller-status");
+const btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
+
+//ITEMS DA TABELA DE VERIFICAÇÃO
+const userVerificationItems = Array.from(document.getElementsByClassName('vt-item'));
+const btnConfirmRoleChangeRequest = document.getElementById('btn-user-modal-confirm-request');
+const btnRejectRoleChangeRequest = document.getElementById('btn-user-modal-reject-request');
+
+
 //licitarBtns.forEach(btn => {})
 
 searchIcon?.addEventListener('click', () => {
@@ -260,4 +270,121 @@ btnLogout?.addEventListener('click', (event) => {
 
 btnConfirmProfileChanges?.addEventListener('click', () => {
     //
+});
+
+btnRequestSellerStatus?.addEventListener('click', () => {
+    const userId = btnRequestSellerStatus.getAttribute('data-user-id')
+    fetch(`/api/role-change/${userId}/seller`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+    })
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+                return response.json();
+            }
+            else
+                throw new Error(`Erro: ${response.status}`)
+        })
+        .catch(error => console.error(error));
+});
+
+btnRequestAdminStatus?.addEventListener('click', () => {
+    const userId = btnRequestAdminStatus.getAttribute('data-user-id');
+    fetch(`/api/role-change/${userId}/admin`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+    })
+        .then(response => {
+            if (response.ok) {
+                //window.location.reload();
+                return;
+            }
+            else
+                throw new Error(`Erro: ${response.status}`);
+        })
+        .catch(error => console.log(error));
+})
+
+userVerificationItems?.forEach(element => {
+    element.addEventListener('click', async () => {
+        const requestId = element.getAttribute('data-request-id');
+        try {
+            let response = await fetch(`/api/role-request/${requestId}`);
+            const roleChange = await response.json();
+
+            response = await fetch(`/api/user/${roleChange.utilizador_id}`);
+            const user = await response.json();
+
+            const sellerName = document.getElementById('modal-seller-name');
+            const sellerBirthday = document.getElementById('modal-seller-birthday');
+            const sellerAddress = document.getElementById('modal-seller-address');
+            const sellerEmail = document.getElementById('modal-seller-email');
+            const sellerNif = document.getElementById('modal-seller-nif');
+            const sellerIban = document.getElementById('modal-seller-iban');
+
+            sellerName.innerText = user['nome'];
+            sellerBirthday.innerText = user['data_nascimento'].substring(0, 10);
+            sellerAddress.innerText = user['morada'];
+            sellerEmail.innerText = user['email'];
+            sellerNif.innerText = user['nif'];
+            sellerIban.innerText = user['iban'];
+
+            const modal = document.getElementById('modal-seller');
+            modal.setAttribute('data-request-id', requestId);
+
+        } catch (error) {
+            console.error(error);
+        }
+    });
+})
+
+btnConfirmRoleChangeRequest?.addEventListener('click', () => {
+    const requestId = document.getElementById('modal-seller').getAttribute('data-request-id');
+
+    fetch(`/api/role-change/${requestId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            decision: true
+        })
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else
+                throw new Error(`Erro: ${response.status}`);
+        })
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+});
+
+btnRejectRoleChangeRequest?.addEventListener('click', () => {
+    const requestId = document.getElementById('modal-seller').getAttribute('data-request-id');
+
+    fetch(`/api/role-change/${requestId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            decision: false,
+        })
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else
+                throw new Error(`Erro: ${response.status}`);
+        })
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
 })
