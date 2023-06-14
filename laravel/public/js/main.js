@@ -550,11 +550,9 @@ async function updateAuctionAuthenticationStatus(auctionId, status) {
 
         if (!responseAuthentication.ok)
             throw new Error(`${responseAuthentication.status}: ${responseMessage}`);
-        console.log(responseMessage);
+        alert(responseMessage);
 
-        const
-
-            location.reload();
+        location.reload();
     } catch (error) {
         console.log(responseMessage);
     }
