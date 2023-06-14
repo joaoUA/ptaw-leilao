@@ -4,8 +4,8 @@
     @include('partials/profileSideNavigation')
     <section class="history-section">
         <table class="history-table">
-            <caption>
-                Histórico de ...
+            <caption id="historyTitle">
+                Histórico de {{ $heading }}
             </caption>
             <tr>
                 <th></th>
@@ -17,7 +17,7 @@
 
             <tr>
                 <td data-cell="img">
-                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <img src="..\img\img-placeholder-48.png" alt="">
                 </td>
                 <td data-cell="name">artigo</td>
                 <td data-cell="price">000000€</td>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td data-cell="img">
-                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <img src="..\img\img-placeholder-48.png" alt="">
                 </td>
                 <td data-cell="name">artigo</td>
                 <td data-cell="price">000000€</td>
@@ -39,7 +39,7 @@
             </tr>
             <tr>
                 <td data-cell="img">
-                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <img src="..\img\img-placeholder-48.png" alt="">
                 </td>
                 <td data-cell="name">artigo</td>
                 <td data-cell="price">000000€</td>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td data-cell="img">
-                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <img src="..\img\img-placeholder-48.png" alt="">
                 </td>
                 <td data-cell="name">artigo</td>
                 <td data-cell="price">000000€</td>
@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td data-cell="img">
-                    <img src=".\img\img-placeholder-48.png" alt="">
+                    <img src="..\img\img-placeholder-48.png" alt="">
                 </td>
                 <td data-cell="name">artigo</td>
                 <td data-cell="price">000000€</td>

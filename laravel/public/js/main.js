@@ -5,8 +5,13 @@ const profileIcon = document.getElementById("profile-icon");
 const btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 const btnSubmitNewAuction = document.getElementById("btn-submit-new-auction");
 
-const searchBar = document.getElementById("search-bar")
+const searchBar = document.getElementById("search-bar");
 const profileMenu = document.getElementById("profile-menu");
+
+//HISTORICO
+const btnPurchasesHistory = document.getElementById("btn_purchases_history");
+const btnSalesHistory = document.getElementById("btn_sales_history");
+const historyTitle = document.getElementById("historyTitle");
 
 //REGISTAR MODAL
 const btnRegisterAccount = document.getElementById("btn-confirm-register-account");
@@ -260,4 +265,18 @@ btnLogout?.addEventListener('click', (event) => {
 
 btnConfirmProfileChanges?.addEventListener('click', () => {
     //
-})
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname === '/history/purchases') {
+        let response = fetch('/api/purchases');
+        const user = response.json();
+    
+        console.log(user);
+    }
+  });
+
+btnSalesHistory?.addEventListener('click', () => {
+    
+});

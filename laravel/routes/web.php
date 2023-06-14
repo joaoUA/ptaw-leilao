@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuctionController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\NewAuctionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -32,13 +33,9 @@ Route::get('/profile', function () {
     else
         return Redirect::to('/');
 });
+Route::get('/history/sales', [HistoryController::class, 'showSales']);
 
-Route::get('/history', function () {
-    if(Gate::allows('bidder') || Gate::allows('seller') || Gate::allows('admin'))
-        return view('history');
-    else
-        return Redirect::to('/');
-});
+Route::get('/history/purchases', [HistoryController::class, 'showPurchases']);
 
 Route::get('/wallet', function () {
     if(Gate::allows('bidder') || Gate::allows('seller') || Gate::allows('admin'))

@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\SubmitAuctionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PurchasesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [AuthenticatedSessionController::class, 'login']);
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
+
+Route::get('/purchases', [PurchasesController::class, 'show']);
+
 
