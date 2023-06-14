@@ -313,6 +313,8 @@ btnBid?.addEventListener('click', async () => {
         return;
     bid = parseInt(bid);
 
+    bidInputField.value = null;
+
     try {
         const response = await fetch('/api/bid', {
             method: 'POST',
