@@ -130,7 +130,7 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
         items: auctionItems,
     };
 
-    let errorMessage;
+    let responseMessage;
 
     try {
         const response = await fetch("/api/auction", {
@@ -143,15 +143,15 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
         });
 
         const data = await response.json();
-        errorMessage = data['message'];
+        responseMessage = data['message'];
 
         if (!response.ok)
             throw new Error(`Erro ao submeter leilão: ${response.status}`);
-
+        alert(responseMessage)
         location.reload();
 
     } catch (error) {
-        console.log(errorMessage);
+        console.log(responseMessage);
     };
 });
 
