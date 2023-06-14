@@ -17,9 +17,9 @@
             </thead>
             <tbody>
                 <tr class="cl-terciary">
-                    <td class="">{{$card->id}}</td>
+                    <td class="">{{$card->numero}}</td>
                     <td class="">{{$card->nome}}</td>
-                    <td class="">{{$card->ano}}/{{$card->mes}}</td>
+                    <td class="">{{$card->mes}}/{{$card->ano}}</td>
                     <td>
                         <button type="button" class="btn fa-solid fa-square-xmark fa-xl p-1"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"></button>

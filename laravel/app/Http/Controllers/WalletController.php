@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 
@@ -41,7 +42,7 @@ class WalletController extends Controller
                 return response()->json(['message' => 'Apenas pode registar um cartão'], 422);
 
             $cardData = [
-                'id' => $data['id'],
+                'numero' => $data['id'],
                 'nome' => $data['nome'],
                 'mes' => $data['mes'],
                 'ano' => $data['ano'],
@@ -50,7 +51,7 @@ class WalletController extends Controller
             ];
 
             $validator = Validator::make($cardData, [
-                'id' => 'required|integer',
+                'numero' => 'required|string|max:16',
                 'nome' => 'required|string|max:30',
                 'mes' => 'required|integer|max:12',
                 'ano' => 'required|integer',
@@ -60,7 +61,7 @@ class WalletController extends Controller
                 throw new ValidationException($validator);
 
             $card = new Card();
-            $card->id = $cardData['id'];
+            $card->numero = $cardData['numero'];
             $card->nome = $cardData['nome'];
             $card->mes = $cardData['mes'];
             $card->ano = $cardData['ano'];
@@ -72,6 +73,8 @@ class WalletController extends Controller
             return response()->json(['message' => 'Cartão registado com sucesso'], 200);
         } catch (ValidationException $e) {
             return response()->json(['message' => $e->errors()], 422);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 

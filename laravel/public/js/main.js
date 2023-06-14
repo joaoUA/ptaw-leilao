@@ -147,7 +147,7 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
     const collection = btnNewAuctionCollection.checked;
     let collectionPrice = 0;
 
-    if(collection){
+    if (collection) {
         collectionPrice = NewAuctionCollectionPrice.value;
     }
 
@@ -338,7 +338,7 @@ btnConfirmCard?.addEventListener("click", async () => {
         cvc: CardCvc,
         utilizador_id: userId,
     };
-
+    console.log(card);
     let responseMessage;
 
     try {
@@ -354,7 +354,8 @@ btnConfirmCard?.addEventListener("click", async () => {
 
         responseMessage = data["message"];
 
-        if (!response.ok) throw new Error(`Erro: ${response.status}`);
+        if (!response.ok)
+            throw new Error(`Erro: ${response.status}`);
 
         alert(responseMessage);
         location.reload();
