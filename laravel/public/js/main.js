@@ -27,16 +27,16 @@ const btnRequestSellerStatus = document.getElementById("btn-request-seller-statu
 const btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
 
 //ITEMS DA TABELA DE VERIFICAÇÃO
-const userVerificationItems = Array.from(document.getElementById('seller-vt').getElementsByClassName('vt-item'));
-const auctionVerificationItems = Array.from(document.getElementById('auction-vt').getElementsByClassName('vt-item'));
+const userVerificationItems = document.getElementById('seller-vt') ? Array.from(document.getElementById('seller-vt').getElementsByClassName('vt-item')) : null;
+const auctionVerificationItems = document.getElementById('auction-vt') ? Array.from(document.getElementById('auction-vt').getElementsByClassName('vt-item')) : null;
 const btnConfirmRoleChangeRequest = document.getElementById('btn-user-modal-confirm-request');
 const btnRejectRoleChangeRequest = document.getElementById('btn-user-modal-reject-request');
 const btnConfirmAuctionVerification = document.getElementById('btn-auction-modal-confirm-request');
 const btnRejectAuctionVerification = document.getElementById('btn-auction-modal-reject-request');
 
 //remover da lista o primeir div que é o titulo
-auctionVerificationItems.shift();
-userVerificationItems.shift();
+auctionVerificationItems?.shift();
+userVerificationItems?.shift();
 
 
 
@@ -467,7 +467,6 @@ auctionVerificationItems?.forEach(element => {
                 const modalTitle = document.getElementById('modal-al-header');
                 modalTitle.insertAdjacentElement('afterend', modalAuctionItemDiv);
             });
-            console.log(auction);
         } catch (error) {
             console.log(error);
         }
@@ -523,7 +522,6 @@ btnConfirmAuctionVerification?.addEventListener('click', () => {
     const auctionId = modalBody.getAttribute('data-auction-id');
 
     updateAuctionAuthenticationStatus(auctionId, true);
-
 });
 
 btnRejectAuctionVerification?.addEventListener('click', () => {
@@ -552,7 +550,34 @@ async function updateAuctionAuthenticationStatus(auctionId, status) {
             throw new Error(`${responseAuthentication.status}: ${responseMessage}`);
         alert(responseMessage);
 
+        //Publicar leilão se verificação foi aceite
+        if (status)
+            launchAuction(auctionId);
+
         location.reload();
+    } catch (error) {
+        console.log(responseMessage);
+    }
+}
+
+async function launchAuction(auctionId) {
+    let responseMessage;
+    try {
+        const response = await fetch(`/api/launch-auction/${auctionId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({})
+        });
+
+        const data = await response.json();
+        responseMessage = data['message'];
+
+        if (!response.ok)
+            throw new Error(`${response.status}: ${responseMessage}`);
+
+        console.log(responseMessage);
     } catch (error) {
         console.log(responseMessage);
     }
