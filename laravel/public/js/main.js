@@ -135,6 +135,10 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
     const collection = btnNewAuctionCollection.checked;
     let collectionPrice = 0;
 
+    if(collection){
+        collectionPrice = NewAuctionCollectionPrice.value;
+    }
+
     const auction = {
         name: auctionName,
         collection: collection,
