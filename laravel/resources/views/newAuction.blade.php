@@ -1,6 +1,7 @@
 @include('partials/head')
 @include('partials/nav')
 
+
 <div id="ca-main-container" class="main-container">
     <div id="table-section-heading">
         <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control"
@@ -39,11 +40,11 @@
         <p class="">Leiloar como artigo único</p>
 
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <input class="form-check-input" type="checkbox" disabled id="flexSwitchCheckDefault">
         </div>
 
         <div class="input-group">
-            <input type="text" name="" id="" class="form-control fnt-main fnt-s" placeholder="€" disabled>
+            <input type="number" name="" id="collectionPrice" class="form-control fnt-main fnt-s" placeholder="€" disabled>
         </div>
     </div>
 
