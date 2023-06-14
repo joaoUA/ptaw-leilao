@@ -7,26 +7,12 @@
             <div class="vt-item vt-title">
                 <p class="vt-item-name">Leilões a Verificar</p>
             </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
+            @foreach ($auctions as $auction)
+                <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <img src="{{ asset('img/img-placeholder-48.png') }}" alt="placeholder">
+                    <p class="vt-item-name">Título do Leilão</p>
+                </div>
+            @endforeach
         </div>
 
         <div id="seller-vt" class="vt cl-terciary fnt-m">
