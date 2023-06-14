@@ -303,38 +303,39 @@ btnConfirmProfileChanges?.addEventListener('click', () => {
 
 })
 
-btnBid?.addEventListener('click', () => {
+btnBid?.addEventListener('click', async () => {
     const auctionId = btnBid.getAttribute('data-auction-id');
     const auctionItemId = btnBid.getAttribute('data-auction-item-id');
     const userId = btnBid.getAttribute('data-user-id');
 
     let bid = bidInputField.value;
-
     if (bid == '')
         return;
-
     bid = parseInt(bid);
 
-    fetch('/api/bid', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        }, body: JSON.stringify({
-            auctionId: auctionId,
-            auctionItemId: auctionItemId,
-            bid: bid,
-            userId: userId
-        })
-    }).then(response => {
-        if (response.ok)
-            return response.json();
-        else {
-            throw new Error(`Erro: ${response.status}`);
+    try {
+        const response = await fetch('/api/bid', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }, body: JSON.stringify({
+                auctionId: auctionId,
+                auctionItemId: auctionItemId,
+                bid: bid,
+                userId: userId
+            })
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            const errorMessage = data['message'];
+            throw new Error(`${response.status}: ${errorMessage}`);
         }
-    })
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
+        const successMessage = data['message'];
+        console.log(successMessage);
 
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 btnRequestSellerStatus?.addEventListener('click', () => {
