@@ -3,6 +3,8 @@
 use App\Http\Controllers\API\SubmitAuctionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +31,4 @@ Route::post('/login', [AuthenticatedSessionController::class, 'login']);
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 
+Route::post('/card',[WalletController::class, 'registerCard']);

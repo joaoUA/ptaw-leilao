@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\NewAuctionController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
@@ -40,12 +41,8 @@ Route::get('/history', function () {
         return Redirect::to('/');
 });
 
-Route::get('/wallet', function () {
-    if(Gate::allows('bidder') || Gate::allows('seller') || Gate::allows('admin'))
-        return view('wallet');
-    else
-        return Redirect::to('/');
-});
+Route::get('/wallet', [WalletController::class,'wallet']);
+    
 
 Route::get('/verification', function () {
     if(Gate::allows('admin'))
