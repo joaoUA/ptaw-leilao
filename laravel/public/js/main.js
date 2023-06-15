@@ -267,16 +267,3 @@ btnConfirmProfileChanges?.addEventListener('click', () => {
     //
 });
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname === '/history/purchases') {
-        let response = fetch('/api/purchases');
-        const user = response.json();
-    
-        console.log(user);
-    }
-  });
-
-btnSalesHistory?.addEventListener('click', () => {
-    
-});

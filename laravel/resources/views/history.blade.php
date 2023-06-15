@@ -14,6 +14,29 @@
                 <th><i class="fa-regular fa-calendar"></th>
                 <th><i class="fa-regular fa-file"></th>
             </tr>
+            @foreach ($articles as $article)
+            <tr>
+                <td data-cell="img">
+                    <img src="..\img\img-placeholder-48.png" alt="">
+                </td>
+                <td data-cell="name">{{$article->nome}}</td>
+                <td data-cell="price">{{$article->preco}}€</td>
+                <td data-cell="date">{{$article->data ?? 'N/A'}}</td>
+                <td data-cell="file">
+                    <i class="fa-solid fa-square"></i>
+                </td>
+            </tr>
+            @endforeach 
+{{-- 
+
+
+            <tr>
+                <th></th>
+                <th></th>
+                <th><i class="fa-solid fa-dollar-sign"></th>
+                <th><i class="fa-regular fa-calendar"></th>
+                <th><i class="fa-regular fa-file"></th>
+            </tr>
 
             <tr>
                 <td data-cell="img">
@@ -69,7 +92,7 @@
                 <td data-cell="file">
                     <i class="fa-solid fa-square"></i>
                 </td>
-            </tr>
+            </tr> --}}
         </table>
     </section>
 </div>
