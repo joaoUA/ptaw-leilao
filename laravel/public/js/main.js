@@ -93,8 +93,8 @@ btnNewAuctionItem?.addEventListener("click", () => {
         precoInicial: itemPrice,
         //Peça Arte:
         nome: itemName,
-        artista:itemArtist,
-        ano:itemYear,
+        artista: itemArtist,
+        ano: itemYear,
         categoria: itemCategory
     });
 
@@ -409,8 +409,6 @@ btnDeleteCard?.addEventListener("click", async () => {
 btnConfirmProfileChanges?.addEventListener('click', () => {
 
 });
-
-})
 
 btnBid?.addEventListener('click', async () => {
     const auctionId = btnBid.getAttribute('data-auction-id');
