@@ -78,8 +78,8 @@
                 <h2>99:99</h2>
             </div>
             <div class="auction-form-container">
-                <input type="number" id="bid-input-field" class="form-control" name="licitacao-input" placeholder="Licitação">
-                <button id="btn-bid" data-auction-id={{$auction->id}} data-auction-item-id={{$activeAuction->id}} data-user-id={{Auth::user()->id}} class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">Licitar</buttod>
+                <input type="number" id="bid-input-field" class="form-control" name="licitacao-input" placeholder="Licitação" {{!$userWithCard ? 'disabled' : ''}}>
+                <button id="btn-bid" data-auction-id={{$auction->id}} data-auction-item-id={{$activeAuction->id}} data-user-id={{Auth::user()->id}} class="form-control btn btn-dark bkg-terciary cl-primary fnt-s {{!$userWithCard ? 'disabled' : ''}}">Licitar</button>
             </div>
         </div>
     </div>
