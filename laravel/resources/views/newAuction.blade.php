@@ -69,9 +69,16 @@
                     </div>
 
                     <div class="p-1 d-flex justify-content-between gap-2">
-                        <input type="number" class="form-control fnt-s" required name="artigo-preco" id="artigo-preco"
+                        <input type="text" class="form-control fnt-s" required name="artigo-artista" id="artigo-artista"
+                            placeholder="Artista">
+                        <input type="text" class="form-control fnt-s" required name="artigo-ano" id="artigo-ano"
+                            placeholder="Ano">
+                    </div>
+
+                    <div class="p-1 d-flex justify-content-between gap-2">
+                        <input type="number" class="form-control fnt-s w-50" required name="artigo-preco" id="artigo-preco"
                             placeholder="Preço">
-                        <select class="form-select form-control fnt-s" required  id="artigo-categoria">
+                        <select class="form-select form-control fnt-s w-50" required  id="artigo-categoria">
                             <option value="" disabled selected class="fnt-s">Categoria</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category->nome}}">{{$category->nome}}</option>
