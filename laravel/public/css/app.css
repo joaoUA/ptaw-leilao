@@ -621,7 +621,7 @@ nav {
 /*table data & price columns (except headers)*/
 .history-table tr td:nth-last-child(2),
 .history-table tr td:nth-last-child(3) {
-    text-align: end;
+    text-align: center;
 }
 
 /* Pagina Carteira*/

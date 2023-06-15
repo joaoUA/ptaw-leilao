@@ -5,6 +5,7 @@ use App\Http\Controllers\API\BidController;
 use App\Http\Controllers\API\RoleChangeController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SubmitAuctionController;
+use App\Http\Controllers\API\PurchasesController;
 use App\Http\Controllers\API\TempAuctionController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -35,8 +36,8 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 //ACCOUNTS
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [AuthenticatedSessionController::class, 'login']);
-Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 
+Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 
 Route::post('/card',[WalletController::class, 'registerCard']);
 Route::delete('/card/{id}',[WalletController::class, 'deleteCard']);

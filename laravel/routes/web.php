@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuctionController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\NewAuctionController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\ProfileController;
@@ -28,17 +29,12 @@ Route::get('/', [HomeController::class, 'homeAuctions']);
 Route::get('/new', [NewAuctionController::class, 'index']);
 
 Route::get('/auction/{id}', [AuctionController::class, 'auction'])->name('auction');
-    
+
+Route::get('/history/sales', [HistoryController::class, 'showSales']);
+Route::get('/history/purchases', [HistoryController::class, 'showPurchases']);
+
 Route::get('/profile', [ProfileController::class, 'profile']);
 
-Route::get('/history', function () {
-    if(Gate::allows('bidder') || Gate::allows('seller') || Gate::allows('admin'))
-        return view('history');
-    else
-        return Redirect::to('/');
-});
-
 Route::get('/wallet', [WalletController::class,'wallet']);
-    
 
 Route::get('/verification', [VerificationsController::class, 'verification' ]);

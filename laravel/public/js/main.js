@@ -14,6 +14,11 @@ const NewAuctionCollectionPrice = document.getElementById("collectionPrice");
 const searchBar = document.getElementById("search-bar");
 const profileMenu = document.getElementById("profile-menu");
 
+//HISTORICO
+const btnPurchasesHistory = document.getElementById("btn_purchases_history");
+const btnSalesHistory = document.getElementById("btn_sales_history");
+const historyTitle = document.getElementById("historyTitle");
+
 //REGISTAR MODAL
 const btnRegisterAccount = document.getElementById(
     "btn-confirm-register-account"
@@ -402,6 +407,8 @@ btnDeleteCard?.addEventListener("click", async () => {
     }
 });
 btnConfirmProfileChanges?.addEventListener('click', () => {
+
+});
 
 })
 
