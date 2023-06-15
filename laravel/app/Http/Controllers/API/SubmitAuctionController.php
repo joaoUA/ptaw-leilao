@@ -146,9 +146,27 @@ class SubmitAuctionController extends Controller
     //GET AUCTION
     public function show(Request $request, $id){
         
-        // $auction = Auction::find($id);
-        // return response()->json(['auction' => $auction]);
-        $auction = Auction::with('vendedor','pecaLeilao.pecaArte.categoria')->find($id);
+        $auction = Auction::select(
+            'leilao.id as leilao_id',
+            'leilao.descricao',
+            'utilizador.id as utilizador_id',
+            'utilizador.nome as vendedor_nome',
+            'peca_leilao.id as peca_leilao_id',
+            'peca_leilao.preco_inicial',
+            'peca_arte.id as peca_arte_id',
+            'peca_arte.nome as peca_arte_nome',
+            'peca_arte.artista',
+            'peca_arte.ano',
+            'peca_arte.autenticado',
+            'categoria.nome as categoria_nome'
+        )
+        ->join('utilizador', 'leilao.vendedor_id', '=', 'utilizador.id')
+        ->join('peca_leilao', 'leilao.id', '=', 'peca_leilao.leilao_id')
+        ->join('peca_arte', 'peca_leilao.id', '=', 'peca_arte.peca_leilao_id')
+        ->join('categoria', 'peca_arte.categoria_id', '=', 'categoria.id')
+        ->where('leilao.id', $id)
+        ->get();
+
         return response()->json(['auction' => $auction]);
 
     }

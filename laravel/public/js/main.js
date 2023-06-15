@@ -425,33 +425,38 @@ auctionVerificationItems?.forEach(element => {
             const data = await response.json();
             const auction = data['auction'];
 
+            if (auction == null || Object.keys(auction).length === 0)
+                throw Error("Leilão Vazio!");
+
+            console.log(auction);
+
             const modalBody = document.getElementById('modal-al');
-            modalBody.setAttribute('data-auction-id', auction['id']);
+            modalBody.setAttribute('data-auction-id', auction[0]['leilao_id']);
 
             const auctionTitle = document.getElementById('modal-auction-name');
             const auctionSeller = document.getElementById('modal-auction-seller');
 
-            auctionTitle.innerText = auction['descricao'];
-            auctionSeller.innerText = auction['vendedor']['nome'];
+            auctionTitle.innerText = auction[0]['descricao'];
+            auctionSeller.innerText = auction[0]['vendedor_nome'];
 
             document.querySelectorAll('.modal-auction-item').forEach(element => element.remove());
 
-            console.log(auction);
+            Object.values(auction).forEach(auctionItem => {
 
-            auction['peca_leilao'].forEach(auctionItem => {
+                console.log(auctionItem);
                 const modalAuctionItemDiv = document.createElement('div');
                 modalAuctionItemDiv.classList.add('modal-auction-item');
-                modalAuctionItemDiv.setAttribute('data-auction-item-id', auctionItem['id']);
+                modalAuctionItemDiv.setAttribute('data-auction-item-id', auctionItem['peca_leilao_id']);
 
                 const imageElement = document.createElement('img');
                 imageElement.id = 'modal-article-image';
                 imageElement.src = './img/img-placeholder-48.png';
                 imageElement.alt = 'placeholder';
-
                 imageElement.setAttribute('data-bs-toggle', 'modal');
                 imageElement.setAttribute('data-bs-target', '#ModalArtigo');
+
                 const paragraphElement = document.createElement('p');
-                paragraphElement.innerText = auctionItem['peca_arte'][0]['nome'];
+                paragraphElement.innerText = auctionItem['peca_arte_nome'];
 
                 const formCheckDiv = document.createElement('div');
                 formCheckDiv.classList.add('form-check', 'form-switch');
@@ -461,13 +466,6 @@ auctionVerificationItems?.forEach(element => {
                 inputElement.classList.add('toggle-pill', 'form-check-input');
                 inputElement.setAttribute('role', 'switch');
 
-                modalAuctionItemDiv.appendChild(imageElement);
-                modalAuctionItemDiv.appendChild(paragraphElement);
-                modalAuctionItemDiv.appendChild(formCheckDiv);
-                formCheckDiv.appendChild(inputElement);
-
-                const modalTitle = document.getElementById('modal-al-header');
-                modalTitle.insertAdjacentElement('afterend', modalAuctionItemDiv);
 
                 imageElement.addEventListener('click', () => {
                     const modalArticleName = document.getElementById('modal-auction-item-name');
@@ -476,13 +474,22 @@ auctionVerificationItems?.forEach(element => {
                     const modalArticleCategory = document.getElementById('modal-auction-item-category');
                     const modalArticlePrice = document.getElementById('modal-auction-item-price');
 
-                    modalArticleName.innerText = `Nome: ${auctionItem['peca_arte'][0]['nome']}`;
-                    modalArticleYear.innerText = `Data: ${auctionItem['peca_arte'][0]['ano'] || 'N/A'}`;
-                    modalArticleAuthor.innerText = `Artista: ${auctionItem['peca_arte'][0]['artista'] || 'N/A'}`;
+                    modalArticleName.innerText = `Nome: ${auctionItem['peca_arte_nome']}`;
+                    modalArticleYear.innerText = `Data: ${auctionItem['ano'] || 'N/A'}`;
+                    modalArticleAuthor.innerText = `Artista: ${auctionItem['artista'] || 'N/A'}`;
                     modalArticlePrice.innerText = `Preço Inicial: ${auctionItem['preco_inicial']}€`;
-                    modalArticleCategory.innerText = `Categoria: ${auctionItem['peca_arte'][0]['categoria']['nome']}`;
+                    modalArticleCategory.innerText = `Categoria: ${auctionItem['categoria_nome']}`;
                 });
-            });
+
+                modalAuctionItemDiv.appendChild(imageElement);
+                modalAuctionItemDiv.appendChild(paragraphElement);
+                formCheckDiv.appendChild(inputElement);
+                modalAuctionItemDiv.appendChild(formCheckDiv);
+
+                const modalTitle = document.getElementById('modal-al-header');
+                modalTitle.insertAdjacentElement('afterend', modalAuctionItemDiv);
+
+            })
         } catch (error) {
             console.log(error);
         }
