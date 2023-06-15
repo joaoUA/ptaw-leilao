@@ -46,8 +46,13 @@ profileIcon?.addEventListener('click', () => {
 
 btnNewAuctionItem?.addEventListener('click', () => {
     const itemInputName = document.getElementById("artigo-nome");
+    const itemInputArtist = document.getElementById("artigo-artista");
+    const itemInputYear = document.getElementById("artigo-ano");
     const itemInputPrice = document.getElementById("artigo-preco");
     const itemInputCategory = document.getElementById("artigo-categoria");
+
+    const itemArtist = itemInputArtist.value.trim();
+    const itemYear = itemInputYear.value.trim();
     const itemName = itemInputName.value.trim();
     const itemPrice = itemInputPrice.value;
     const itemCategory = itemInputCategory.value;
@@ -65,6 +70,8 @@ btnNewAuctionItem?.addEventListener('click', () => {
         precoInicial: itemPrice,
         //Peça Arte:
         nome: itemName,
+        artista:itemArtist,
+        ano:itemYear,
         artista: null,
         ano: null,
         categoria: itemCategory
@@ -163,8 +170,8 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
         responseMessage = data['message'];
 
         if (!response.ok)
-            throw new Error(`Erro ao submeter leilão: ${response.status}`);
-        alert(responseMessage)
+            throw new Error(`${response.status}: ${responseMessage}`);
+        console.log(responseMessage)
         location.reload();
 
     } catch (error) {
