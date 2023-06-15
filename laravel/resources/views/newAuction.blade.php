@@ -86,18 +86,17 @@
                         </select>
                     </div>
 
-                    <div id="article-img-container">
-                        <img src="{{asset('img/img-placeholder-114.png')}}" class="img-thumbnail" alt="...">
-                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
-                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
-                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
-                        <img src="{{asset('img/img-placeholder-48.png')}}" alt="" srcset="" class="img-thumbnail">
+
+                    <div class="mb-3 p-2" id="file-group">
+                        <label for="formFile" class="mx-1 form-label fnt-s">Imagens do Artigo
+                            </label>
+                        <input class="form-control fnt-s" type="file" id="imageInput">
                     </div>
 
                     <div class="mb-3 p-1" id="file-group">
                         <label for="formFile" class="mx-1 form-label fnt-s">Documento de Autenticação
                             (Opcional)</label>
-                        <input class="form-control fnt-s" type="file" id="formFile">
+                        <input class="form-control fnt-s" type="file" id="documentInput">
                     </div>
 
                     <div class="p-1 d-grid gap-2">
@@ -119,7 +118,7 @@
 
 
 <script src="{{ asset('js/navbar.js') }}" defer></script>
-<script src="{{ asset('js/newactionpage.js') }}" defer></script>
+<script src="{{ asset('js/newauctionpage.js') }}" defer></script>
 
 </body>
 </html>

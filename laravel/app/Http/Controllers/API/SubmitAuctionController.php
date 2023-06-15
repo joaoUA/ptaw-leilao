@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ArtPiece;
 use App\Models\Auction;
 use App\Models\AuctionItem;
+use App\Models\Image;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -128,6 +129,28 @@ class SubmitAuctionController extends Controller
                 $artPiece->categoria_id = $artPieceBP['categoriaId'];
                 $artPiece->peca_leilao_id = $artPieceBP['pecaLeilaoId'];
                 $artPiece->save();
+
+                $path=$item->file('image')->store('public/img');
+
+                $imageBP = [
+                    'id'=>1,
+                    'path' => $path,
+                    'peca_arte_id'=> $artPiece->id,
+                ];
+
+                $imageBPValidator = Validator::make($imageBP,[
+                    'imagem' => 'required|image|max:2048',
+                ]);
+
+                if ($imageBPValidator-> fails())
+                    throw new ValidationException($imageBPValidator);
+
+                $image = new Image();
+                $image->id = $imageBP['id'];
+                $image->path = $imageBP['path'];
+                $image->peca_arte_id = $imageBP['peca_arte_id'];
+                $image->save();
+
                     
             }
 

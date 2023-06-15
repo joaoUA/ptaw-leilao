@@ -12,12 +12,17 @@ btnNewAuctionItem?.addEventListener("click", () => {
     const itemInputYear = document.getElementById("artigo-ano");
     const itemInputPrice = document.getElementById("artigo-preco");
     const itemInputCategory = document.getElementById("artigo-categoria");
+    const fileInput = document.getElementById("imageInput");
 
     const itemArtist = itemInputArtist.value.trim();
     const itemYear = itemInputYear.value.trim();
     const itemName = itemInputName.value.trim();
     const itemPrice = itemInputPrice.value;
     const itemCategory = itemInputCategory.value;
+    const itemFile = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('image',itemFile);
 
     if (itemName == "" || itemPrice == "" || itemCategory == "") {
         alert("Preencha todos os campos");
@@ -26,6 +31,8 @@ btnNewAuctionItem?.addEventListener("click", () => {
         alert("Insira um valor positivo.");
         return;
     }
+
+    console.log(formData);
     auctionItems.push({
         id: currentItemId,
         //Peça Leilao:
@@ -34,7 +41,8 @@ btnNewAuctionItem?.addEventListener("click", () => {
         nome: itemName,
         artista: itemArtist,
         ano: itemYear,
-        categoria: itemCategory
+        categoria: itemCategory,
+        imagem: formData,
     });
 
     const tr = document.createElement("tr");
