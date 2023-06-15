@@ -72,8 +72,6 @@ btnNewAuctionItem?.addEventListener('click', () => {
         nome: itemName,
         artista:itemArtist,
         ano:itemYear,
-        artista: null,
-        ano: null,
         categoria: itemCategory
     })
 

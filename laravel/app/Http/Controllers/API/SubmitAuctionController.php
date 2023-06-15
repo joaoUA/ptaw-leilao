@@ -34,9 +34,9 @@ class SubmitAuctionController extends Controller
             //VERIFICAR VALIDADE DOS VALORES DO LEILAO
             $auctionValidator = Validator::make($auctionBP, [
                 'nome' => 'required|string',
-                'vendedorId' => 'required|integer|exists:utilizador,id',
                 'collection' => 'required|boolean',
                 'collectionPrice' => 'required|integer',
+                'vendedorId' => 'required|integer|exists:utilizador,id',
                 'estadoId' => 'required|integer|exists:estado_leilao,id'
             ]);
             if ( $auctionValidator->fails())
@@ -109,7 +109,7 @@ class SubmitAuctionController extends Controller
                 $artPieceValidator = Validator::make($artPieceBP, [
                     'nome' => 'required|string|max:100',
                     'artista' => 'nullable|string|max:100',
-                    'ano' => 'nullable|date',
+                    'ano' => 'nullable|integer|max:9999',
                     'autenticado' => 'required|boolean',
                     'categoriaId' => 'required|integer|exists:categoria,id',
                     'pecaLeilaoId' => 'required|integer|exists:peca_leilao,id',
