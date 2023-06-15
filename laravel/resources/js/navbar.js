@@ -5,6 +5,8 @@ const searchIcon = document.getElementById("search-icon");
 const profileIcon = document.getElementById("profile-icon");
 const searchBar = document.getElementById("search-bar");
 const profileMenu = document.getElementById("profile-menu");
+const errorMsg = document.getElementById("error-msg");
+let timeoutId;
 
 searchIcon?.addEventListener("click", () => {
     searchBar?.classList.toggle("hidden");
@@ -27,6 +29,7 @@ btnLogin?.addEventListener('click', async () => {
     };
 
     let responseMessage;
+    let responseStatus;
     try {
         const response = await fetch('/api/login', {
             method: 'POST',
@@ -42,12 +45,21 @@ btnLogin?.addEventListener('click', async () => {
         const data = await response.json();
         responseMessage = data['message'];
 
-        if (!response.ok)
-            throw new Error(`${response.status}: ${responseMessage}`);
 
+        if (!response.ok){
+            responseStatus = response.status;
+            throw new Error(`${response.status}: ${responseMessage}`);
+        }
         alert(responseMessage);
         location.reload();
     } catch (error) {
+        if(responseStatus == 401){
+            errorMsg.innerText = responseMessage;
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                errorMsg.innerText = "";
+              }, 3000);
+        }
         console.log(responseMessage);
     }
 })

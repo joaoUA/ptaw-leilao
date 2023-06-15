@@ -14,6 +14,8 @@ var searchIcon = document.getElementById("search-icon");
 var profileIcon = document.getElementById("profile-icon");
 var searchBar = document.getElementById("search-bar");
 var profileMenu = document.getElementById("profile-menu");
+var errorMsg = document.getElementById("error-msg");
+var timeoutId;
 searchIcon === null || searchIcon === void 0 ? void 0 : searchIcon.addEventListener("click", function () {
   searchBar === null || searchBar === void 0 ? void 0 : searchBar.classList.toggle("hidden");
 });
@@ -21,7 +23,7 @@ profileIcon === null || profileIcon === void 0 ? void 0 : profileIcon.addEventLi
   profileMenu === null || profileMenu === void 0 ? void 0 : profileMenu.classList.toggle("hidden");
 });
 btnLogin === null || btnLogin === void 0 ? void 0 : btnLogin.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-  var inputEmail, inputPassword, email, password, credentials, responseMessage, response, data;
+  var inputEmail, inputPassword, email, password, credentials, responseMessage, responseStatus, response, data;
   return _regeneratorRuntime().wrap(function _callee$(_context) {
     while (1) switch (_context.prev = _context.next) {
       case 0:
@@ -51,24 +53,32 @@ btnLogin === null || btnLogin === void 0 ? void 0 : btnLogin.addEventListener('c
         data = _context.sent;
         responseMessage = data['message'];
         if (response.ok) {
-          _context.next = 15;
+          _context.next = 16;
           break;
         }
+        responseStatus = response.status;
         throw new Error("".concat(response.status, ": ").concat(responseMessage));
-      case 15:
+      case 16:
         alert(responseMessage);
         location.reload();
-        _context.next = 22;
+        _context.next = 24;
         break;
-      case 19:
-        _context.prev = 19;
+      case 20:
+        _context.prev = 20;
         _context.t0 = _context["catch"](5);
+        if (responseStatus == 401) {
+          errorMsg.innerText = responseMessage;
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(function () {
+            errorMsg.innerText = "";
+          }, 3000);
+        }
         console.log(responseMessage);
-      case 22:
+      case 24:
       case "end":
         return _context.stop();
     }
-  }, _callee, null, [[5, 19]]);
+  }, _callee, null, [[5, 20]]);
 })));
 btnLogout === null || btnLogout === void 0 ? void 0 : btnLogout.addEventListener('click', /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {

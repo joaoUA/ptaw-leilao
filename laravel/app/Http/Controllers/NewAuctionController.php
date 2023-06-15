@@ -12,10 +12,10 @@ class NewAuctionController extends Controller
 {
     public function index() {
 
-        if(Gate::denies('seller'))
+        if(Gate::denies('seller') && Gate::denies('admin'))
             return Redirect::to('/');
 
         $categories = Category::all();
-        return view('newAuction', ['categories' => $categories]);
+        return view('newAuction', ['categories' => $categories, 'pageHeading' => "Criar Leilão",]);
     }
 }

@@ -34,13 +34,18 @@ class AuctionController extends Controller
             return Redirect::to('/');
         }
 
-        $userWithCard = Card::where('utilizador_id', Auth::user()->id)->exists();
+        if($auction->vendedor_id == Auth::user()->id){
+            $userValid = false;
+        }else{
+            $userValid = Card::where('utilizador_id', Auth::user()->id)->exists();
+        }
         
         return view('auction', [
             'auction' => $auction,
             'activeAuction' => $activeAuction,
             'auctionItemsCount' => count($auction->pecaleilao),
-            'userWithCard' => $userWithCard
+            'userValid' => $userValid,
+            'pageHeading' => $auction->descricao
         ]);
     }
 }

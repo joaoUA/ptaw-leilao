@@ -21,6 +21,7 @@ class VerificationsController extends Controller
         return view('verification', [
             'requests' => $userRequests,
             'auctions' => $unverifiedAuctions,
+            'pageHeading' => "Verificações"
         ]);
     }
 }

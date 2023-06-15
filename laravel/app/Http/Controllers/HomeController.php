@@ -14,6 +14,6 @@ class HomeController extends Controller
             $query->where('nome', 'Ativo');
         })->get();
         
-        return view('home', ['auctions' => $auctions]);
+        return view('home', ['auctions' => $auctions, 'pageHeading' => "Início"]);
     }
 }

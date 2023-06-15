@@ -30,6 +30,7 @@ class ProfileController extends Controller
         ->first();
 
         return view('profile', [
+            'pageHeading' => "Perfil",
             'user' => $user,
             'sellerRequest' => $userSellerRequest,
             'adminRequest' => $userAdminRequest
