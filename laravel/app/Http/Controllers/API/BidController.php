@@ -9,6 +9,7 @@ use App\Models\AuctionItem;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Session;
 
 class BidController extends Controller
@@ -43,7 +44,7 @@ class BidController extends Controller
             $auctionItem->comprador_id = $userId;
             $auctionItem->save();
 
-            event(new BidPlaced('hello world'));
+            BidPlaced::dispatch($bid);
 
             return response()->json(['message' => 'Licitação Bem Sucedida!']);
         } catch (Exception $e) {

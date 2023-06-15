@@ -55,7 +55,6 @@ btnBid === null || btnBid === void 0 ? void 0 : btnBid.addEventListener('click',
       case 18:
         successMessage = data['message'];
         console.log(successMessage);
-        //auctionChannel.whisper('.bid-placed', response.data);
         _context.next = 25;
         break;
       case 22:
@@ -68,49 +67,12 @@ btnBid === null || btnBid === void 0 ? void 0 : btnBid.addEventListener('click',
     }
   }, _callee, null, [[8, 22]]);
 })));
-var highestBid = 0;
-if (bidInputField != null) {
-  var getHighestBid = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-      var response, data, _highestBid, bidElement;
-      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
-            return fetch("/api/highest-bid/".concat(auctionItemId));
-          case 3:
-            response = _context2.sent;
-            _context2.next = 6;
-            return response.json();
-          case 6:
-            data = _context2.sent;
-            _highestBid = data['highestBid'];
-            bidElement = document.getElementById('highest-bid');
-            bidElement.innerText = "".concat(_highestBid, "\u20AC");
-            _context2.next = 15;
-            break;
-          case 12:
-            _context2.prev = 12;
-            _context2.t0 = _context2["catch"](0);
-            console.log(_context2.t0);
-          case 15:
-          case "end":
-            return _context2.stop();
-        }
-      }, _callee2, null, [[0, 12]]);
-    }));
-    return function getHighestBid() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-  setInterval(getHighestBid, 1000);
-  var auctionItemId = btnBid.getAttribute('data-auction-item-id');
-}
 var auctionId = btnBid.getAttribute('data-auction-id');
-var auctionChannel = window.Echo.channel("auction.".concat(auctionId));
-auctionChannel.listen('bid-placed', function (ev) {
-  console.log('NEW BID');
+var bidPlacedChannel = window.Echo.channel('public');
+bidPlacedChannel.listen('.bid-placed', function (event) {
+  var bidElement = document.getElementById('highest-bid');
+  console.log(event);
+  bidElement.innerText = "".concat(event.bid, "\u20AC");
 });
 /******/ })()
 ;

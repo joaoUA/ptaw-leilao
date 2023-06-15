@@ -14,22 +14,24 @@ class BidPlaced implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message;
+    public $bid;
 
-    public function __construct($message)
+    public function __construct($bid)
     {
-        $this->message = $message;
+        $this->bid = $bid;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
-     */
     public function broadcastOn(): array
     {
-        return [
-            new Channel('bid-placed'),
-        ];
+        return ['public'];
+    }
+
+    public function broadcastAs(): string {
+        return 'bid-placed';
+    }
+
+    public static function dispatch($bid)
+    {
+        event(new self($bid));
     }
 }

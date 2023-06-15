@@ -32,35 +32,17 @@ btnBid?.addEventListener('click', async () => {
         }
         const successMessage = data['message'];
         console.log(successMessage);
-        //auctionChannel.whisper('.bid-placed', response.data);
 
     } catch (error) {
         console.error(error);
     }
 });
 
-let highestBid = 0;
-if (bidInputField != null) {
-    setInterval(getHighestBid, 1000);
-
-    const auctionItemId = btnBid.getAttribute('data-auction-item-id');
-
-    async function getHighestBid() {
-        try {
-            const response = await fetch(`/api/highest-bid/${auctionItemId}`)
-            const data = await response.json();
-
-            const highestBid = data['highestBid'];
-            const bidElement = document.getElementById('highest-bid');
-            bidElement.innerText = `${highestBid}€`;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
-
 const auctionId = btnBid.getAttribute('data-auction-id');
-const auctionChannel = window.Echo.channel(`auction.${auctionId}`);
-auctionChannel.listen('bid-placed', (ev) => {
-    console.log('NEW BID');
+
+const bidPlacedChannel = window.Echo.channel('public');
+bidPlacedChannel.listen('.bid-placed', (event) => {
+    const bidElement = document.getElementById('highest-bid');
+    console.log(event);
+    bidElement.innerText = `${event.bid}€`;
 });
