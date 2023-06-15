@@ -7,26 +7,12 @@
             <div class="vt-item vt-title">
                 <p class="vt-item-name">Leilões a Verificar</p>
             </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
+            @foreach ($auctions as $auction)
+                <div class="vt-item" data-auction-id={{$auction->id}} data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <img src="{{ asset('img/img-placeholder-48.png') }}" alt="placeholder">
+                    <p class="vt-item-name">{{$auction->descricao}}</p>
+                </div>
+            @endforeach
         </div>
 
         <div id="seller-vt" class="vt cl-terciary fnt-m">
@@ -55,7 +41,12 @@
                 </div>
                 <div id="modal-auction-item-details" class="my-modal-body">
                     <p>Detalhes do Artigo</p>
-                    <img src=".\img\img-placeholder-224.png" alt="placeholder" />
+                    <img id="modal-auction-item-image" src=".\img\img-placeholder-224.png" alt="placeholder" />
+                    <p id="modal-auction-item-name"></p> <!--Nome-->
+                    <p id="modal-auction-item-year"></p> <!--Ano-->
+                    <p id="modal-auction-item-author"></p> <!--Autor-->
+                    <p id="modal-auction-item-price"></p> <!--Preço-->
+                    <p id="modal-auction-item-category"></p> <!--Categoria-->
                 </div>
             </div>
         </div>
@@ -113,30 +104,15 @@
                 </div>
                 <div id="modal-al" class="my-modal-body">
                     <div id="modal-al-header">
-                        <p>Título do Leilão</p>
-                        <p>Nome do Vendedor</p>
+                        <p id="modal-auction-name"></p> <!--Título-->
+                        <p id="modal-auction-seller"></p> <!--Vendedor-->
                     </div>
-                    <div class="modal-auction-item">
-                        <img src=".\img\img-placeholder-48.png" alt="placeholder" data-bs-toggle="modal"
-                            data-bs-target="#ModalArtigo" />
-                        <p class="">Artigo</p>
-                        <div class="form-check form-switch">
-                            <input class="toggle-pill form-check-input" type="checkbox" role="switch">
-                        </div>
-                    </div>
-                    <div class="modal-auction-item">
-                        <img src=".\img\img-placeholder-48.png" alt="placeholder" data-bs-toggle="modal"
-                            data-bs-target="#ModalArtigo" />
-                        <p class="">Artigo</p>
-                        <div class="form-check form-switch">
-                            <input class="toggle-pill form-check-input" type="checkbox" role="switch">
-                        </div>
-                    </div>
+                    <!--Peças Geradas Pelo JS-->
                     <div class="modal-btn-container">
                         <button type="button" class="btn btn-light bkg-primary cl-terciary"
-                            data-bs-dismiss="modal">Recusar</button>
+                            data-bs-dismiss="modal" id="btn-auction-modal-reject-request">Recusar</button>
                         <button type="button" class="btn btn-dark bkg-terciary"
-                            data-bs-dismiss="modal">Aprovar</button>
+                            data-bs-dismiss="modal" id="btn-auction-modal-confirm-request">Aprovar</button>
                     </div>
                 </div>
             </div>
