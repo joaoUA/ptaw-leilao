@@ -87,3 +87,9 @@
     </div>
 
 @include('partials/footer')
+
+<script src="{{ asset('js/navbar.js') }}" defer></script>
+<script src="{{ asset('js/auctionpage.js') }}" defer></script>
+
+</body>
+</html>

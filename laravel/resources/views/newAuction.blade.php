@@ -116,3 +116,10 @@
 </div>
 
 @include('partials/footer')
+
+
+<script src="{{ asset('js/navbar.js') }}" defer></script>
+<script src="{{ asset('js/newactionpage.js') }}" defer></script>
+
+</body>
+</html>
