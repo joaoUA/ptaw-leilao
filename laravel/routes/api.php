@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\API\AuctionItemController;
 use App\Http\Controllers\API\BidController;
 use App\Http\Controllers\API\RoleChangeController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\SubmitAuctionController;
+use App\Http\Controllers\API\TempAuctionController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -42,6 +44,13 @@ Route::post('/bid', [BidController::class, 'bid']);
 Route::get('/role-request/{id}', [RoleChangeController::class, 'show']);
 Route::post('/role-change/{id}', [RoleChangeController::class, 'update']);
 Route::post('/role-change/{id}/{role}', [RoleController::class, 'requestRole']);
+
+Route::get('/user/{id}', [UserController::class, 'show']);
+
+Route::get('/auction/{id}', [SubmitAuctionController::class, 'show']);
+
+Route::post('/auction/{id}/authentication', [AuctionItemController::class, 'authentication']);
+Route::post('/launch-auction/{id}', [TempAuctionController::class, 'launchAuction']);
 
 //AUCTION
 Route::post('/auction', [SubmitAuctionController::class, "post"]);
