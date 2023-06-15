@@ -21,7 +21,6 @@ class RegisterController extends Controller
 
         try {
             $account = [
-                'id' => $data['id'],
                 'nome' => $data['name'],
                 'email' => $data['email'],
                 'nif' => $data['nif'],
@@ -36,7 +35,6 @@ class RegisterController extends Controller
             ];
 
             $validator = Validator::make($account, [
-                'id' => 'required|integer|unique:utilizador',
                 'nome' => 'required|string|max:100',
                 'email' => 'required|email|max:100|unique:utilizador',
                 'nif' => 'required|integer|unique:utilizador',
@@ -53,7 +51,6 @@ class RegisterController extends Controller
                 throw new ValidationException($validator);
             
             $user = new User();
-            $user->id = $account['id'];
             $user->nome = $account['nome'];
             $user->email = $account['email'];
             $user->nif = $account['nif'];

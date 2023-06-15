@@ -1,6 +1,7 @@
 @include('partials/head')
 @include('partials/nav')
 
+
 <div id="ca-main-container" class="main-container">
     <div id="table-section-heading">
         <input type="text" name="leilao-nome" id="input-leilao-nome" class="form-control"
@@ -39,11 +40,11 @@
         <p class="">Leiloar como artigo único</p>
 
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <input class="form-check-input" type="checkbox" disabled id="flexSwitchCheckDefault">
         </div>
 
         <div class="input-group">
-            <input type="text" name="" id="" class="form-control fnt-main fnt-s" placeholder="€" disabled>
+            <input type="number" name="" id="collectionPrice" class="form-control fnt-main fnt-s" placeholder="€" disabled>
         </div>
     </div>
 
@@ -68,9 +69,16 @@
                     </div>
 
                     <div class="p-1 d-flex justify-content-between gap-2">
-                        <input type="number" class="form-control fnt-s" required name="artigo-preco" id="artigo-preco"
+                        <input type="text" class="form-control fnt-s" required name="artigo-artista" id="artigo-artista"
+                            placeholder="Artista">
+                        <input type="text" class="form-control fnt-s" required name="artigo-ano" id="artigo-ano"
+                            placeholder="Ano">
+                    </div>
+
+                    <div class="p-1 d-flex justify-content-between gap-2">
+                        <input type="number" class="form-control fnt-s w-50" required name="artigo-preco" id="artigo-preco"
                             placeholder="Preço">
-                        <select class="form-select form-control fnt-s" required  id="artigo-categoria">
+                        <select class="form-select form-control fnt-s w-50" required  id="artigo-categoria">
                             <option value="" disabled selected class="fnt-s">Categoria</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category->nome}}">{{$category->nome}}</option>

@@ -74,12 +74,12 @@
             </div>
             <p>{{$activeAuction->pecaarte[0]->nome}}</p>
             <div class="auction-bid-container">
-                <h1>{{$activeAuction->preco_inicial}}€</h1>
+                <h1 id="highest-bid">{{$activeAuction->preco_final != null ? $activeAuction->preco_final : $activeAuction->preco_inicial}}€</h1>
                 <h2>99:99</h2>
             </div>
             <div class="auction-form-container">
-                <input type="number" class="form-control" name="licitacao-input" id="" placeholder="Licitação">
-                <button class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">Licitar</button>
+                <input type="number" id="bid-input-field" class="form-control" name="licitacao-input" placeholder="Licitação">
+                <button id="btn-bid" data-auction-id={{$auction->id}} data-auction-item-id={{$activeAuction->id}} data-user-id={{Auth::user()->id}} class="form-control btn btn-dark bkg-terciary cl-primary fnt-s">Licitar</buttod>
             </div>
         </div>
     </div>

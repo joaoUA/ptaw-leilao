@@ -7,57 +7,27 @@
             <div class="vt-item vt-title">
                 <p class="vt-item-name">Leilões a Verificar</p>
             </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Título do Leilão</p>
-            </div>
+            @foreach ($auctions as $auction)
+                <div class="vt-item" data-auction-id={{$auction->id}} data-bs-toggle="modal" data-bs-target="#ModalLeilao">
+                    <img src="{{ asset('img/img-placeholder-48.png') }}" alt="placeholder">
+                    <p class="vt-item-name">{{$auction->descricao}}</p>
+                </div>
+            @endforeach
         </div>
 
         <div id="seller-vt" class="vt cl-terciary fnt-m">
             <div class="vt-item vt-title bkg-terciary cl-primary">
                 <p class="fnt-s">Vendedores a Verificar</p>
             </div>
-            <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
-            <div class="vt-item bkg-primary" data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder" />
-                <p class="vt-item-name">Nome do Vendedor</p>
-                <p class="">2023-06-22</p>
-            </div>
+
+            @foreach ($requests as $request)
+                <div class="vt-item" data-request-id={{$request->id}} data-bs-toggle="modal" data-bs-target="#ModalVendedor">
+                    <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder">
+                    <p class="vt-item-name">{{$request->utilizador->nome}}</p>
+                    <p>{{$request->data_pedido}}</p>
+                </div>
+            @endforeach
+
         </div>
     </div>
 
@@ -71,7 +41,12 @@
                 </div>
                 <div id="modal-auction-item-details" class="my-modal-body">
                     <p>Detalhes do Artigo</p>
-                    <img src=".\img\img-placeholder-224.png" alt="placeholder" />
+                    <img id="modal-auction-item-image" src=".\img\img-placeholder-224.png" alt="placeholder" />
+                    <p id="modal-auction-item-name"></p> <!--Nome-->
+                    <p id="modal-auction-item-year"></p> <!--Ano-->
+                    <p id="modal-auction-item-author"></p> <!--Autor-->
+                    <p id="modal-auction-item-price"></p> <!--Preço-->
+                    <p id="modal-auction-item-category"></p> <!--Categoria-->
                 </div>
             </div>
         </div>
@@ -84,35 +59,35 @@
                 <div class="modal-top-bar">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="modal-seller" class="my-modal-body">
+                <div data-request-id=0 id="modal-seller" class="my-modal-body">
                     <div class="modal-seller-item">
                         <p>Nome:</p>
-                        <p>Ana Isabel Ferreira dos Santos</p>
+                        <p id="modal-seller-name">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>Data de Nascimento:</p>
-                        <p>05-11-1985</p>
+                        <p id="modal-seller-birthday">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>Morada:</p>
-                        <p>Rua dos Cravos, nº300</p>
+                        <p id="modal-seller-address">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>E-mail:</p>
-                        <p>anaisasantos@gmail.com</p>
+                        <p id="modal-seller-email">---</p>
                     </div>
                     <div class="modal-seller-item">
-                        <p>CC:</p>
-                        <p>123456789</p>
+                        <p>NIF:</p>
+                        <p id="modal-seller-nif">---</p>
                     </div>
                     <div class="modal-seller-item">
                         <p>IBAN:</p>
-                        <p>123456789</p>
+                        <p id="modal-seller-iban">---</p>
                     </div>
                     <div class="modal-btn-container">
-                        <button type="button" class="btn btn-light bkg-primary cl-terciary"
+                        <button type="button" id="btn-user-modal-reject-request" class="btn btn-light bkg-primary cl-terciary"
                             data-bs-dismiss="modal">Recusar</button>
-                        <button type="button" class="btn btn-dark bkg-terciary cl-primary"
+                        <button type="button" id="btn-user-modal-confirm-request" class="btn btn-dark bkg-terciary cl-primary"
                             data-bs-dismiss="modal">Aprovar</button>
                     </div>
                 </div>
@@ -129,30 +104,15 @@
                 </div>
                 <div id="modal-al" class="my-modal-body">
                     <div id="modal-al-header">
-                        <p>Título do Leilão</p>
-                        <p>Nome do Vendedor</p>
+                        <p id="modal-auction-name"></p> <!--Título-->
+                        <p id="modal-auction-seller"></p> <!--Vendedor-->
                     </div>
-                    <div class="modal-auction-item">
-                        <img src=".\img\img-placeholder-48.png" alt="placeholder" data-bs-toggle="modal"
-                            data-bs-target="#ModalArtigo" />
-                        <p class="">Artigo</p>
-                        <div class="form-check form-switch">
-                            <input class="toggle-pill form-check-input" type="checkbox" role="switch">
-                        </div>
-                    </div>
-                    <div class="modal-auction-item">
-                        <img src=".\img\img-placeholder-48.png" alt="placeholder" data-bs-toggle="modal"
-                            data-bs-target="#ModalArtigo" />
-                        <p class="">Artigo</p>
-                        <div class="form-check form-switch">
-                            <input class="toggle-pill form-check-input" type="checkbox" role="switch">
-                        </div>
-                    </div>
+                    <!--Peças Geradas Pelo JS-->
                     <div class="modal-btn-container">
                         <button type="button" class="btn btn-light bkg-primary cl-terciary"
-                            data-bs-dismiss="modal">Recusar</button>
+                            data-bs-dismiss="modal" id="btn-auction-modal-reject-request">Recusar</button>
                         <button type="button" class="btn btn-dark bkg-terciary"
-                            data-bs-dismiss="modal">Aprovar</button>
+                            data-bs-dismiss="modal" id="btn-auction-modal-confirm-request">Aprovar</button>
                     </div>
                 </div>
             </div>
