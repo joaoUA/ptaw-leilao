@@ -61,6 +61,6 @@ if (bidInputField != null) {
 
 const auctionId = btnBid.getAttribute('data-auction-id');
 const auctionChannel = window.Echo.channel(`auction.${auctionId}`);
-auctionChannel.listen('.bid-placed', (ev) => {
-    console.log('NEW BID: DING DING DING!');
+auctionChannel.listen('bid-placed', (ev) => {
+    console.log('NEW BID');
 });

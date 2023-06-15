@@ -109,8 +109,8 @@ if (bidInputField != null) {
 }
 var auctionId = btnBid.getAttribute('data-auction-id');
 var auctionChannel = window.Echo.channel("auction.".concat(auctionId));
-auctionChannel.listen('.bid-placed', function (ev) {
-  console.log('NEW BID: DING DING DING!');
+auctionChannel.listen('bid-placed', function (ev) {
+  console.log('NEW BID');
 });
 /******/ })()
 ;
