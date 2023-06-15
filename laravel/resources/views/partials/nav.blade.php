@@ -25,7 +25,7 @@
             <a href="/profile">Perfil</a>
             <a href="/new">Criar Leilão</a>
             <a href="/verification">Painel Admin</a>
-            <a href="#" id="btn-logout">Sair</a>
+            <a id="btn-logout">Sair</a>
         </ul>
         @endif
     </div>

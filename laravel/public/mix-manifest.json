@@ -1,0 +1,12 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/auctionpage.js": "/js/auctionpage.js",
+    "/js/historypage.js": "/js/historypage.js",
+    "/js/homepage.js": "/js/homepage.js",
+    "/js/main.js": "/js/main.js",
+    "/js/newauctionpage.js": "/js/newauctionpage.js",
+    "/js/profilepage.js": "/js/profilepage.js",
+    "/js/verificationpage.js": "/js/verificationpage.js",
+    "/js/navbar.js": "/js/navbar.js",
+    "/js/walletpage.js": "/js/walletpage.js"
+}

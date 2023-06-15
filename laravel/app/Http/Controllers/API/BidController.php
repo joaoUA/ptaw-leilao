@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\BidPlaced;
 use App\Http\Controllers\Controller;
 use App\Models\Auction;
 use App\Models\AuctionItem;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Session;
 
 class BidController extends Controller
@@ -41,6 +43,8 @@ class BidController extends Controller
             $auctionItem->preco_final = $bid;
             $auctionItem->comprador_id = $userId;
             $auctionItem->save();
+
+            BidPlaced::dispatch($bid);
 
             return response()->json(['message' => 'Licitação Bem Sucedida!']);
         } catch (Exception $e) {
