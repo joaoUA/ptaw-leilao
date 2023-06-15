@@ -6,5 +6,4 @@
     <a href="/history/sales" class="sidebar-item" id="btn_sales_history">Histórico
         de Vendas</a>
     <a href="/wallet" class="sidebar-item">Carteira</a>
-    <a href="#" id="btn-logout" class="sidebar-item">Sair</a>
 </aside>
