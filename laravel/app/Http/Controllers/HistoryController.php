@@ -30,6 +30,7 @@ class HistoryController extends Controller
             return view('history', [
                 'heading' => $heading,
                 'articles' => $articles,
+                'pageHeading' => "Histórico de " .$heading,
             ]);
         }
         else
@@ -55,6 +56,7 @@ class HistoryController extends Controller
             return view('history', [
                 'heading' => $heading,
                 'articles' => $articles,
+                'pageHeading' => "Histórico de " .$heading,
             ]);
         }
         else

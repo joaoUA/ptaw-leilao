@@ -26,7 +26,8 @@ class WalletController extends Controller
 
         return view('wallet', [
             'card' => $wallet,
-            'userId' => $user->id
+            'userId' => $user->id,
+            'pageHeading' => "Carteira",
         ]);
     }
 

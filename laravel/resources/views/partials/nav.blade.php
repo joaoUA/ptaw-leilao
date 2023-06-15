@@ -25,7 +25,7 @@
             <a href="/profile">Perfil</a>
             <a href="/new">Criar Leilão</a>
             <a href="/verification">Painel Admin</a>
-            <a id="btn-logout">Sair</a>
+            <a href="" id="btn-logout">Sair</a>
         </ul>
         @endif
     </div>
@@ -57,7 +57,7 @@
                         Esqueceu-se da password?
                     </button>
                 </div>
-
+                <p class="m-auto cl-secondary fnt-s" id="error-msg"></p>
                 <div class="modal-btn-container">
                     <button type="button" id="btn-login" class="w-100 btn btn-dark bkg-terciary cl-primary btn-m fnt-l">
                         Login

@@ -15,7 +15,7 @@
         defer></script>
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <title>Criar Leilão</title>
+    <title>{{ $pageHeading }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <script src="https://kit.fontawesome.com/25b734335a.js" crossorigin="anonymous"></script>
