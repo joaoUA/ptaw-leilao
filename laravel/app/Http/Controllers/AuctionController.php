@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auction;
+use App\Models\Card;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 
@@ -31,11 +33,14 @@ class AuctionController extends Controller
             echo 'sem itens ativos';
             return Redirect::to('/');
         }
+
+        $userWithCard = Card::where('utilizador_id', Auth::user()->id)->exists();
         
         return view('auction', [
             'auction' => $auction,
             'activeAuction' => $activeAuction,
-            'auctionItemsCount' => count($auction->pecaleilao)
+            'auctionItemsCount' => count($auction->pecaleilao),
+            'userWithCard' => $userWithCard
         ]);
     }
 }

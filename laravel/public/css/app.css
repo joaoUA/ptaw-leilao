@@ -975,6 +975,10 @@ nav {
     #article-img-container {
         flex-direction: column;
     }
+
+    #profile-link-container > p {
+        font-size: var(--font-size-small);
+    }
 }
 input:required:invalid {
     border-color: red;

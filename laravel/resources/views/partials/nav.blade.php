@@ -12,20 +12,22 @@
         <a href="/">Início</a>
     </nav>
     <div id="profile-link-container">
-        <div id="profile-icon-container" class=" fnt-xl">
-            @if (!Auth::check())
+        @if (!Auth::check())
             <button class="btn btn-light btn-sm cl-terciary" data-bs-toggle="modal"
                 data-bs-target="#modalLogin">Login</button>
             @endif
+        @if (Auth::check())
+        <p class="m-auto me-3 text-white fnt-m">{{Auth::user()->nome}}</p>
+        <div id="profile-icon-container" class=" fnt-xl">
             <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
         </div>
         <ul id="profile-menu" class="hidden">
-            @if (Auth::check())
-                <a href="/profile">Perfil</a>
-                <a href="/new">Criar Leilão</a>
-                <a href="/verification">Painel Admin</a>
-            @endif
+            <a href="/profile">Perfil</a>
+            <a href="/new">Criar Leilão</a>
+            <a href="/verification">Painel Admin</a>
+            <a href="#" id="btn-logout">Sair</a>
         </ul>
+        @endif
     </div>
 </div>
 
