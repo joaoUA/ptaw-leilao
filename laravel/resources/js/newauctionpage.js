@@ -3,10 +3,12 @@ const btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault"
 const newAuctionCollectionPrice = document.getElementById("collectionPrice");
 const btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 const imageAuctionItem = document.getElementById("imageInput");
+const docAuctionItem = document.getElementById("documentInput");
 const auctionItems = [];
 let currentItemId = 0;
 
 btnNewAuctionItem?.addEventListener("click", () => {
+
     const itemInputName = document.getElementById("artigo-nome");
     const itemInputArtist = document.getElementById("artigo-artista");
     const itemInputYear = document.getElementById("artigo-ano");
@@ -29,21 +31,31 @@ btnNewAuctionItem?.addEventListener("click", () => {
     }
 
     const itemImage = imageAuctionItem.files[0]; // Get the selected image file
-    const reader = new FileReader(); // Create a FileReader object
+    const itemDoc = docAuctionItem.files[0];
 
-    reader.onload = () => {
-        const imageData = reader.result; // Get the image data
+    const imageReader = new FileReader();
+    const docReader = new FileReader();
 
+    imageReader.onload = () => {
+        const imageData = imageReader.result; // Get the image data
+        let docData = "";
+        let authDoc = "bi-x-square";
+        docReader.onload = () => {
+            docData = docReader.result; // Get the PDF data
+        };
+        if (itemDoc) {
+            docReader.readAsDataURL(itemDoc);
+            authDoc = "bi-check-square-fill";
+        }
         auctionItems.push({
             id: currentItemId,
-            //Peça Leilao:
             precoInicial: itemPrice,
-            //Peça Arte:
             nome: itemName,
             artista: itemArtist,
             ano: itemYear,
             categoria: itemCategory,
             imagem: imageData,
+            documento: docData
         });
 
         const tr = document.createElement("tr");
@@ -74,7 +86,7 @@ btnNewAuctionItem?.addEventListener("click", () => {
 
         const tdAuthentication = document.createElement("td");
         const authIcon = document.createElement("i");
-        authIcon.className = "bi bi-check-square";
+        authIcon.className = "bi " + authDoc;
         tdAuthentication.appendChild(authIcon);
 
         tr.appendChild(th);
@@ -102,10 +114,9 @@ btnNewAuctionItem?.addEventListener("click", () => {
     };
 
     if (itemImage) {
-        reader.readAsDataURL(itemImage); // Read the image file as data URL
+        imageReader.readAsDataURL(itemImage);
     } else {
-        // Handle the case when no image is selected
-        alert("Please select an image");
+        alert("Insira uma imagem.");
         return;
     }
 });
@@ -153,7 +164,7 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
         if (!response.ok)
             throw new Error(`${response.status}: ${responseMessage}`);
         console.log(responseMessage)
-        //location.reload();
+        location.reload();
 
     } catch (error) {
         console.log(responseMessage);

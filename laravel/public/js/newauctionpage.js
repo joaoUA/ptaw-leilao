@@ -12,6 +12,7 @@ var btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault");
 var newAuctionCollectionPrice = document.getElementById("collectionPrice");
 var btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 var imageAuctionItem = document.getElementById("imageInput");
+var docAuctionItem = document.getElementById("documentInput");
 var auctionItems = [];
 var currentItemId = 0;
 btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuctionItem.addEventListener("click", function () {
@@ -33,21 +34,30 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     return;
   }
   var itemImage = imageAuctionItem.files[0]; // Get the selected image file
-  var reader = new FileReader(); // Create a FileReader object
+  var itemDoc = docAuctionItem.files[0];
+  var imageReader = new FileReader();
+  var docReader = new FileReader();
+  imageReader.onload = function () {
+    var imageData = imageReader.result; // Get the image data
+    var docData = "";
+    var authDoc = "bi-x-square";
+    docReader.onload = function () {
+      docData = docReader.result; // Get the PDF data
+    };
 
-  reader.onload = function () {
-    var imageData = reader.result; // Get the image data
-
+    if (itemDoc) {
+      docReader.readAsDataURL(itemDoc);
+      authDoc = "bi-check-square-fill";
+    }
     auctionItems.push({
       id: currentItemId,
-      //Peça Leilao:
       precoInicial: itemPrice,
-      //Peça Arte:
       nome: itemName,
       artista: itemArtist,
       ano: itemYear,
       categoria: itemCategory,
-      imagem: imageData
+      imagem: imageData,
+      documento: docData
     });
     var tr = document.createElement("tr");
     var th = document.createElement("th");
@@ -72,7 +82,7 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     tdCategory.appendChild(iconCategory);
     var tdAuthentication = document.createElement("td");
     var authIcon = document.createElement("i");
-    authIcon.className = "bi bi-check-square";
+    authIcon.className = "bi " + authDoc;
     tdAuthentication.appendChild(authIcon);
     tr.appendChild(th);
     tr.appendChild(tdIcon);
@@ -94,10 +104,9 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     document.getElementById("btn-cancel-new-auction").click();
   };
   if (itemImage) {
-    reader.readAsDataURL(itemImage); // Read the image file as data URL
+    imageReader.readAsDataURL(itemImage);
   } else {
-    // Handle the case when no image is selected
-    alert("Please select an image");
+    alert("Insira uma imagem.");
     return;
   }
 });
@@ -150,18 +159,18 @@ btnSubmitNewAuction === null || btnSubmitNewAuction === void 0 ? void 0 : btnSub
         throw new Error("".concat(response.status, ": ").concat(responseMessage));
       case 15:
         console.log(responseMessage);
-        //location.reload();
-        _context.next = 21;
+        location.reload();
+        _context.next = 22;
         break;
-      case 18:
-        _context.prev = 18;
+      case 19:
+        _context.prev = 19;
         _context.t0 = _context["catch"](5);
         console.log(responseMessage);
-      case 21:
+      case 22:
       case "end":
         return _context.stop();
     }
-  }, _callee, null, [[5, 18]]);
+  }, _callee, null, [[5, 19]]);
 })));
 /******/ })()
 ;
