@@ -71,7 +71,7 @@
                     <div class="p-1 d-flex justify-content-between gap-2">
                         <input type="text" class="form-control fnt-s" required name="artigo-artista" id="artigo-artista"
                             placeholder="Artista">
-                        <input type="text" class="form-control fnt-s" required name="artigo-ano" id="artigo-ano"
+                        <input type="number" class="form-control fnt-s" required name="artigo-ano" id="artigo-ano"
                             placeholder="Ano">
                     </div>
 
@@ -88,7 +88,7 @@
 
 
                     <div class="mb-3 p-2" id="file-group">
-                        <label for="formFile" class="mx-1 form-label fnt-s" >Imagens do Artigo</label>
+                        <label for="formFile" class="mx-1 form-label fnt-s" >Imagen,</label>
                         <input class="form-control fnt-s" type="file" id="imageInput" accept="image/png, image/jpeg"> 
                     </div>
 
