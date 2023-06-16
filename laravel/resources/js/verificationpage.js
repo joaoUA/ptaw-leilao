@@ -48,6 +48,7 @@ auctionVerificationItems?.forEach(element => {
             let response = await fetch(`api/auction/${auctionId}`);
             const data = await response.json();
             const auction = data['auction'];
+            console.log(data['auction']);
 
             if (auction == null || Object.keys(auction).length === 0)
                 throw Error("Leilão Vazio!");
@@ -74,7 +75,9 @@ auctionVerificationItems?.forEach(element => {
 
                 const imageElement = document.createElement('img');
                 imageElement.id = 'modal-article-image';
-                imageElement.src = './img/img-placeholder-48.png';
+                imageElement.src = `./storage/images/${auctionItem['imagem']}`
+                imageElement.style.width = '48px';
+                imageElement.style.height = '48px';
                 imageElement.alt = 'placeholder';
                 imageElement.setAttribute('data-bs-toggle', 'modal');
                 imageElement.setAttribute('data-bs-target', '#ModalArtigo');
@@ -97,12 +100,22 @@ auctionVerificationItems?.forEach(element => {
                     const modalArticleYear = document.getElementById('modal-auction-item-year');
                     const modalArticleCategory = document.getElementById('modal-auction-item-category');
                     const modalArticlePrice = document.getElementById('modal-auction-item-price');
+                    const modalArticleImage = document.getElementById('modal-auction-item-image');
+                    const modalArticleDocument = document.getElementById('modal-auction-item-document');
+                    modalArticleDocument.setAttribute('hidden', 'true');
 
                     modalArticleName.innerText = `Nome: ${auctionItem['peca_arte_nome']}`;
                     modalArticleYear.innerText = `Data: ${auctionItem['ano'] || 'N/A'}`;
                     modalArticleAuthor.innerText = `Artista: ${auctionItem['artista'] || 'N/A'}`;
                     modalArticlePrice.innerText = `Preço Inicial: ${auctionItem['preco_inicial']}€`;
                     modalArticleCategory.innerText = `Categoria: ${auctionItem['categoria_nome']}`;
+                    modalArticleImage.src = `./storage/images/${auctionItem['imagem']}`
+                    modalArticleImage.style.width = '224px';
+                    modalArticleImage.style.height = '224px';
+                    if(auctionItem['documento']){
+                        modalArticleDocument.href = `./storage/documents/${auctionItem['documento']}`
+                        modalArticleDocument.removeAttribute('hidden');
+                    }
                 });
 
                 modalAuctionItemDiv.appendChild(imageElement);
