@@ -47,7 +47,7 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
 
     if (itemDoc) {
       docReader.readAsDataURL(itemDoc);
-      authDoc = "bi-check-square";
+      authDoc = "bi-check-square-fill";
     }
     auctionItems.push({
       id: currentItemId,
