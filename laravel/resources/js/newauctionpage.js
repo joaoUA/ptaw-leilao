@@ -3,15 +3,53 @@ const btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault"
 const newAuctionCollectionPrice = document.getElementById("collectionPrice");
 const btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 const imageAuctionItem = document.getElementById("imageInput");
+const docAuctionItem = document.getElementById("documentInput");
+const btnCancelNewAuctionItem = document.getElementById("btn-cancel-new-auction");
+const itemsTable = document.getElementsByTagName("tbody")[0];
+
+
+const itemInputName = document.getElementById("artigo-nome");
+const itemInputArtist = document.getElementById("artigo-artista");
+const itemInputYear = document.getElementById("artigo-ano");
+const itemInputPrice = document.getElementById("artigo-preco");
+const itemInputCategory = document.getElementById("artigo-categoria");
+
 const auctionItems = [];
 let currentItemId = 0;
 
+btnCancelNewAuctionItem?.addEventListener("click", () => {
+    itemInputName.value = "";
+    itemInputPrice.value = "";
+    itemInputArtist.value = "";
+    itemInputYear.value = "";
+    imageAuctionItem.value = "";
+    docAuctionItem.value = "";
+    itemInputCategory.selectedIndex = 0;
+});
+
+itemsTable.addEventListener("click", function(event) {
+    const target = event.target;
+    if (target.classList.contains("icon-delete-item") && target.classList.contains("bi-x-circle")) {
+        const tr = target.closest("tr");
+        const th = tr.querySelector("th[data-id]");
+        const dataId = th.getAttribute("data-id");
+        if (dataId) {
+            const confirmation = confirm("Pretende eliminar este artigo?");
+            if (confirmation) {
+                tr.remove();
+                console.log(dataId);
+                const index = auctionItems.findIndex(item => item.id === Number(dataId));
+                if (index !== -1) {
+                    auctionItems.splice(index, 1);
+                }
+                console.log(auctionItems);
+            }
+        }
+    }
+  });
+
+
 btnNewAuctionItem?.addEventListener("click", () => {
-    const itemInputName = document.getElementById("artigo-nome");
-    const itemInputArtist = document.getElementById("artigo-artista");
-    const itemInputYear = document.getElementById("artigo-ano");
-    const itemInputPrice = document.getElementById("artigo-preco");
-    const itemInputCategory = document.getElementById("artigo-categoria");
 
     const itemArtist = itemInputArtist.value.trim();
     const itemYear = itemInputYear.value.trim();
@@ -56,7 +94,7 @@ btnNewAuctionItem?.addEventListener("click", () => {
 
         const tdIcon = document.createElement("td");
         const icon = document.createElement("i");
-        icon.className = "bi bi-card-image";
+        icon.className = "bi bi-x-circle icon-delete-item";
         tdIcon.appendChild(icon);
 
         const tdName = document.createElement("td");
@@ -92,6 +130,7 @@ btnNewAuctionItem?.addEventListener("click", () => {
         itemInputArtist.value = "";
         itemInputYear.value = "";
         imageAuctionItem.value = "";
+        docAuctionItem.value = "";
         itemInputCategory.selectedIndex = 0;
 
         if (auctionItems.length > 1) {
@@ -99,6 +138,8 @@ btnNewAuctionItem?.addEventListener("click", () => {
         }
 
         document.getElementById("btn-cancel-new-auction").click();
+
+        console.log(auctionItems);
     };
 
     if (itemImage) {

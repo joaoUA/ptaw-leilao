@@ -16,7 +16,7 @@
                     <!--Número-->
                 </th>
                 <th scope="col">
-                    <i class="bi bi-file-earmark-image"></i>
+                    <i class="bi bi-trash3"></i>
                 </th>
                 <th scope="col" class="w-50">
                     <!--Nome-->
@@ -104,7 +104,7 @@
                         <button class="btn btn-dark bkg-terciary cl-primary fnt-s"
                             type="button" id="btn-confirm-new-auction-item">Confirmar</button>
                     
-                        <button class="btn btn-danger bkg-secondary cl-primary fnt-s"
+                        <button class="btn btn-danger bkg-secondary cl-primary fnt-s" hidden
                             type="button">Remover</button>
                     </div>
                 </form>
