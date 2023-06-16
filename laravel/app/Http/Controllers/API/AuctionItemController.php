@@ -17,10 +17,10 @@ class AuctionItemController extends Controller
     public function authentication(Request $request, $id) {
         $data = $request->json()->all();
 
-        $auction = Auction::find($id);
-
         DB::beginTransaction();
+        
         try{
+            $auction = Auction::find($id);
 
             $validator = Validator::make($data, [
                 'status' => 'required|boolean'
@@ -33,21 +33,24 @@ class AuctionItemController extends Controller
 
             if($auction == null)
                 throw new Exception('Não encontrado leilão associado ao id');
-            
-            $auction->autenticado = $authentication;
-            $auctionId = $auction->id;
 
-            $artPieces = ArtPiece::whereHas('pecaLeilao.leilao', function ($query) use ($auctionId) {
-                $query->where('id', $auctionId);
-            })->get();
+            if($authentication) {
 
-            foreach ($artPieces as $artPiece) {
-                $artPiece->autenticado = $authentication;
-                $artPiece->save();
+                $artPieces = ArtPiece::whereHas('pecaLeilao.leilao', function ($query) use ($id) {
+                    $query->where('id', $id);
+                })->get();
+
+                foreach ($artPieces as $artPiece) {
+                    $artPiece->autenticado = $authentication;
+                    $artPiece->save();
+                }
+            } else {
+                $auction->estado_id = 2;
+                $auction->save();
             }
 
             DB::commit();
-            return response()->json(['message' => 'Leilão autenticado com sucesso!']);
+            return response()->json(['message' => 'Verificação completa com sucesso!']);
 
         } catch (ValidationException $e) {
             DB::rollBack();
