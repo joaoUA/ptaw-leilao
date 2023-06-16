@@ -45,7 +45,8 @@ class AuctionController extends Controller
             'activeAuction' => $activeAuction,
             'auctionItemsCount' => count($auction->pecaleilao),
             'userValid' => $userValid,
-            'pageHeading' => $auction->descricao
+            'pageHeading' => $auction->descricao,
+            'imageName'=>$activeAuction->pecaArte[0]->imagem->path,
         ]);
     }
 }
