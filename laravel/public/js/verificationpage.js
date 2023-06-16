@@ -175,7 +175,7 @@ btnConfirmRoleChangeRequest === null || btnConfirmRoleChangeRequest === void 0 ?
     })
   }).then(function (response) {
     if (response.ok) {
-      return response.json();
+      window.location.reload();
     } else throw new Error("Erro: ".concat(response.status));
   }).then(function (data) {
     return console.log(data);
@@ -195,7 +195,7 @@ btnRejectRoleChangeRequest === null || btnRejectRoleChangeRequest === void 0 ? v
     })
   }).then(function (response) {
     if (response.ok) {
-      return response.json();
+      window.location.reload();
     } else throw new Error("Erro: ".concat(response.status));
   }).then(function (data) {
     return console.log(data);

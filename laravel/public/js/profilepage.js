@@ -143,23 +143,27 @@ btnRequestAdminStatus === null || btnRequestAdminStatus === void 0 ? void 0 : bt
         });
       case 4:
         response = _context3.sent;
-        if (response.ok) {
-          _context3.next = 7;
+        if (!response.ok) {
+          _context3.next = 9;
           break;
         }
-        throw new Error("Erro: ".concat(response.status));
-      case 7:
-        _context3.next = 12;
+        window.location.reload();
+        _context3.next = 10;
         break;
       case 9:
-        _context3.prev = 9;
+        throw new Error("Erro: ".concat(response.status));
+      case 10:
+        _context3.next = 15;
+        break;
+      case 12:
+        _context3.prev = 12;
         _context3.t0 = _context3["catch"](1);
         console.log(_context3.t0);
-      case 12:
+      case 15:
       case "end":
         return _context3.stop();
     }
-  }, _callee3, null, [[1, 9]]);
+  }, _callee3, null, [[1, 12]]);
 })));
 /******/ })()
 ;

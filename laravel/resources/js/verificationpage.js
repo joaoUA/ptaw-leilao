@@ -112,7 +112,7 @@ auctionVerificationItems?.forEach(element => {
                     modalArticleImage.src = `./storage/images/${auctionItem['imagem']}`
                     modalArticleImage.style.width = '224px';
                     modalArticleImage.style.height = '224px';
-                    if(auctionItem['documento']){
+                    if (auctionItem['documento']) {
                         modalArticleDocument.href = `./storage/documents/${auctionItem['documento']}`
                         modalArticleDocument.removeAttribute('hidden');
                     }
@@ -147,7 +147,7 @@ btnConfirmRoleChangeRequest?.addEventListener('click', () => {
     })
         .then(response => {
             if (response.ok) {
-                return response.json();
+                window.location.reload();
             } else
                 throw new Error(`Erro: ${response.status}`);
         })
@@ -169,7 +169,7 @@ btnRejectRoleChangeRequest?.addEventListener('click', () => {
     })
         .then(response => {
             if (response.ok) {
-                return response.json();
+                window.location.reload();
             } else
                 throw new Error(`Erro: ${response.status}`);
         })

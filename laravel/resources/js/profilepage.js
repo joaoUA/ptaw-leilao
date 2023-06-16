@@ -72,6 +72,7 @@ btnConfirmProfileChanges?.addEventListener('click', async () => {
 btnRequestSellerStatus?.addEventListener('click', async () => {
     const userId = btnRequestSellerStatus.getAttribute('data-user-id')
 
+
     try {
         const response = await fetch(`/api/role-change/${userId}/seller`, {
             method: 'POST',
@@ -85,7 +86,6 @@ btnRequestSellerStatus?.addEventListener('click', async () => {
             window.location.reload();
         else
             throw new Error(`Erro: ${response.status}`);
-
     } catch (error) {
         console.error(error)
     }
@@ -103,7 +103,9 @@ btnRequestAdminStatus?.addEventListener('click', async () => {
             body: JSON.stringify({}),
         });
 
-        if (!response.ok)
+        if (response.ok)
+            window.location.reload();
+        else
             throw new Error(`Erro: ${response.status}`);
 
     } catch (error) {
