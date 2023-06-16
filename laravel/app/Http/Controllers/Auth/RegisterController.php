@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -22,20 +23,22 @@ class RegisterController extends Controller
         try {
             $account = [
                 'nome' => $data['name'],
-                'email' => $data['email'],
-                'nif' => $data['nif'],
-                'iban' => $data['iban'],
+                'apelido' => $data['surname'],
                 'data_nascimento' => $data['birthday'],
                 'morada' => $data['address'],
                 'codigo_postal' => $data['postcode'],
                 'cidade' => $data['city'],
                 'pais' => $data['country'],
+                'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'nif' => $data['nif'],
+                'iban' => $data['iban'],
                 'cargo_id' => 1,
             ];
-
+            
             $validator = Validator::make($account, [
                 'nome' => 'required|string|max:100',
+                'apelido' => 'required|string|max:100',
                 'email' => 'required|email|max:100|unique:utilizador',
                 'nif' => 'required|integer|unique:utilizador',
                 'iban' => 'required|string|max:50|unique:utilizador',
@@ -52,6 +55,7 @@ class RegisterController extends Controller
             
             $user = new User();
             $user->nome = $account['nome'];
+            $user->apelido = $account['apelido'];
             $user->email = $account['email'];
             $user->nif = $account['nif'];
             $user->iban = $account['iban'];
@@ -68,6 +72,8 @@ class RegisterController extends Controller
             return response()->json(['message' => 'Utilizador registado com sucesso'], 200);
         } catch (ValidationException $e) {
             return response()->json(['message' => $e->errors()  ], 422);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 }

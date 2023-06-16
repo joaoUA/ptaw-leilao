@@ -46,19 +46,19 @@ btnLogin?.addEventListener('click', async () => {
         responseMessage = data['message'];
 
 
-        if (!response.ok){
+        if (!response.ok) {
             responseStatus = response.status;
             throw new Error(`${response.status}: ${responseMessage}`);
         }
         alert(responseMessage);
         location.reload();
     } catch (error) {
-        if(responseStatus == 401){
+        if (responseStatus == 401) {
             errorMsg.innerText = responseMessage;
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
                 errorMsg.innerText = "";
-              }, 3000);
+            }, 3000);
         }
         console.log(responseMessage);
     }
@@ -127,8 +127,8 @@ btnRegisterAccount?.addEventListener('click', async () => {
     if (password != confirmPassword) return;
 
     const account = {
-        id: 5,
-        name: `${firstName} ${surname}`,
+        name: firstName,
+        surname: surname,
         birthday: birthday,
         address: address,
         postcode: postcode,
@@ -140,8 +140,9 @@ btnRegisterAccount?.addEventListener('click', async () => {
         iban: iban,
     };
 
+    let responseMessage;
     try {
-        const response = fetch('/api/register', {
+        const response = await fetch('/api/register', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -155,7 +156,7 @@ btnRegisterAccount?.addEventListener('click', async () => {
         if (!response.ok)
             throw new Error(`${response.status}: ${responseMessage}`);
         alert(responseMessage);
-        //location.reload();
+        location.reload();
     } catch (error) {
         console.log(responseMessage);
     }

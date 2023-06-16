@@ -118,7 +118,7 @@ btnLogout === null || btnLogout === void 0 ? void 0 : btnLogout.addEventListener
   };
 }());
 btnRegisterAccount === null || btnRegisterAccount === void 0 ? void 0 : btnRegisterAccount.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-  var inputFirstname, inputSurname, inputBirthday, inputAddress, inputPostcode, inputCity, inputCountry, inputEmail, inputPassword, inputConfirmPassword, inputNif, inputIban, firstName, surname, birthday, address, postcode, city, country, email, password, confirmPassword, nif, iban, account, response, data;
+  var inputFirstname, inputSurname, inputBirthday, inputAddress, inputPostcode, inputCity, inputCountry, inputEmail, inputPassword, inputConfirmPassword, inputNif, inputIban, firstName, surname, birthday, address, postcode, city, country, email, password, confirmPassword, nif, iban, account, responseMessage, response, data;
   return _regeneratorRuntime().wrap(function _callee3$(_context3) {
     while (1) switch (_context3.prev = _context3.next) {
       case 0:
@@ -155,8 +155,8 @@ btnRegisterAccount === null || btnRegisterAccount === void 0 ? void 0 : btnRegis
         return _context3.abrupt("return");
       case 26:
         account = {
-          id: 5,
-          name: "".concat(firstName, " ").concat(surname),
+          name: firstName,
+          surname: surname,
           birthday: birthday,
           address: address,
           postcode: postcode,
@@ -168,37 +168,40 @@ btnRegisterAccount === null || btnRegisterAccount === void 0 ? void 0 : btnRegis
           iban: iban
         };
         _context3.prev = 27;
-        response = fetch('/api/register', {
+        _context3.next = 30;
+        return fetch('/api/register', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(account)
         });
-        _context3.next = 31;
+      case 30:
+        response = _context3.sent;
+        _context3.next = 33;
         return response.json();
-      case 31:
+      case 33:
         data = _context3.sent;
         responseMessage = data['message'];
         if (response.ok) {
-          _context3.next = 35;
+          _context3.next = 37;
           break;
         }
         throw new Error("".concat(response.status, ": ").concat(responseMessage));
-      case 35:
+      case 37:
         alert(responseMessage);
-        //location.reload();
-        _context3.next = 41;
+        location.reload();
+        _context3.next = 44;
         break;
-      case 38:
-        _context3.prev = 38;
+      case 41:
+        _context3.prev = 41;
         _context3.t0 = _context3["catch"](27);
         console.log(responseMessage);
-      case 41:
+      case 44:
       case "end":
         return _context3.stop();
     }
-  }, _callee3, null, [[27, 38]]);
+  }, _callee3, null, [[27, 41]]);
 })));
 /******/ })()
 ;

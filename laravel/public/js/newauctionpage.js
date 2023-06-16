@@ -13,7 +13,6 @@ var newAuctionCollectionPrice = document.getElementById("collectionPrice");
 var btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 var imageAuctionItem = document.getElementById("imageInput");
 var docAuctionItem = document.getElementById("documentInput");
-
 var btnCancelNewAuctionItem = document.getElementById("btn-cancel-new-auction");
 var itemsTable = document.getElementsByTagName("tbody")[0];
 var itemInputName = document.getElementById("artigo-nome");
@@ -21,7 +20,6 @@ var itemInputArtist = document.getElementById("artigo-artista");
 var itemInputYear = document.getElementById("artigo-ano");
 var itemInputPrice = document.getElementById("artigo-preco");
 var itemInputCategory = document.getElementById("artigo-categoria");
-
 var auctionItems = [];
 var currentItemId = 0;
 btnCancelNewAuctionItem === null || btnCancelNewAuctionItem === void 0 ? void 0 : btnCancelNewAuctionItem.addEventListener("click", function () {
@@ -56,6 +54,11 @@ itemsTable.addEventListener("click", function (event) {
   }
 });
 btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuctionItem.addEventListener("click", function () {
+  var itemInputName = document.getElementById("artigo-nome");
+  var itemInputArtist = document.getElementById("artigo-artista");
+  var itemInputYear = document.getElementById("artigo-ano");
+  var itemInputPrice = document.getElementById("artigo-preco");
+  var itemInputCategory = document.getElementById("artigo-categoria");
   var itemArtist = itemInputArtist.value.trim();
   var itemYear = itemInputYear.value.trim();
   var itemName = itemInputName.value.trim();
