@@ -36,6 +36,7 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 //ACCOUNTS
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [AuthenticatedSessionController::class, 'login']);
+Route::post('/edit', [RegisterController::class, 'editProfile']);
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 

@@ -63,11 +63,9 @@
         <div id="profile-data">
             <h3 class="fnt-xl">Dados</h3>
             <div class="d-flex flex-column gap-2">
-                <!-- todo -->
-                <!-- separar nome na base de dados entre 'nome' e 'apelido'-->
                 <div class="d-flex justify-content-between gap-2">
                     <input type="text" id="input-profile-first-name" class="form-control" placeholder="Nome Próprio" value="{{$user->nome}}">
-                    <input type="text" id="input-profile-surname" class="form-control" placeholder="Apelido">
+                    <input type="text" id="input-profile-surname" class="form-control" placeholder="Apelido" value="{{$user->apelido}}">
                 </div>
                 <input type="date" id="input-profile-birthday" class="form-control w-50" placeholder="Data Nascimento" value="{{$user->data_nascimento->format('Y-m-d')}}">
                 <div class="d-flex justify-content-between gap-2">
@@ -81,17 +79,13 @@
             </div>
             <div class="d-flex flex-column gap-2">
                 <input type="email" id="input-profile-email" class="form-control" placeholder="Email" value="{{$user->email}}">
-                <div class="d-flex justify-content-between gap-2">
-                    <input type="password" class="form-control" placeholder="Palavra-Passe">
-                    <input type="password" class="form-control" placeholder="Confirmar Palavra-Passe">
-                </div>
             </div>
             <div class="d-flex justify-content-between gap-2">
                 <input type="text" id="input-profile-nif" class="form-control" placeholder="NIF" value="{{$user->nif}}">
                 <input type="text" id="input-profile-iban" class="form-control" placeholder="IBAN" value="{{$user->iban}}">
             </div>
             <div class="d-flex justify-content-between gap-2">
-                <button id="btn-confirm-profile-changes" class="form-control btn btn-dark bkg-terciary cl-primary border-0">Confirmar</button>
+                <button id="btn-confirm-profile-changes" class="form-control btn btn-dark bkg-terciary cl-primary border-0" data-user-id={{$user->id}} >Confirmar</button>
             </div>
         </div>
     </div>
