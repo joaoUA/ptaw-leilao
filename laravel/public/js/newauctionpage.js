@@ -100,16 +100,6 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     alert("Please select an image");
     return;
   }
-  auctionItems.push({
-    id: currentItemId,
-    //Peça Leilao:
-    precoInicial: itemPrice,
-    //Peça Arte:
-    nome: itemName,
-    artista: itemArtist,
-    ano: itemYear,
-    categoria: itemCategory
-  });
 });
 btnNewAuctionCollection === null || btnNewAuctionCollection === void 0 ? void 0 : btnNewAuctionCollection.addEventListener('click', function () {
   if (btnNewAuctionCollection.checked) {
@@ -160,18 +150,18 @@ btnSubmitNewAuction === null || btnSubmitNewAuction === void 0 ? void 0 : btnSub
         throw new Error("".concat(response.status, ": ").concat(responseMessage));
       case 15:
         console.log(responseMessage);
-        location.reload();
-        _context.next = 22;
+        //location.reload();
+        _context.next = 21;
         break;
-      case 19:
-        _context.prev = 19;
+      case 18:
+        _context.prev = 18;
         _context.t0 = _context["catch"](5);
         console.log(responseMessage);
-      case 22:
+      case 21:
       case "end":
         return _context.stop();
     }
-  }, _callee, null, [[5, 19]]);
+  }, _callee, null, [[5, 18]]);
 })));
 /******/ })()
 ;

@@ -130,27 +130,21 @@ class SubmitAuctionController extends Controller
                 $artPiece->categoria_id = $artPieceBP['categoriaId'];
                 $artPiece->peca_leilao_id = $artPieceBP['pecaLeilaoId'];
                 $artPiece->save();
+                
+                if($item['imagem'] !== "") {
+                    //Descodificar de Base64
+                    $imageData = str_replace('data:image/png;base64,', '', $item['imagem']);
+                    $imageData = base64_decode($imageData);
+                    $filename = uniqid() . '.png';
+                    $storagePath = 'images/';
+                    $imagePath = Storage::disk('public')->put($storagePath . $filename, $imageData);
 
-            
-
-                $image = new Image();
-                $image->id = 1;
-
-                if (isset($item['imagem'])) {
-                    $imageData = $item['imagem'];
-                    $imageName = $artPiece->id . '_' . Str::random(10) . '.jpg'; // Generate a unique image name
-                    $imagePath = 'public/images/' . $imageName; // Set the desired image path
-
-                    // Store the image data to the specified path
-                    Storage::put($imagePath, base64_decode(preg_replace('/^data:image\/\w+;base64,/', '', $imageData)));
-
-                    $image->path = $imageName; // Set the image path for the database entry
+                    $image = new Image();
+                    $image->id = 551;
+                    $image->path = $filename;
+                    $image->peca_arte_id = $artPiece->id;
+                    $image->save();
                 }
-
-                $image->peca_arte_id = $artPiece->id;
-                $image->save();
-
-                    
             }
 
             DB::commit();

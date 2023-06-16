@@ -33,7 +33,7 @@ btnNewAuctionItem?.addEventListener("click", () => {
 
     reader.onload = () => {
         const imageData = reader.result; // Get the image data
-    
+
         auctionItems.push({
             id: currentItemId,
             //Peça Leilao:
@@ -103,22 +103,11 @@ btnNewAuctionItem?.addEventListener("click", () => {
 
     if (itemImage) {
         reader.readAsDataURL(itemImage); // Read the image file as data URL
-      } else {
+    } else {
         // Handle the case when no image is selected
         alert("Please select an image");
         return;
-      }
-
-    auctionItems.push({
-        id: currentItemId,
-        //Peça Leilao:
-        precoInicial: itemPrice,
-        //Peça Arte:
-        nome: itemName,
-        artista: itemArtist,
-        ano: itemYear,
-        categoria: itemCategory,
-    });
+    }
 });
 
 btnNewAuctionCollection?.addEventListener('click', () => {
@@ -164,7 +153,7 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
         if (!response.ok)
             throw new Error(`${response.status}: ${responseMessage}`);
         console.log(responseMessage)
-        location.reload();
+        //location.reload();
 
     } catch (error) {
         console.log(responseMessage);
