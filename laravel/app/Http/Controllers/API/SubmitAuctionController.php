@@ -5,14 +5,16 @@ use App\Http\Controllers\Controller;
 use App\Models\ArtPiece;
 use App\Models\Auction;
 use App\Models\AuctionItem;
+use App\Models\Image;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-
+use Illuminate\Support\Str;
 
 class SubmitAuctionController extends Controller
 {
@@ -128,7 +130,21 @@ class SubmitAuctionController extends Controller
                 $artPiece->categoria_id = $artPieceBP['categoriaId'];
                 $artPiece->peca_leilao_id = $artPieceBP['pecaLeilaoId'];
                 $artPiece->save();
-                    
+                
+                if($item['imagem'] !== "") {
+                    //Descodificar de Base64
+                    $imageData = str_replace('data:image/png;base64,', '', $item['imagem']);
+                    $imageData = base64_decode($imageData);
+                    $filename = uniqid() . '.png';
+                    $storagePath = 'images/';
+                    $imagePath = Storage::disk('public')->put($storagePath . $filename, $imageData);
+
+                    $image = new Image();
+                    $image->id = 551;
+                    $image->path = $filename;
+                    $image->peca_arte_id = $artPiece->id;
+                    $image->save();
+                }
             }
 
             DB::commit();

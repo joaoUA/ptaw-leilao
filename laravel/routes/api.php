@@ -54,7 +54,7 @@ Route::post('/auction/{id}/authentication', [AuctionItemController::class, 'auth
 Route::post('/launch-auction/{id}', [TempAuctionController::class, 'launchAuction']);
 
 //AUCTION
-Route::post('/auction', [SubmitAuctionController::class, "post"]);
+Route::post('/new-auction', [SubmitAuctionController::class, "post"]);
 
 //ROLE REQUESTS
 Route::get('/role-request/{id}', [RoleChangeController::class, 'show']);

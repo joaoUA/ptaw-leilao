@@ -11,6 +11,7 @@ var btnSubmitNewAuction = document.getElementById("btn-submit-new-auction");
 var btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault");
 var newAuctionCollectionPrice = document.getElementById("collectionPrice");
 var btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
+var imageAuctionItem = document.getElementById("imageInput");
 var auctionItems = [];
 var currentItemId = 0;
 btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuctionItem.addEventListener("click", function () {
@@ -31,56 +32,74 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     alert("Insira um valor positivo.");
     return;
   }
-  auctionItems.push({
-    id: currentItemId,
-    //Peça Leilao:
-    precoInicial: itemPrice,
-    //Peça Arte:
-    nome: itemName,
-    artista: itemArtist,
-    ano: itemYear,
-    categoria: itemCategory
-  });
-  var tr = document.createElement("tr");
-  var th = document.createElement("th");
-  th.setAttribute("scope", "row");
-  th.className = "fnt-s";
-  th.setAttribute("data-id", currentItemId);
-  th.textContent = " ";
-  currentItemId++;
-  var tdIcon = document.createElement("td");
-  var icon = document.createElement("i");
-  icon.className = "bi bi-card-image";
-  tdIcon.appendChild(icon);
-  var tdName = document.createElement("td");
-  tdName.className = "fnt-s";
-  tdName.textContent = itemName;
-  var tdPrice = document.createElement("td");
-  tdPrice.className = "fnt-s";
-  tdPrice.textContent = "".concat(itemPrice, "\u20AC");
-  var tdCategory = document.createElement("td");
-  var iconCategory = document.createElement("i");
-  iconCategory.className = "bi bi-brush-fill";
-  tdCategory.appendChild(iconCategory);
-  var tdAuthentication = document.createElement("td");
-  var authIcon = document.createElement("i");
-  authIcon.className = "bi bi-check-square";
-  tdAuthentication.appendChild(authIcon);
-  tr.appendChild(th);
-  tr.appendChild(tdIcon);
-  tr.appendChild(tdName);
-  tr.appendChild(tdPrice);
-  tr.appendChild(tdCategory);
-  tr.appendChild(tdAuthentication);
-  var tableBody = document.getElementsByTagName("tbody")[0];
-  tableBody.appendChild(tr);
-  itemInputName.value = "";
-  itemInputPrice.value = "";
-  itemInputCategory.selectedIndex = 0;
-  if (auctionItems.length > 1) {
-    btnNewAuctionCollection.disabled = false;
+  var itemImage = imageAuctionItem.files[0]; // Get the selected image file
+  var reader = new FileReader(); // Create a FileReader object
+
+  reader.onload = function () {
+    var imageData = reader.result; // Get the image data
+
+    auctionItems.push({
+      id: currentItemId,
+      //Peça Leilao:
+      precoInicial: itemPrice,
+      //Peça Arte:
+      nome: itemName,
+      artista: itemArtist,
+      ano: itemYear,
+      categoria: itemCategory,
+      imagem: imageData
+    });
+    var tr = document.createElement("tr");
+    var th = document.createElement("th");
+    th.setAttribute("scope", "row");
+    th.className = "fnt-s";
+    th.setAttribute("data-id", currentItemId);
+    th.textContent = " ";
+    currentItemId++;
+    var tdIcon = document.createElement("td");
+    var icon = document.createElement("i");
+    icon.className = "bi bi-card-image";
+    tdIcon.appendChild(icon);
+    var tdName = document.createElement("td");
+    tdName.className = "fnt-s";
+    tdName.textContent = itemName;
+    var tdPrice = document.createElement("td");
+    tdPrice.className = "fnt-s";
+    tdPrice.textContent = "".concat(itemPrice, "\u20AC");
+    var tdCategory = document.createElement("td");
+    var iconCategory = document.createElement("i");
+    iconCategory.className = "bi bi-brush-fill";
+    tdCategory.appendChild(iconCategory);
+    var tdAuthentication = document.createElement("td");
+    var authIcon = document.createElement("i");
+    authIcon.className = "bi bi-check-square";
+    tdAuthentication.appendChild(authIcon);
+    tr.appendChild(th);
+    tr.appendChild(tdIcon);
+    tr.appendChild(tdName);
+    tr.appendChild(tdPrice);
+    tr.appendChild(tdCategory);
+    tr.appendChild(tdAuthentication);
+    var tableBody = document.getElementsByTagName("tbody")[0];
+    tableBody.appendChild(tr);
+    itemInputName.value = "";
+    itemInputPrice.value = "";
+    itemInputArtist.value = "";
+    itemInputYear.value = "";
+    imageAuctionItem.value = "";
+    itemInputCategory.selectedIndex = 0;
+    if (auctionItems.length > 1) {
+      btnNewAuctionCollection.disabled = false;
+    }
+    document.getElementById("btn-cancel-new-auction").click();
+  };
+  if (itemImage) {
+    reader.readAsDataURL(itemImage); // Read the image file as data URL
+  } else {
+    // Handle the case when no image is selected
+    alert("Please select an image");
+    return;
   }
-  document.getElementById("btn-cancel-new-auction").click();
 });
 btnNewAuctionCollection === null || btnNewAuctionCollection === void 0 ? void 0 : btnNewAuctionCollection.addEventListener('click', function () {
   if (btnNewAuctionCollection.checked) {
@@ -109,7 +128,7 @@ btnSubmitNewAuction === null || btnSubmitNewAuction === void 0 ? void 0 : btnSub
         };
         _context.prev = 5;
         _context.next = 8;
-        return fetch("/api/auction", {
+        return fetch("/api/new-auction", {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
@@ -131,18 +150,18 @@ btnSubmitNewAuction === null || btnSubmitNewAuction === void 0 ? void 0 : btnSub
         throw new Error("".concat(response.status, ": ").concat(responseMessage));
       case 15:
         console.log(responseMessage);
-        location.reload();
-        _context.next = 22;
+        //location.reload();
+        _context.next = 21;
         break;
-      case 19:
-        _context.prev = 19;
+      case 18:
+        _context.prev = 18;
         _context.t0 = _context["catch"](5);
         console.log(responseMessage);
-      case 22:
+      case 21:
       case "end":
         return _context.stop();
     }
-  }, _callee, null, [[5, 19]]);
+  }, _callee, null, [[5, 18]]);
 })));
 /******/ })()
 ;
