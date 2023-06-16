@@ -3,6 +3,7 @@ const btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault"
 const newAuctionCollectionPrice = document.getElementById("collectionPrice");
 const btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 const imageAuctionItem = document.getElementById("imageInput");
+const docAuctionItem = document.getElementById("documentInput");
 const auctionItems = [];
 let currentItemId = 0;
 
@@ -29,83 +30,89 @@ btnNewAuctionItem?.addEventListener("click", () => {
     }
 
     const itemImage = imageAuctionItem.files[0]; // Get the selected image file
-    const reader = new FileReader(); // Create a FileReader object
+    const itemDoc = docAuctionItem.files[0];
 
-    reader.onload = () => {
-        const imageData = reader.result; // Get the image data
+    const imageReader = new FileReader();
+    const docReader = new FileReader();
 
-        auctionItems.push({
-            id: currentItemId,
-            //Peça Leilao:
-            precoInicial: itemPrice,
-            //Peça Arte:
-            nome: itemName,
-            artista: itemArtist,
-            ano: itemYear,
-            categoria: itemCategory,
-            imagem: imageData,
-        });
+    imageReader.onload = () => {
+        const imageData = imageReader.result; // Get the image data
 
-        const tr = document.createElement("tr");
-        const th = document.createElement("th");
-        th.setAttribute("scope", "row");
-        th.className = "fnt-s";
-        th.setAttribute("data-id", currentItemId);
-        th.textContent = " ";
-        currentItemId++;
+        docReader.onload = () => {
+            const docData = docReader.result; // Get the PDF data
+            
+            auctionItems.push({
+                id: currentItemId,
+                precoInicial: itemPrice,
+                nome: itemName,
+                artista: itemArtist,
+                ano: itemYear,
+                categoria: itemCategory,
+                imagem: imageData,
+                documento: docData
+            });
 
-        const tdIcon = document.createElement("td");
-        const icon = document.createElement("i");
-        icon.className = "bi bi-card-image";
-        tdIcon.appendChild(icon);
+            const tr = document.createElement("tr");
+            const th = document.createElement("th");
+            th.setAttribute("scope", "row");
+            th.className = "fnt-s";
+            th.setAttribute("data-id", currentItemId);
+            th.textContent = " ";
+            currentItemId++;
 
-        const tdName = document.createElement("td");
-        tdName.className = "fnt-s";
-        tdName.textContent = itemName;
+            const tdIcon = document.createElement("td");
+            const icon = document.createElement("i");
+            icon.className = "bi bi-card-image";
+            tdIcon.appendChild(icon);
 
-        const tdPrice = document.createElement("td");
-        tdPrice.className = "fnt-s";
-        tdPrice.textContent = `${itemPrice}€`;
+            const tdName = document.createElement("td");
+            tdName.className = "fnt-s";
+            tdName.textContent = itemName;
 
-        const tdCategory = document.createElement("td");
-        const iconCategory = document.createElement("i");
-        iconCategory.className = "bi bi-brush-fill";
-        tdCategory.appendChild(iconCategory);
+            const tdPrice = document.createElement("td");
+            tdPrice.className = "fnt-s";
+            tdPrice.textContent = `${itemPrice}€`;
 
-        const tdAuthentication = document.createElement("td");
-        const authIcon = document.createElement("i");
-        authIcon.className = "bi bi-check-square";
-        tdAuthentication.appendChild(authIcon);
+            const tdCategory = document.createElement("td");
+            const iconCategory = document.createElement("i");
+            iconCategory.className = "bi bi-brush-fill";
+            tdCategory.appendChild(iconCategory);
 
-        tr.appendChild(th);
-        tr.appendChild(tdIcon);
-        tr.appendChild(tdName);
-        tr.appendChild(tdPrice);
-        tr.appendChild(tdCategory);
-        tr.appendChild(tdAuthentication);
+            const tdAuthentication = document.createElement("td");
+            const authIcon = document.createElement("i");
+            authIcon.className = "bi bi-check-square";
+            tdAuthentication.appendChild(authIcon);
 
-        const tableBody = document.getElementsByTagName("tbody")[0];
-        tableBody.appendChild(tr);
+            tr.appendChild(th);
+            tr.appendChild(tdIcon);
+            tr.appendChild(tdName);
+            tr.appendChild(tdPrice);
+            tr.appendChild(tdCategory);
+            tr.appendChild(tdAuthentication);
 
-        itemInputName.value = "";
-        itemInputPrice.value = "";
-        itemInputArtist.value = "";
-        itemInputYear.value = "";
-        imageAuctionItem.value = "";
-        itemInputCategory.selectedIndex = 0;
+            const tableBody = document.getElementsByTagName("tbody")[0];
+            tableBody.appendChild(tr);
 
-        if (auctionItems.length > 1) {
-            btnNewAuctionCollection.disabled = false;
-        }
+            itemInputName.value = "";
+            itemInputPrice.value = "";
+            itemInputArtist.value = "";
+            itemInputYear.value = "";
+            imageAuctionItem.value = "";
+            itemInputCategory.selectedIndex = 0;
 
-        document.getElementById("btn-cancel-new-auction").click();
+            if (auctionItems.length > 1) {
+                btnNewAuctionCollection.disabled = false;
+            }
+
+            document.getElementById("btn-cancel-new-auction").click();
+            };
     };
 
     if (itemImage) {
-        reader.readAsDataURL(itemImage); // Read the image file as data URL
+        imageReader.readAsDataURL(itemImage); // Read the image file as data URL
     } else {
         // Handle the case when no image is selected
-        alert("Please select an image");
+        alert("Insira uma imagem.");
         return;
     }
 });
@@ -153,7 +160,7 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
         if (!response.ok)
             throw new Error(`${response.status}: ${responseMessage}`);
         console.log(responseMessage)
-        //location.reload();
+        location.reload();
 
     } catch (error) {
         console.log(responseMessage);

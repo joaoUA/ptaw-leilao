@@ -88,7 +88,7 @@
 
 
                     <div class="mb-3 p-2" id="file-group">
-                        <label for="formFile" class="mx-1 form-label fnt-s" >Imagen,</label>
+                        <label for="formFile" class="mx-1 form-label fnt-s" >Imagem</label>
                         <input class="form-control fnt-s" type="file" id="imageInput" accept="image/png, image/jpeg"> 
                     </div>
 

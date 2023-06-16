@@ -12,6 +12,7 @@ var btnNewAuctionCollection = document.getElementById("flexSwitchCheckDefault");
 var newAuctionCollectionPrice = document.getElementById("collectionPrice");
 var btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 var imageAuctionItem = document.getElementById("imageInput");
+var docAuctionItem = document.getElementById("documentInput");
 var auctionItems = [];
 var currentItemId = 0;
 btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuctionItem.addEventListener("click", function () {
@@ -33,71 +34,75 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     return;
   }
   var itemImage = imageAuctionItem.files[0]; // Get the selected image file
-  var reader = new FileReader(); // Create a FileReader object
+  var itemDoc = docAuctionItem.files[0];
+  var imageReader = new FileReader();
+  var docReader = new FileReader();
+  imageReader.onload = function () {
+    var imageData = imageReader.result; // Get the image data
 
-  reader.onload = function () {
-    var imageData = reader.result; // Get the image data
+    docReader.onload = function () {
+      var docData = docReader.result; // Get the PDF data
 
-    auctionItems.push({
-      id: currentItemId,
-      //Peça Leilao:
-      precoInicial: itemPrice,
-      //Peça Arte:
-      nome: itemName,
-      artista: itemArtist,
-      ano: itemYear,
-      categoria: itemCategory,
-      imagem: imageData
-    });
-    var tr = document.createElement("tr");
-    var th = document.createElement("th");
-    th.setAttribute("scope", "row");
-    th.className = "fnt-s";
-    th.setAttribute("data-id", currentItemId);
-    th.textContent = " ";
-    currentItemId++;
-    var tdIcon = document.createElement("td");
-    var icon = document.createElement("i");
-    icon.className = "bi bi-card-image";
-    tdIcon.appendChild(icon);
-    var tdName = document.createElement("td");
-    tdName.className = "fnt-s";
-    tdName.textContent = itemName;
-    var tdPrice = document.createElement("td");
-    tdPrice.className = "fnt-s";
-    tdPrice.textContent = "".concat(itemPrice, "\u20AC");
-    var tdCategory = document.createElement("td");
-    var iconCategory = document.createElement("i");
-    iconCategory.className = "bi bi-brush-fill";
-    tdCategory.appendChild(iconCategory);
-    var tdAuthentication = document.createElement("td");
-    var authIcon = document.createElement("i");
-    authIcon.className = "bi bi-check-square";
-    tdAuthentication.appendChild(authIcon);
-    tr.appendChild(th);
-    tr.appendChild(tdIcon);
-    tr.appendChild(tdName);
-    tr.appendChild(tdPrice);
-    tr.appendChild(tdCategory);
-    tr.appendChild(tdAuthentication);
-    var tableBody = document.getElementsByTagName("tbody")[0];
-    tableBody.appendChild(tr);
-    itemInputName.value = "";
-    itemInputPrice.value = "";
-    itemInputArtist.value = "";
-    itemInputYear.value = "";
-    imageAuctionItem.value = "";
-    itemInputCategory.selectedIndex = 0;
-    if (auctionItems.length > 1) {
-      btnNewAuctionCollection.disabled = false;
-    }
-    document.getElementById("btn-cancel-new-auction").click();
+      auctionItems.push({
+        id: currentItemId,
+        precoInicial: itemPrice,
+        nome: itemName,
+        artista: itemArtist,
+        ano: itemYear,
+        categoria: itemCategory,
+        imagem: imageData,
+        documento: docData
+      });
+      var tr = document.createElement("tr");
+      var th = document.createElement("th");
+      th.setAttribute("scope", "row");
+      th.className = "fnt-s";
+      th.setAttribute("data-id", currentItemId);
+      th.textContent = " ";
+      currentItemId++;
+      var tdIcon = document.createElement("td");
+      var icon = document.createElement("i");
+      icon.className = "bi bi-card-image";
+      tdIcon.appendChild(icon);
+      var tdName = document.createElement("td");
+      tdName.className = "fnt-s";
+      tdName.textContent = itemName;
+      var tdPrice = document.createElement("td");
+      tdPrice.className = "fnt-s";
+      tdPrice.textContent = "".concat(itemPrice, "\u20AC");
+      var tdCategory = document.createElement("td");
+      var iconCategory = document.createElement("i");
+      iconCategory.className = "bi bi-brush-fill";
+      tdCategory.appendChild(iconCategory);
+      var tdAuthentication = document.createElement("td");
+      var authIcon = document.createElement("i");
+      authIcon.className = "bi bi-check-square";
+      tdAuthentication.appendChild(authIcon);
+      tr.appendChild(th);
+      tr.appendChild(tdIcon);
+      tr.appendChild(tdName);
+      tr.appendChild(tdPrice);
+      tr.appendChild(tdCategory);
+      tr.appendChild(tdAuthentication);
+      var tableBody = document.getElementsByTagName("tbody")[0];
+      tableBody.appendChild(tr);
+      itemInputName.value = "";
+      itemInputPrice.value = "";
+      itemInputArtist.value = "";
+      itemInputYear.value = "";
+      imageAuctionItem.value = "";
+      itemInputCategory.selectedIndex = 0;
+      if (auctionItems.length > 1) {
+        btnNewAuctionCollection.disabled = false;
+      }
+      document.getElementById("btn-cancel-new-auction").click();
+    };
   };
   if (itemImage) {
-    reader.readAsDataURL(itemImage); // Read the image file as data URL
+    imageReader.readAsDataURL(itemImage); // Read the image file as data URL
   } else {
     // Handle the case when no image is selected
-    alert("Please select an image");
+    alert("Insira uma imagem.");
     return;
   }
 });
@@ -150,18 +155,18 @@ btnSubmitNewAuction === null || btnSubmitNewAuction === void 0 ? void 0 : btnSub
         throw new Error("".concat(response.status, ": ").concat(responseMessage));
       case 15:
         console.log(responseMessage);
-        //location.reload();
-        _context.next = 21;
+        location.reload();
+        _context.next = 22;
         break;
-      case 18:
-        _context.prev = 18;
+      case 19:
+        _context.prev = 19;
         _context.t0 = _context["catch"](5);
         console.log(responseMessage);
-      case 21:
+      case 22:
       case "end":
         return _context.stop();
     }
-  }, _callee, null, [[5, 18]]);
+  }, _callee, null, [[5, 19]]);
 })));
 /******/ })()
 ;
