@@ -15,23 +15,25 @@ class BidPlaced implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $bid;
+    public $auctionId;
 
-    public function __construct($bid)
+    public function __construct($bid, $auctionId)
     {
         $this->bid = $bid;
+        $this->auctionId = $auctionId;
     }
 
-    public function broadcastOn(): array
+    public function broadcastOn()
     {
-        return ['public'];
+        return new Channel('auction.' . $this->auctionId);
     }
 
     public function broadcastAs(): string {
         return 'bid-placed';
     }
 
-    public static function dispatch($bid)
+    public static function dispatch($bid, $auctionId)
     {
-        event(new self($bid));
+        event(new self($bid, $auctionId));
     }
 }
