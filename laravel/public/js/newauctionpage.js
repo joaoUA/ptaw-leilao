@@ -13,14 +13,49 @@ var newAuctionCollectionPrice = document.getElementById("collectionPrice");
 var btnNewAuctionItem = document.getElementById("btn-confirm-new-auction-item");
 var imageAuctionItem = document.getElementById("imageInput");
 var docAuctionItem = document.getElementById("documentInput");
+
+var btnCancelNewAuctionItem = document.getElementById("btn-cancel-new-auction");
+var itemsTable = document.getElementsByTagName("tbody")[0];
+var itemInputName = document.getElementById("artigo-nome");
+var itemInputArtist = document.getElementById("artigo-artista");
+var itemInputYear = document.getElementById("artigo-ano");
+var itemInputPrice = document.getElementById("artigo-preco");
+var itemInputCategory = document.getElementById("artigo-categoria");
+
 var auctionItems = [];
 var currentItemId = 0;
+btnCancelNewAuctionItem === null || btnCancelNewAuctionItem === void 0 ? void 0 : btnCancelNewAuctionItem.addEventListener("click", function () {
+  itemInputName.value = "";
+  itemInputPrice.value = "";
+  itemInputArtist.value = "";
+  itemInputYear.value = "";
+  imageAuctionItem.value = "";
+  docAuctionItem.value = "";
+  itemInputCategory.selectedIndex = 0;
+});
+itemsTable.addEventListener("click", function (event) {
+  var target = event.target;
+  if (target.classList.contains("icon-delete-item") && target.classList.contains("bi-x-circle")) {
+    var tr = target.closest("tr");
+    var th = tr.querySelector("th[data-id]");
+    var dataId = th.getAttribute("data-id");
+    if (dataId) {
+      var confirmation = confirm("Pretende eliminar este artigo?");
+      if (confirmation) {
+        tr.remove();
+        console.log(dataId);
+        var index = auctionItems.findIndex(function (item) {
+          return item.id === Number(dataId);
+        });
+        if (index !== -1) {
+          auctionItems.splice(index, 1);
+        }
+        console.log(auctionItems);
+      }
+    }
+  }
+});
 btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuctionItem.addEventListener("click", function () {
-  var itemInputName = document.getElementById("artigo-nome");
-  var itemInputArtist = document.getElementById("artigo-artista");
-  var itemInputYear = document.getElementById("artigo-ano");
-  var itemInputPrice = document.getElementById("artigo-preco");
-  var itemInputCategory = document.getElementById("artigo-categoria");
   var itemArtist = itemInputArtist.value.trim();
   var itemYear = itemInputYear.value.trim();
   var itemName = itemInputName.value.trim();
@@ -68,7 +103,7 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     currentItemId++;
     var tdIcon = document.createElement("td");
     var icon = document.createElement("i");
-    icon.className = "bi bi-card-image";
+    icon.className = "bi bi-x-circle icon-delete-item";
     tdIcon.appendChild(icon);
     var tdName = document.createElement("td");
     tdName.className = "fnt-s";
@@ -97,11 +132,13 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
     itemInputArtist.value = "";
     itemInputYear.value = "";
     imageAuctionItem.value = "";
+    docAuctionItem.value = "";
     itemInputCategory.selectedIndex = 0;
     if (auctionItems.length > 1) {
       btnNewAuctionCollection.disabled = false;
     }
     document.getElementById("btn-cancel-new-auction").click();
+    console.log(auctionItems);
   };
   if (itemImage) {
     imageReader.readAsDataURL(itemImage);

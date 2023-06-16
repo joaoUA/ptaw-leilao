@@ -758,6 +758,10 @@ nav {
     max-width: fit-content;
 }
 
+.icon-delete-item {
+    cursor:pointer;
+}
+
 #ca-main-container > table {
     margin: 0;
 }
@@ -986,3 +990,4 @@ input:required:invalid {
 select:required:invalid {
     border-color: red;
 }
+
