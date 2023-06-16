@@ -3,9 +3,9 @@ const btnRequestSellerStatus = document.getElementById("btn-request-seller-statu
 const btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
 
 btnConfirmProfileChanges?.addEventListener('click', async() => {
-    console.log("ola");
+    
     //#region Input Elements
-    /*const inputFirstname = document.getElementById("input-profile-first-name");
+    const inputFirstname = document.getElementById("input-profile-first-name");
     const inputSurname = document.getElementById("input-profile-surname");
     const inputBirthday = document.getElementById("input-profile-birthday");
     const inputAddress = document.getElementById("input-profile-address");
@@ -52,7 +52,7 @@ btnConfirmProfileChanges?.addEventListener('click', async() => {
     };
 
     try {
-        const response = fetch('/api/register', {
+        const response = fetch('/api/edit', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -66,10 +66,10 @@ btnConfirmProfileChanges?.addEventListener('click', async() => {
         if (!response.ok)
             throw new Error(`${response.status}: ${responseMessage}`);
         alert(responseMessage);
-        //location.reload();
+        location.reload();
     } catch (error) {
         console.log(responseMessage);
-    }*/
+    }
 
 });
 

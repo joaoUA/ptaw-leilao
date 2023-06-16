@@ -10,15 +10,98 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var btnConfirmProfileChanges = document.getElementById("btn-confirm-profile-changes");
 var btnRequestSellerStatus = document.getElementById("btn-request-seller-status");
 var btnRequestAdminStatus = document.getElementById("btn-request-admin-status");
-btnConfirmProfileChanges === null || btnConfirmProfileChanges === void 0 ? void 0 : btnConfirmProfileChanges.addEventListener('click', function () {});
-btnRequestSellerStatus === null || btnRequestSellerStatus === void 0 ? void 0 : btnRequestSellerStatus.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-  var userId, response;
+btnConfirmProfileChanges === null || btnConfirmProfileChanges === void 0 ? void 0 : btnConfirmProfileChanges.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  var inputFirstname, inputSurname, inputBirthday, inputAddress, inputPostcode, inputCity, inputCountry, inputEmail, inputNif, inputIban, inputPassword, inputConfirmPassword, userId, firstName, surname, birthday, address, postcode, city, country, email, password, confirmPassword, nif, iban, account, response, data;
   return _regeneratorRuntime().wrap(function _callee$(_context) {
     while (1) switch (_context.prev = _context.next) {
       case 0:
+        //#region Input Elements
+        inputFirstname = document.getElementById("input-profile-first-name");
+        inputSurname = document.getElementById("input-profile-surname");
+        inputBirthday = document.getElementById("input-profile-birthday");
+        inputAddress = document.getElementById("input-profile-address");
+        inputPostcode = document.getElementById("input-profile-postcode");
+        inputCity = document.getElementById("input-profile-city");
+        inputCountry = document.getElementById("input-profile-country");
+        inputEmail = document.getElementById("input-profile-email");
+        inputNif = document.getElementById("input-profile-nif");
+        inputIban = document.getElementById("input-profile-iban");
+        inputPassword = document.getElementById("input-profile-password");
+        inputConfirmPassword = document.getElementById("input-profile-confirm-password");
+        userId = btnConfirmProfileChanges.getAttribute("data-user-id"); //#endregion
+        //#region Input Values
+        firstName = inputFirstname.value.trim();
+        surname = inputSurname.value.trim();
+        birthday = inputBirthday.value;
+        address = inputAddress.value.trim();
+        postcode = inputPostcode.value.trim();
+        city = inputCity.value.trim();
+        country = inputCountry.value.trim();
+        email = inputEmail.value;
+        password = inputPassword.value;
+        confirmPassword = inputConfirmPassword.value;
+        nif = parseInt(inputNif.value);
+        iban = inputIban.value.trim(); //#endregion
+        if (!(password != confirmPassword)) {
+          _context.next = 27;
+          break;
+        }
+        return _context.abrupt("return");
+      case 27:
+        account = {
+          id: userId,
+          name: "".concat(firstName, " ").concat(surname),
+          birthday: birthday,
+          address: address,
+          postcode: postcode,
+          city: city,
+          country: country,
+          email: email,
+          password: password,
+          nif: nif,
+          iban: iban
+        };
+        _context.prev = 28;
+        response = fetch('/api/edit', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(account)
+        });
+        _context.next = 32;
+        return response.json();
+      case 32:
+        data = _context.sent;
+        responseMessage = data['message'];
+        if (response.ok) {
+          _context.next = 36;
+          break;
+        }
+        throw new Error("".concat(response.status, ": ").concat(responseMessage));
+      case 36:
+        alert(responseMessage);
+        location.reload();
+        _context.next = 43;
+        break;
+      case 40:
+        _context.prev = 40;
+        _context.t0 = _context["catch"](28);
+        console.log(responseMessage);
+      case 43:
+      case "end":
+        return _context.stop();
+    }
+  }, _callee, null, [[28, 40]]);
+})));
+btnRequestSellerStatus === null || btnRequestSellerStatus === void 0 ? void 0 : btnRequestSellerStatus.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+  var userId, response;
+  return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+    while (1) switch (_context2.prev = _context2.next) {
+      case 0:
         userId = btnRequestSellerStatus.getAttribute('data-user-id');
-        _context.prev = 1;
-        _context.next = 4;
+        _context2.prev = 1;
+        _context2.next = 4;
         return fetch("/api/role-change/".concat(userId, "/seller"), {
           method: 'POST',
           headers: {
@@ -27,37 +110,37 @@ btnRequestSellerStatus === null || btnRequestSellerStatus === void 0 ? void 0 : 
           body: JSON.stringify({})
         });
       case 4:
-        response = _context.sent;
+        response = _context2.sent;
         if (!response.ok) {
-          _context.next = 9;
+          _context2.next = 9;
           break;
         }
         window.location.reload();
-        _context.next = 10;
+        _context2.next = 10;
         break;
       case 9:
         throw new Error("Erro: ".concat(response.status));
       case 10:
-        _context.next = 15;
+        _context2.next = 15;
         break;
       case 12:
-        _context.prev = 12;
-        _context.t0 = _context["catch"](1);
-        console.error(_context.t0);
+        _context2.prev = 12;
+        _context2.t0 = _context2["catch"](1);
+        console.error(_context2.t0);
       case 15:
       case "end":
-        return _context.stop();
+        return _context2.stop();
     }
-  }, _callee, null, [[1, 12]]);
+  }, _callee2, null, [[1, 12]]);
 })));
-btnRequestAdminStatus === null || btnRequestAdminStatus === void 0 ? void 0 : btnRequestAdminStatus.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+btnRequestAdminStatus === null || btnRequestAdminStatus === void 0 ? void 0 : btnRequestAdminStatus.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
   var userId, response;
-  return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-    while (1) switch (_context2.prev = _context2.next) {
+  return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+    while (1) switch (_context3.prev = _context3.next) {
       case 0:
         userId = btnRequestAdminStatus.getAttribute('data-user-id');
-        _context2.prev = 1;
-        _context2.next = 4;
+        _context3.prev = 1;
+        _context3.next = 4;
         return fetch("/api/role-change/".concat(userId, "/admin"), {
           method: 'POST',
           headers: {
@@ -66,24 +149,24 @@ btnRequestAdminStatus === null || btnRequestAdminStatus === void 0 ? void 0 : bt
           body: JSON.stringify({})
         });
       case 4:
-        response = _context2.sent;
+        response = _context3.sent;
         if (response.ok) {
-          _context2.next = 7;
+          _context3.next = 7;
           break;
         }
         throw new Error("Erro: ".concat(response.status));
       case 7:
-        _context2.next = 12;
+        _context3.next = 12;
         break;
       case 9:
-        _context2.prev = 9;
-        _context2.t0 = _context2["catch"](1);
-        console.log(_context2.t0);
+        _context3.prev = 9;
+        _context3.t0 = _context3["catch"](1);
+        console.log(_context3.t0);
       case 12:
       case "end":
-        return _context2.stop();
+        return _context3.stop();
     }
-  }, _callee2, null, [[1, 9]]);
+  }, _callee3, null, [[1, 9]]);
 })));
 /******/ })()
 ;
