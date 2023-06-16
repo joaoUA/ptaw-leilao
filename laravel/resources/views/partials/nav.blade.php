@@ -17,7 +17,7 @@
                 data-bs-target="#modalLogin">Login</button>
             @endif
         @if (Auth::check())
-        <p class="m-auto me-3 text-white fnt-m">{{Auth::user()->nome}}</p>
+        <p class="m-auto me-3 text-white fnt-m">{{Auth::user()->nome . " " . Auth::user()->apelido}}</p>
         <div id="profile-icon-container" class=" fnt-xl">
             <i id="profile-icon" href="./perfilDados.html" class="bi bi-person-circle text-light"></i>
         </div>
