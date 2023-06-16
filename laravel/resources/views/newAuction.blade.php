@@ -95,7 +95,7 @@
                     <div class="mb-3 p-1" id="file-group">
                         <label for="formFile" class="mx-1 form-label fnt-s">Documento de Autenticação
                             (Opcional)</label>
-                        <input class="form-control fnt-s" type="file" id="documentInput">
+                        <input class="form-control fnt-s" type="file" id="documentInput" accept="application/pdf">
                     </div>
 
                     <div class="p-1 d-grid gap-2">

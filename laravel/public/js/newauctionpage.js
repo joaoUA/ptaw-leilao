@@ -39,69 +39,73 @@ btnNewAuctionItem === null || btnNewAuctionItem === void 0 ? void 0 : btnNewAuct
   var docReader = new FileReader();
   imageReader.onload = function () {
     var imageData = imageReader.result; // Get the image data
-
+    var docData = "";
+    var authDoc = "bi-x-square";
     docReader.onload = function () {
-      var docData = docReader.result; // Get the PDF data
-
-      auctionItems.push({
-        id: currentItemId,
-        precoInicial: itemPrice,
-        nome: itemName,
-        artista: itemArtist,
-        ano: itemYear,
-        categoria: itemCategory,
-        imagem: imageData,
-        documento: docData
-      });
-      var tr = document.createElement("tr");
-      var th = document.createElement("th");
-      th.setAttribute("scope", "row");
-      th.className = "fnt-s";
-      th.setAttribute("data-id", currentItemId);
-      th.textContent = " ";
-      currentItemId++;
-      var tdIcon = document.createElement("td");
-      var icon = document.createElement("i");
-      icon.className = "bi bi-card-image";
-      tdIcon.appendChild(icon);
-      var tdName = document.createElement("td");
-      tdName.className = "fnt-s";
-      tdName.textContent = itemName;
-      var tdPrice = document.createElement("td");
-      tdPrice.className = "fnt-s";
-      tdPrice.textContent = "".concat(itemPrice, "\u20AC");
-      var tdCategory = document.createElement("td");
-      var iconCategory = document.createElement("i");
-      iconCategory.className = "bi bi-brush-fill";
-      tdCategory.appendChild(iconCategory);
-      var tdAuthentication = document.createElement("td");
-      var authIcon = document.createElement("i");
-      authIcon.className = "bi bi-check-square";
-      tdAuthentication.appendChild(authIcon);
-      tr.appendChild(th);
-      tr.appendChild(tdIcon);
-      tr.appendChild(tdName);
-      tr.appendChild(tdPrice);
-      tr.appendChild(tdCategory);
-      tr.appendChild(tdAuthentication);
-      var tableBody = document.getElementsByTagName("tbody")[0];
-      tableBody.appendChild(tr);
-      itemInputName.value = "";
-      itemInputPrice.value = "";
-      itemInputArtist.value = "";
-      itemInputYear.value = "";
-      imageAuctionItem.value = "";
-      itemInputCategory.selectedIndex = 0;
-      if (auctionItems.length > 1) {
-        btnNewAuctionCollection.disabled = false;
-      }
-      document.getElementById("btn-cancel-new-auction").click();
+      docData = docReader.result; // Get the PDF data
     };
+
+    if (itemDoc) {
+      docReader.readAsDataURL(itemDoc);
+      authDoc = "bi-check-square";
+    }
+    auctionItems.push({
+      id: currentItemId,
+      precoInicial: itemPrice,
+      nome: itemName,
+      artista: itemArtist,
+      ano: itemYear,
+      categoria: itemCategory,
+      imagem: imageData,
+      documento: docData
+    });
+    var tr = document.createElement("tr");
+    var th = document.createElement("th");
+    th.setAttribute("scope", "row");
+    th.className = "fnt-s";
+    th.setAttribute("data-id", currentItemId);
+    th.textContent = " ";
+    currentItemId++;
+    var tdIcon = document.createElement("td");
+    var icon = document.createElement("i");
+    icon.className = "bi bi-card-image";
+    tdIcon.appendChild(icon);
+    var tdName = document.createElement("td");
+    tdName.className = "fnt-s";
+    tdName.textContent = itemName;
+    var tdPrice = document.createElement("td");
+    tdPrice.className = "fnt-s";
+    tdPrice.textContent = "".concat(itemPrice, "\u20AC");
+    var tdCategory = document.createElement("td");
+    var iconCategory = document.createElement("i");
+    iconCategory.className = "bi bi-brush-fill";
+    tdCategory.appendChild(iconCategory);
+    var tdAuthentication = document.createElement("td");
+    var authIcon = document.createElement("i");
+    authIcon.className = "bi " + authDoc;
+    tdAuthentication.appendChild(authIcon);
+    tr.appendChild(th);
+    tr.appendChild(tdIcon);
+    tr.appendChild(tdName);
+    tr.appendChild(tdPrice);
+    tr.appendChild(tdCategory);
+    tr.appendChild(tdAuthentication);
+    var tableBody = document.getElementsByTagName("tbody")[0];
+    tableBody.appendChild(tr);
+    itemInputName.value = "";
+    itemInputPrice.value = "";
+    itemInputArtist.value = "";
+    itemInputYear.value = "";
+    imageAuctionItem.value = "";
+    itemInputCategory.selectedIndex = 0;
+    if (auctionItems.length > 1) {
+      btnNewAuctionCollection.disabled = false;
+    }
+    document.getElementById("btn-cancel-new-auction").click();
   };
   if (itemImage) {
-    imageReader.readAsDataURL(itemImage); // Read the image file as data URL
+    imageReader.readAsDataURL(itemImage);
   } else {
-    // Handle the case when no image is selected
     alert("Insira uma imagem.");
     return;
   }

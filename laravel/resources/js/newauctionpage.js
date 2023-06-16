@@ -8,6 +8,7 @@ const auctionItems = [];
 let currentItemId = 0;
 
 btnNewAuctionItem?.addEventListener("click", () => {
+
     const itemInputName = document.getElementById("artigo-nome");
     const itemInputArtist = document.getElementById("artigo-artista");
     const itemInputYear = document.getElementById("artigo-ano");
@@ -37,81 +38,84 @@ btnNewAuctionItem?.addEventListener("click", () => {
 
     imageReader.onload = () => {
         const imageData = imageReader.result; // Get the image data
-
+        let docData = "";
+        let authDoc = "bi-x-square";
         docReader.onload = () => {
-            const docData = docReader.result; // Get the PDF data
-            
-            auctionItems.push({
-                id: currentItemId,
-                precoInicial: itemPrice,
-                nome: itemName,
-                artista: itemArtist,
-                ano: itemYear,
-                categoria: itemCategory,
-                imagem: imageData,
-                documento: docData
-            });
+            docData = docReader.result; // Get the PDF data
+        };
+        if (itemDoc) {
+            docReader.readAsDataURL(itemDoc);
+            authDoc = "bi-check-square";
+        }
+        auctionItems.push({
+            id: currentItemId,
+            precoInicial: itemPrice,
+            nome: itemName,
+            artista: itemArtist,
+            ano: itemYear,
+            categoria: itemCategory,
+            imagem: imageData,
+            documento: docData
+        });
 
-            const tr = document.createElement("tr");
-            const th = document.createElement("th");
-            th.setAttribute("scope", "row");
-            th.className = "fnt-s";
-            th.setAttribute("data-id", currentItemId);
-            th.textContent = " ";
-            currentItemId++;
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        th.setAttribute("scope", "row");
+        th.className = "fnt-s";
+        th.setAttribute("data-id", currentItemId);
+        th.textContent = " ";
+        currentItemId++;
 
-            const tdIcon = document.createElement("td");
-            const icon = document.createElement("i");
-            icon.className = "bi bi-card-image";
-            tdIcon.appendChild(icon);
+        const tdIcon = document.createElement("td");
+        const icon = document.createElement("i");
+        icon.className = "bi bi-card-image";
+        tdIcon.appendChild(icon);
 
-            const tdName = document.createElement("td");
-            tdName.className = "fnt-s";
-            tdName.textContent = itemName;
+        const tdName = document.createElement("td");
+        tdName.className = "fnt-s";
+        tdName.textContent = itemName;
 
-            const tdPrice = document.createElement("td");
-            tdPrice.className = "fnt-s";
-            tdPrice.textContent = `${itemPrice}€`;
+        const tdPrice = document.createElement("td");
+        tdPrice.className = "fnt-s";
+        tdPrice.textContent = `${itemPrice}€`;
 
-            const tdCategory = document.createElement("td");
-            const iconCategory = document.createElement("i");
-            iconCategory.className = "bi bi-brush-fill";
-            tdCategory.appendChild(iconCategory);
+        const tdCategory = document.createElement("td");
+        const iconCategory = document.createElement("i");
+        iconCategory.className = "bi bi-brush-fill";
+        tdCategory.appendChild(iconCategory);
 
-            const tdAuthentication = document.createElement("td");
-            const authIcon = document.createElement("i");
-            authIcon.className = "bi bi-check-square";
-            tdAuthentication.appendChild(authIcon);
+        const tdAuthentication = document.createElement("td");
+        const authIcon = document.createElement("i");
+        authIcon.className = "bi " + authDoc;
+        tdAuthentication.appendChild(authIcon);
 
-            tr.appendChild(th);
-            tr.appendChild(tdIcon);
-            tr.appendChild(tdName);
-            tr.appendChild(tdPrice);
-            tr.appendChild(tdCategory);
-            tr.appendChild(tdAuthentication);
+        tr.appendChild(th);
+        tr.appendChild(tdIcon);
+        tr.appendChild(tdName);
+        tr.appendChild(tdPrice);
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdAuthentication);
 
-            const tableBody = document.getElementsByTagName("tbody")[0];
-            tableBody.appendChild(tr);
+        const tableBody = document.getElementsByTagName("tbody")[0];
+        tableBody.appendChild(tr);
 
-            itemInputName.value = "";
-            itemInputPrice.value = "";
-            itemInputArtist.value = "";
-            itemInputYear.value = "";
-            imageAuctionItem.value = "";
-            itemInputCategory.selectedIndex = 0;
+        itemInputName.value = "";
+        itemInputPrice.value = "";
+        itemInputArtist.value = "";
+        itemInputYear.value = "";
+        imageAuctionItem.value = "";
+        itemInputCategory.selectedIndex = 0;
 
-            if (auctionItems.length > 1) {
-                btnNewAuctionCollection.disabled = false;
-            }
+        if (auctionItems.length > 1) {
+            btnNewAuctionCollection.disabled = false;
+        }
 
-            document.getElementById("btn-cancel-new-auction").click();
-            };
+        document.getElementById("btn-cancel-new-auction").click();
     };
 
     if (itemImage) {
-        imageReader.readAsDataURL(itemImage); // Read the image file as data URL
+        imageReader.readAsDataURL(itemImage);
     } else {
-        // Handle the case when no image is selected
         alert("Insira uma imagem.");
         return;
     }
