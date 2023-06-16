@@ -14,6 +14,6 @@ class Image extends Model
 
     public function pecaArte()
     {
-        return $this->belongsTo(User::class, 'peca_arte_id');
+        return $this->belongsTo(ArtPiece::class, 'peca_arte_id');
     }
 }

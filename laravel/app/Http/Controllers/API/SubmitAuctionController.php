@@ -11,9 +11,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-
+use Illuminate\Support\Str;
 
 class SubmitAuctionController extends Controller
 {
@@ -130,25 +131,23 @@ class SubmitAuctionController extends Controller
                 $artPiece->peca_leilao_id = $artPieceBP['pecaLeilaoId'];
                 $artPiece->save();
 
-                $path=$item->file('image')->store('public/img');
-
-                $imageBP = [
-                    'id'=>1,
-                    'path' => $path,
-                    'peca_arte_id'=> $artPiece->id,
-                ];
-
-                $imageBPValidator = Validator::make($imageBP,[
-                    'imagem' => 'required|image|max:2048',
-                ]);
-
-                if ($imageBPValidator-> fails())
-                    throw new ValidationException($imageBPValidator);
+            
 
                 $image = new Image();
-                $image->id = $imageBP['id'];
-                $image->path = $imageBP['path'];
-                $image->peca_arte_id = $imageBP['peca_arte_id'];
+                $image->id = 1;
+
+                if (isset($item['imagem'])) {
+                    $imageData = $item['imagem'];
+                    $imageName = $artPiece->id . '_' . Str::random(10) . '.jpg'; // Generate a unique image name
+                    $imagePath = 'public/images/' . $imageName; // Set the desired image path
+
+                    // Store the image data to the specified path
+                    Storage::put($imagePath, base64_decode(preg_replace('/^data:image\/\w+;base64,/', '', $imageData)));
+
+                    $image->path = $imageName; // Set the image path for the database entry
+                }
+
+                $image->peca_arte_id = $artPiece->id;
                 $image->save();
 
                     
