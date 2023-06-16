@@ -68,7 +68,8 @@ btnBid === null || btnBid === void 0 ? void 0 : btnBid.addEventListener('click',
   }, _callee, null, [[8, 22]]);
 })));
 var auctionId = btnBid.getAttribute('data-auction-id');
-var bidPlacedChannel = window.Echo.channel('public');
+var bidPlacedChannel = window.Echo.channel("auction.".concat(auctionId));
+console.log("Subscribed to channel: auction.".concat(auctionId));
 bidPlacedChannel.listen('.bid-placed', function (event) {
   var bidElement = document.getElementById('highest-bid');
   console.log(event);

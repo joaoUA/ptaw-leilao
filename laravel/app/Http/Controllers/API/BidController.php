@@ -44,7 +44,7 @@ class BidController extends Controller
             $auctionItem->comprador_id = $userId;
             $auctionItem->save();
 
-            BidPlaced::dispatch($bid);
+            BidPlaced::dispatch($bid, $data['auctionId']);
 
             return response()->json(['message' => 'Licitação Bem Sucedida!']);
         } catch (Exception $e) {
