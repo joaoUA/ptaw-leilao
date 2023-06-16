@@ -188,12 +188,16 @@ class SubmitAuctionController extends Controller
             'peca_arte.artista',
             'peca_arte.ano',
             'peca_arte.autenticado',
-            'categoria.nome as categoria_nome'
+            'categoria.nome as categoria_nome',
+            'imagem.path as imagem',
+            'documento.path as documento'
         )
         ->join('utilizador', 'leilao.vendedor_id', '=', 'utilizador.id')
         ->join('peca_leilao', 'leilao.id', '=', 'peca_leilao.leilao_id')
         ->join('peca_arte', 'peca_leilao.id', '=', 'peca_arte.peca_leilao_id')
         ->join('categoria', 'peca_arte.categoria_id', '=', 'categoria.id')
+        ->leftjoin('imagem', 'imagem.peca_arte_id', '=', 'peca_arte.id')
+        ->leftjoin('documento', 'documento.peca_arte_id', '=', 'peca_arte.id')
         ->where('leilao.id', $id)
         ->get();
 
