@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ArtPiece;
 use App\Models\Auction;
 use App\Models\AuctionItem;
+use App\Models\Document;
 use App\Models\Image;
 use Exception;
 use Illuminate\Http\Request;
@@ -140,10 +141,23 @@ class SubmitAuctionController extends Controller
                     $imagePath = Storage::disk('public')->put($storagePath . $filename, $imageData);
 
                     $image = new Image();
-                    $image->id = 551;
                     $image->path = $filename;
                     $image->peca_arte_id = $artPiece->id;
                     $image->save();
+                }
+
+                if($item['documento'] !== "") {
+                    //Descodificar de Base64
+                    $docData = str_replace('data:application/pdf;base64,', '', $item['documento']);
+                    $docData = base64_decode($docData);
+                    $filename = uniqid() . '.pdf';
+                    $storagePath = 'documents/';
+                    $docPath = Storage::disk('public')->put($storagePath . $filename, $docData);
+
+                    $document = new Document();
+                    $document->path = $filename;
+                    $document->peca_arte_id = $artPiece->id;
+                    $document->save();
                 }
             }
 
@@ -174,12 +188,16 @@ class SubmitAuctionController extends Controller
             'peca_arte.artista',
             'peca_arte.ano',
             'peca_arte.autenticado',
-            'categoria.nome as categoria_nome'
+            'categoria.nome as categoria_nome',
+            'imagem.path as imagem',
+            'documento.path as documento'
         )
         ->join('utilizador', 'leilao.vendedor_id', '=', 'utilizador.id')
         ->join('peca_leilao', 'leilao.id', '=', 'peca_leilao.leilao_id')
         ->join('peca_arte', 'peca_leilao.id', '=', 'peca_arte.peca_leilao_id')
         ->join('categoria', 'peca_arte.categoria_id', '=', 'categoria.id')
+        ->leftjoin('imagem', 'imagem.peca_arte_id', '=', 'peca_arte.id')
+        ->leftjoin('documento', 'documento.peca_arte_id', '=', 'peca_arte.id')
         ->where('leilao.id', $id)
         ->get();
 

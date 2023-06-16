@@ -40,7 +40,8 @@ btnBid?.addEventListener('click', async () => {
 
 const auctionId = btnBid.getAttribute('data-auction-id');
 
-const bidPlacedChannel = window.Echo.channel('public');
+const bidPlacedChannel = window.Echo.channel(`auction.${auctionId}`);
+console.log(`Subscribed to channel: auction.${auctionId}`);
 bidPlacedChannel.listen('.bid-placed', (event) => {
     const bidElement = document.getElementById('highest-bid');
     console.log(event);

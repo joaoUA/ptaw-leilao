@@ -83,12 +83,13 @@ auctionVerificationItems === null || auctionVerificationItems === void 0 ? void 
         case 7:
           data = _context2.sent;
           auction = data['auction'];
+          console.log(data['auction']);
           if (!(auction == null || Object.keys(auction).length === 0)) {
-            _context2.next = 11;
+            _context2.next = 12;
             break;
           }
           throw Error("Leilão Vazio!");
-        case 11:
+        case 12:
           console.log(auction);
           modalBody = document.getElementById('modal-al');
           modalBody.setAttribute('data-auction-id', auction[0]['leilao_id']);
@@ -106,7 +107,9 @@ auctionVerificationItems === null || auctionVerificationItems === void 0 ? void 
             modalAuctionItemDiv.setAttribute('data-auction-item-id', auctionItem['peca_leilao_id']);
             var imageElement = document.createElement('img');
             imageElement.id = 'modal-article-image';
-            imageElement.src = './img/img-placeholder-48.png';
+            imageElement.src = "./storage/images/".concat(auctionItem['imagem']);
+            imageElement.style.width = '48px';
+            imageElement.style.height = '48px';
             imageElement.alt = 'placeholder';
             imageElement.setAttribute('data-bs-toggle', 'modal');
             imageElement.setAttribute('data-bs-target', '#ModalArtigo');
@@ -124,11 +127,21 @@ auctionVerificationItems === null || auctionVerificationItems === void 0 ? void 
               var modalArticleYear = document.getElementById('modal-auction-item-year');
               var modalArticleCategory = document.getElementById('modal-auction-item-category');
               var modalArticlePrice = document.getElementById('modal-auction-item-price');
+              var modalArticleImage = document.getElementById('modal-auction-item-image');
+              var modalArticleDocument = document.getElementById('modal-auction-item-document');
+              modalArticleDocument.setAttribute('hidden', 'true');
               modalArticleName.innerText = "Nome: ".concat(auctionItem['peca_arte_nome']);
               modalArticleYear.innerText = "Data: ".concat(auctionItem['ano'] || 'N/A');
               modalArticleAuthor.innerText = "Artista: ".concat(auctionItem['artista'] || 'N/A');
               modalArticlePrice.innerText = "Pre\xE7o Inicial: ".concat(auctionItem['preco_inicial'], "\u20AC");
               modalArticleCategory.innerText = "Categoria: ".concat(auctionItem['categoria_nome']);
+              modalArticleImage.src = "./storage/images/".concat(auctionItem['imagem']);
+              modalArticleImage.style.width = '224px';
+              modalArticleImage.style.height = '224px';
+              if (auctionItem['documento']) {
+                modalArticleDocument.href = "./storage/documents/".concat(auctionItem['documento']);
+                modalArticleDocument.removeAttribute('hidden');
+              }
             });
             modalAuctionItemDiv.appendChild(imageElement);
             modalAuctionItemDiv.appendChild(paragraphElement);
@@ -137,17 +150,17 @@ auctionVerificationItems === null || auctionVerificationItems === void 0 ? void 
             var modalTitle = document.getElementById('modal-al-header');
             modalTitle.insertAdjacentElement('afterend', modalAuctionItemDiv);
           });
-          _context2.next = 25;
+          _context2.next = 26;
           break;
-        case 22:
-          _context2.prev = 22;
+        case 23:
+          _context2.prev = 23;
           _context2.t0 = _context2["catch"](1);
           console.log(_context2.t0);
-        case 25:
+        case 26:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[1, 22]]);
+    }, _callee2, null, [[1, 23]]);
   })));
 });
 btnConfirmRoleChangeRequest === null || btnConfirmRoleChangeRequest === void 0 ? void 0 : btnConfirmRoleChangeRequest.addEventListener('click', function () {

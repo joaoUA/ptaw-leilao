@@ -9,7 +9,6 @@
             </div>
             @foreach ($auctions as $auction)
                 <div class="vt-item" data-auction-id={{$auction->id}} data-bs-toggle="modal" data-bs-target="#ModalLeilao">
-                    <img src="{{ asset('img/img-placeholder-48.png') }}" alt="placeholder">
                     <p class="vt-item-name">{{$auction->descricao}}</p>
                 </div>
             @endforeach
@@ -22,7 +21,6 @@
 
             @foreach ($requests as $request)
                 <div class="vt-item" data-request-id={{$request->id}} data-bs-toggle="modal" data-bs-target="#ModalVendedor">
-                    <img src="{{asset('img/img-placeholder-48.png')}}" alt="placeholder">
                     <p class="vt-item-name">{{$request->utilizador->nome}}</p>
                     <p>{{$request->data_pedido}}</p>
                 </div>
@@ -41,12 +39,15 @@
                 </div>
                 <div id="modal-auction-item-details" class="my-modal-body">
                     <p>Detalhes do Artigo</p>
-                    <img id="modal-auction-item-image" src=".\img\img-placeholder-224.png" alt="placeholder" />
+                    <img id="modal-auction-item-image" src="" alt="placeholder" />
                     <p id="modal-auction-item-name"></p> <!--Nome-->
                     <p id="modal-auction-item-year"></p> <!--Ano-->
                     <p id="modal-auction-item-author"></p> <!--Autor-->
                     <p id="modal-auction-item-price"></p> <!--Preço-->
                     <p id="modal-auction-item-category"></p> <!--Categoria-->
+                    <a href="" target="_blank" id="modal-auction-item-document" hidden>
+                        <p>Documento de Autenticação</p>
+                    </a>
                 </div>
             </div>
         </div>
