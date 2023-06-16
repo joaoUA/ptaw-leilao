@@ -28,7 +28,7 @@ btnCancelNewAuctionItem?.addEventListener("click", () => {
     itemInputCategory.selectedIndex = 0;
 });
 
-itemsTable.addEventListener("click", function(event) {
+itemsTable.addEventListener("click", function (event) {
     const target = event.target;
     if (target.classList.contains("icon-delete-item") && target.classList.contains("bi-x-circle")) {
         const tr = target.closest("tr");
@@ -47,7 +47,7 @@ itemsTable.addEventListener("click", function(event) {
             }
         }
     }
-  });
+});
 
 
 btnNewAuctionItem?.addEventListener("click", () => {
@@ -181,7 +181,21 @@ btnSubmitNewAuction?.addEventListener('click', async () => {
     const collection = btnNewAuctionCollection.checked;
     let collectionPrice = 0;
 
+    if (auctionName == "") {
+        alert('Preencha o nome do leilão!');
+        return;
+    }
+
+    if (auctionItems.length === 0) {
+        alert('Adicione itens ao leilão!');
+        return;
+    }
+
     if (collection) {
+        if (collectionPrice.valueOf == null || collectionPrice.valueOf <= 0) {
+            alert('Introduza número válido para preço inicial da coleção!');
+            return;
+        }
         collectionPrice = newAuctionCollectionPrice.value;
     }
 
